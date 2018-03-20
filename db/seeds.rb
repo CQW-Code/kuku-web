@@ -781,7 +781,7 @@ products.each do |product|
     body: product[:body],
     gender: product[:gender],
     handle: product[:handle],
-    img_src: product[:image_src],
+    image_src: product[:image_src],
     title: product[:title],
     variety: product[:variety],
     variant_price: product[:variant_price],
