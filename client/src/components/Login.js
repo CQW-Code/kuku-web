@@ -1,57 +1,102 @@
+//React
 import React, { Component } from 'react';
-import { Header, Segment, Form, Button } from 'semantic-ui-react';
+// Styles 
+import { Header, Form, Button, Segment, Container, Image } from 'semantic-ui-react';
 import { connect } from 'react-redux';
-import { handleLogin } from '../actions/auth';
+import { registerUser } from '../actions/auth';
+import { setFlash } from '../actions/flash';
+import styled from 'styled-components';
 
-class Login extends Component {
-  state = { email: '', password: '' };
-
-  handleChange = event => {
-    const { id, value } = event.target;
-    this.setState({ [id]: value });
-  }
+class Register extends Component {
+  state = {email: '', password: '' };
 
   handleSubmit = event => {
     event.preventDefault();
-    const { dispatch, history } = this.props;
     const { email, password } = this.state;
-    dispatch(handleLogin(email, password, history));
+    const { dispatch, history } = this.props;
+  }
+
+  handleChange = (event) => {
+    // use e to grab the id off the element also the value and set state
+    // const { id, value } = event.target;
+    const id = event.target.id;
+    const value = event.target.value;
+    this.setState({ [id]: value });
   }
 
   render() {
-    const { email, password } = this.state;
+    const {email, password} = this.state;
+
     return (
-      <Segment basic>
-        <Header as='h1' textAlign='center'>Login</Header>
-        <Form onSubmit={this.handleSubmit}>
-          <Form.Field>
-            <label htmlFor='email'>Email</label>
-            <input
-              required
-              id='email'
-              value={email}
-              placeholder='Email'
-              onChange={this.handleChange}
-            />
-          </Form.Field>
-          <Form.Field>
-            <label htmlFor='password'>Password</label>
-            <input
-              required
-              id='password'
-              value={password}
-              placeholder='Password'
-              type='password'
-              onChange={this.handleChange}
-            />
-          </Form.Field>
-          <Segment textAlign='center' basic>
-            <Button primary type='submit'>Submit</Button>
+      <div>
+      <AppContainer>
+        <Segment basic>
+        </Segment>
+      </AppContainer>
+      <AppContainer>
+        <Segment basic>
+          <Header as='h1' textAlign='center'>Go Kuku</Header>
+          <Header as='h3' textAlign='center'>- Login -</Header>
+          <Form onSubmit={this.handleSubmit}>
+            <Form.Field>
+              <label htmlFor='email'>Email</label>
+              <input
+                id='email'
+                placeholder='Email'
+                required
+                value={email}
+                onChange={this.handleChange}
+              />
+            </Form.Field>
+            <Form.Field>
+              <label htmlFor='password'>Password</label>
+              <input
+                id='password'
+                placeholder='Password'
+                type='password'
+                required
+                value={password}
+                onChange={this.handleChange}
+              />
+            </Form.Field>
+            <Segment basic textAlign='center'>
+              <Button type='submit'>Login</Button>
+            </Segment>
+          </Form>
+          <Segment basic textAlign='center'>
+            - or -
+            < br/>
+            Login With 
           </Segment>
-        </Form>
-      </Segment>
+          <Segment basic textAlign='center'>
+          <Button 
+            class="huge ui facebook button"
+            style={styles.btn}
+          >
+          <i class="facebook icon"></i>
+          Facebook
+          </Button>
+          </Segment>
+        </Segment>
+      </AppContainer>
+      </div>
     );
   }
 }
 
-export default connect()(Login);
+//Styled Components 
+const AppContainer = styled.div`
+  background: white;
+  width: 50%;
+`
+
+const styles = {
+  btn: {
+    backgroundColor: '#3b5998',
+    color: '#fff',
+    textAlign: 'center'
+    
+  },
+}
+
+export default connect()(Register);
