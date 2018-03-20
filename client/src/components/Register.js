@@ -1,18 +1,21 @@
+//React
 import React, { Component } from 'react';
-import { Header, Form, Button, Segment } from 'semantic-ui-react';
+// Styles 
+import { Header, Form, Button, Segment, Container, Image } from 'semantic-ui-react';
 import { connect } from 'react-redux';
 import { registerUser } from '../actions/auth';
 import { setFlash } from '../actions/flash';
+import styled from 'styled-components';
 
 class Register extends Component {
-  state = { email: '', password: '', passwordConfirmation: '' };
+  state = {name:'', email: '', password: '', passwordConfirmation: '' };
 
   handleSubmit = event => {
     event.preventDefault();
-    const { email, password, passwordConfirmation } = this.state;
+    const { name, email, password, passwordConfirmation } = this.state;
     const { dispatch, history } = this.props;
     if (password === passwordConfirmation) {
-      dispatch(registerUser(email, password, passwordConfirmation, history));
+      dispatch(registerUser(name, email, password, passwordConfirmation, history));
     } else dispatch(setFlash('Passwords do not match!, please try again', 'red'));
   }
 
@@ -25,51 +28,75 @@ class Register extends Component {
   }
 
   render() {
-    const { email, password, passwordConfirmation } = this.state;
+    const {name, email, password, passwordConfirmation } = this.state;
 
     return (
-      <Segment basic>
-        <Header as='h1' textAlign='center'>Register Component</Header>
-        <Form onSubmit={this.handleSubmit}>
-          <Form.Field>
-            <label htmlFor='email'>Email</label>
+      <div>
+      <AppContainer>
+        <Segment basic>
+        </Segment>
+      </AppContainer>
+      <AppContainer>
+        <Segment basic>
+          <Header as='h1' textAlign='center'>Register To Go Kuku</Header>
+          <Form onSubmit={this.handleSubmit}>
+            <Form.Field>
+            <label htmlFor='name'>First Name</label>
             <input
-              id='email'
-              placeholder='Email'
+              id='name'
+              placeholder='First Name'
               required
-              value={email}
+              value={name}
               onChange={this.handleChange}
             />
-          </Form.Field>
-          <Form.Field>
-            <label htmlFor='password'>Password</label>
-            <input
-              id='password'
-              placeholder='Password'
-              type='password'
-              required
-              value={password}
-              onChange={this.handleChange}
-            />
-          </Form.Field>
-          <Form.Field>
-            <label htmlFor='passwordConfirmation'>Password Confirmation</label>
-            <input
-              id='passwordConfirmation'
-              placeholder='Password Confirmation'
-              type='password'
-              required
-              value={passwordConfirmation}
-              onChange={this.handleChange}
-            />
-          </Form.Field>
-          <Segment basic textAlign='center'>
-            <Button type='submit'>Submit</Button>
-          </Segment>
-        </Form>
-      </Segment>
+            </Form.Field>
+            <Form.Field>
+              <label htmlFor='email'>Email</label>
+              <input
+                id='email'
+                placeholder='Email'
+                required
+                value={email}
+                onChange={this.handleChange}
+              />
+            </Form.Field>
+            <Form.Field>
+              <label htmlFor='password'>Password</label>
+              <input
+                id='password'
+                placeholder='Password'
+                type='password'
+                required
+                value={password}
+                onChange={this.handleChange}
+              />
+            </Form.Field>
+            <Form.Field>
+              <label htmlFor='passwordConfirmation'>Password Confirmation</label>
+              <input
+                id='passwordConfirmation'
+                placeholder='Password Confirmation'
+                type='password'
+                required
+                value={passwordConfirmation}
+                onChange={this.handleChange}
+              />
+            </Form.Field>
+            <Segment basic textAlign='center'>
+              <Button type='submit'>Submit</Button>
+            </Segment>
+          </Form>
+        </Segment>
+      </AppContainer>
+      </div>
     );
   }
 }
+
+//Styled Components 
+const AppContainer = styled.div`
+  background: white;
+  width: 50%;
+`
 
 export default connect()(Register);
