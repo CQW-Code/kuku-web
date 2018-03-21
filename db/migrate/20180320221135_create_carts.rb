@@ -5,7 +5,7 @@ class CreateCarts < ActiveRecord::Migration[5.1]
       t.integer :items_count
       t.float :total_price
       t.belongs_to :user, foreign_key: true
-      t.has_many :product   #needs foreign key but no Product Model
+      t.has_many :product
 
       t.timestamps
     end
