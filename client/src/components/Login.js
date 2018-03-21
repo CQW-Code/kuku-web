@@ -6,9 +6,13 @@ import { connect } from 'react-redux';
 import { registerUser } from '../actions/auth';
 import { setFlash } from '../actions/flash';
 import styled from 'styled-components';
+import Tshirt1 from '../images/home/tshirt.jpg';
+import Tshirt2 from '../images/home/tshirt2.jpg';
+import Tshirt3 from '../images/home/tshirt3.jpg';
+import Tshirt4 from '../images/home/tshirt4.jpg';
 
 class Register extends Component {
-  state = {email: '', password: '' };
+  state = {email: '', password: '',randomImages:[Tshirt1, Tshirt2, Tshirt3, Tshirt4]};
 
   handleSubmit = event => {
     event.preventDefault();
@@ -24,19 +28,27 @@ class Register extends Component {
     this.setState({ [id]: value });
   }
 
+  displayImage = () =>{
+    let num = Math.floor(Math.random() * 3);
+    let image = this.state.randomImages[num];
+    return (
+      <Image src={image}/>
+    ) 
+  }
+
   render() {
     const {email, password} = this.state;
 
     return (
       <div>
+      <AppContainerR>
+          <Segment basic>
+            {this.displayImage()}
+          </Segment>
+        </AppContainerR>
       <AppContainer>
         <Segment basic>
-        </Segment>
-      </AppContainer>
-      <AppContainer>
-        <Segment basic>
-          <Header as='h1' textAlign='center'>Go Kuku</Header>
-          <Header as='h3' textAlign='center'>- Login -</Header>
+          <Header as='h1' textAlign='center'>Go Kuku Login</Header>
           <Form onSubmit={this.handleSubmit}>
             <Form.Field>
               <label htmlFor='email'>Email</label>
@@ -66,7 +78,7 @@ class Register extends Component {
           <Segment basic textAlign='center'>
             - or -
             < br/>
-            Login With 
+            login with 
           </Segment>
           <Segment basic textAlign='center'>
           <Button 
@@ -84,10 +96,18 @@ class Register extends Component {
   }
 }
 
+
 //Styled Components 
 const AppContainer = styled.div`
   background: white;
   width: 50%;
+  float: left;
+`
+//appcontainerRight
+const AppContainerR = styled.div` 
+  background: white;
+  width: 50%;
+  float: right;
 `
 
 const styles = {
