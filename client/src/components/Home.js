@@ -87,6 +87,6 @@ const styles = {
     width: '160px'
   }
 
-}
+} //small change to update 
 
 export default Home;
