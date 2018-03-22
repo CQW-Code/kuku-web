@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
 import { Header, Image, Segment, Container, Grid, Divider, Responsive } from 'semantic-ui-react';
 import MainLogo from '../images/header-logo.png';
-import Tshirt from '../images/home/tshirt4_copy.jpg'
-import Iphone from '../images/home/iphone-blank.jpg'
-import appIcon from '../images/home/button-appstore.png'
-import googlePlay from '../images/home/Get_it_on_Google_play.svg'
+import Tshirt from '../images/home/Kuku.main.jpg';
+import Iphone from '../images/home/iphone-blank.jpg';
+import appIcon from '../images/home/button-appstore.png';
+import googlePlay from '../images/home/Get_it_on_Google_play.svg';
 //this is a comment
 
 class Home extends Component {
@@ -87,6 +87,6 @@ const styles = {
     width: '160px'
   }
 
-} //small change to update 
+} //small change to update
 
 export default Home;
