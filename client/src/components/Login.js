@@ -10,6 +10,7 @@ import Tshirt1 from '../images/home/tshirt.jpg';
 import Tshirt2 from '../images/home/tshirt2.jpg';
 import Tshirt3 from '../images/home/tshirt3.jpg';
 import Tshirt4 from '../images/home/tshirt4.jpg';
+import { Link } from 'react-router-dom'
 
 class Register extends Component {
   state = {email: '', password: '',randomImages:[Tshirt1, Tshirt2, Tshirt3, Tshirt4]};
@@ -83,10 +84,17 @@ class Register extends Component {
           <Segment basic textAlign='center'>
           <Button 
             class="huge ui facebook button"
-            style={styles.btn}
+            style={stylesfb.btn}
           >
           <i class="facebook icon"></i>
           Facebook
+          </Button>
+          <Button 
+            class="huge ui twitter button"
+            style={stylestw.btn}
+          >
+          <i class="twitter icon"></i>
+          Twitter
           </Button>
           </Segment>
         </Segment>
@@ -109,8 +117,16 @@ const AppContainerR = styled.div`
   width: 50%;
   float: right;
 `
+const stylestw = {
+  btn: {
+    backgroundColor: '#55acee',
+    color: '#fff',
+    textAlign: 'center'
+    
+  },
+}
 
-const styles = {
+const stylesfb = {
   btn: {
     backgroundColor: '#3b5998',
     color: '#fff',
