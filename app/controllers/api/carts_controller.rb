@@ -1,8 +1,7 @@
-class CartsController < ApplicationController
-  #not sure if this should be here if cart will use all
-  #functions
-
-  before_action :set_cart
+class Api::CartsController < ApplicationController
+  
+  before_action :set_cart, only: [:show, :update, :destroy]
+  before_action :authenticate_user!
   
   def index
     render json: Cart.all
@@ -12,7 +11,7 @@ class CartsController < ApplicationController
     render json: @cart
   end
 
-  #adding items to cart
+  
   def create
     cart = Cart.create(cart_params)
     if Cart.save
