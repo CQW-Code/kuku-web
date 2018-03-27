@@ -1,6 +1,10 @@
+import {
+  PRODUCTS,
+} from '../actions/products'
+
 const products = (state = [], action ) => {
   switch(action.type) {
-    case 'PRODUCTS':
+    case PRODUCTS:
       return action.products
     default:
       return state;

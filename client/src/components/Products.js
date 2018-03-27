@@ -16,8 +16,7 @@ import Tshirt1 from '../images/home/tshirt.jpg';
 import Tshirt2 from '../images/home/tshirt2.jpg';
 import Tshirt3 from '../images/home/tshirt3.jpg';
 import Tshirt4 from '../images/home/tshirt4.jpg';
-import ItemCard from './ItemCard.js';
-
+// import ItemCard from './ItemCard.js';
 
 
 class Products extends React.Component {
@@ -28,7 +27,6 @@ componentDidMount() {
   const { dispatch } = this.props;
   axios.get('/api/products')
     .then( res => {
-      debugger
       this.setState({ products: res.data })
       dispatch(getProducts(res.products));
   }).catch(err => {
@@ -36,16 +34,41 @@ componentDidMount() {
   })
 }
 
-displayImage = () =>{
-  let num = Math.floor(Math.random() * 3);
-  let image = this.state.randomImages[num];
-  return (
-    <Image src={image}/>
-  )
-}
+  products = () => {
+    return this.props.products.map(product =>
+      <Card key={product.id}>
+        <Image src={product.alt1} />
+        <Card.Content>
+          <Card.Header>
+            {product.title}
+          </Card.Header>
+          <Card.Header>
+            {product.variant_price}
+          </Card.Header>
+          <Card.Meta>
+            {product.vendor}
+          </Card.Meta>
+          <Card.Meta>
+            
+          </Card.Meta>
+        
+        </Card.Content>
+        <Card.Content extra>
+        </Card.Content>
+      </Card>
+    )
+  }
+
+
+// displayImage = () =>{
+//   let num = Math.floor(Math.random() * 3);
+//   let image = this.state.randomImages[num];
+//   return (
+//     <Image src={image}/>
+//   )
+// }
 
   render() {
-    const {products} = this.state;
     return(
       <div>
       <Segment inverted>
@@ -58,9 +81,7 @@ displayImage = () =>{
           </Header>
         </Segment>
           <Card.Group itemsPerRow = {4}>
-              {products.map(p =>
-                  <ItemCard key={p.id} p={p} />
-                )}
+              {this.products()}
         </Card.Group>
       </div>
     )
@@ -69,7 +90,7 @@ displayImage = () =>{
 
 const mapStateToProps = (state) => {
   return {
-    product: state.product
+    products: state.products
    }
 }
 export default connect(mapStateToProps)(Products);

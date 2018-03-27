@@ -3,9 +3,11 @@ import {
   Card,
   Image,
 } from 'semantic-ui-react';
+import axios from 'axios'
+
 
 const ItemCard = ({ product }) => {
-  const {id, body, gender, handle, image_src, title, variant_price = []} = product;
+  const product = {id, body, gender, handle, image_src, title, variant_price}
   return(
     <Card key={id}>
       <Image src={image_src} />
