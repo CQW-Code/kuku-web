@@ -3,7 +3,7 @@ import React, { Component } from 'react';
 // Styles 
 import { Header, Form, Button, Segment, Container, Image } from 'semantic-ui-react';
 import { connect } from 'react-redux';
-import { registerUser } from '../actions/auth';
+import { handleLogin } from '../actions/auth';
 import { setFlash } from '../actions/flash';
 import styled from 'styled-components';
 import Tshirt1 from '../images/home/tshirt.jpg';
@@ -12,13 +12,14 @@ import Tshirt3 from '../images/home/tshirt3.jpg';
 import Tshirt4 from '../images/home/tshirt4.jpg';
 import { Link } from 'react-router-dom'
 
-class Register extends Component {
+class Login extends Component {
   state = {email: '', password: '',randomImages:[Tshirt1, Tshirt2, Tshirt3, Tshirt4]};
 
   handleSubmit = event => {
     event.preventDefault();
     const { email, password } = this.state;
     const { dispatch, history } = this.props;
+    dispatch(handleLogin(email, password, history));
   }
 
   handleChange = (event) => {
@@ -42,12 +43,12 @@ class Register extends Component {
 
     return (
       <div>
-      <AppContainerR>
+      <RightContainer>
           <Segment basic>
             {this.displayImage()}
           </Segment>
-        </AppContainerR>
-      <AppContainer>
+        </RightContainer>
+      <LeftContainer>
         <Segment basic>
           <Header as='h1' textAlign='center'>Go Kuku Login</Header>
           <Form onSubmit={this.handleSubmit}>
@@ -98,7 +99,7 @@ class Register extends Component {
           </Button>
           </Segment>
         </Segment>
-      </AppContainer>
+      </LeftContainer>
       </div>
     );
   }
@@ -106,13 +107,13 @@ class Register extends Component {
 
 
 //Styled Components 
-const AppContainer = styled.div`
+const LeftContainer = styled.div`
   background: white;
   width: 50%;
   float: left;
 `
 //appcontainerRight
-const AppContainerR = styled.div` 
+const RightContainer = styled.div` 
   background: white;
   width: 50%;
   float: right;
@@ -135,4 +136,4 @@ const stylesfb = {
   },
 }
 
-export default connect()(Register);
+export default connect()(Login);
