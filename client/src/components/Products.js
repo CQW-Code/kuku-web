@@ -4,24 +4,29 @@ import React from 'react';
 import {connect} from 'react-redux';
 //axios
 import axios from 'axios';
-//Semantic-ui make everything pretty
+//Semantic-ui make everything nice
 import {
   Card,
+  Container,
+  Divider,
+  Dropdown,
+  Grid,
+  Button,
+  Icon,
   Header,
   Segment,
   Image,
+  Menu,
 } from 'semantic-ui-react';
+import styled from 'styled-components';
+
 import {getProducts} from '../actions/products';
-import Tshirt1 from '../images/home/tshirt.jpg';
-import Tshirt2 from '../images/home/tshirt2.jpg';
-import Tshirt3 from '../images/home/tshirt3.jpg';
-import Tshirt4 from '../images/home/tshirt4.jpg';
-// import ItemCard from './ItemCard.js';
+//import ItemCard from './ItemCard';
 
 
 class Products extends React.Component {
 
-state = {page: 1, products: [], randomImages:[Tshirt1, Tshirt2, Tshirt3, Tshirt4]}
+state = {handle: '', page: 1, products: []}
 
 componentDidMount() {
   const { dispatch } = this.props;
@@ -34,63 +39,119 @@ componentDidMount() {
   })
 }
 
-  products = () => {
-    return this.props.products.map(product =>
-      <Card key={product.id}>
-        <Image src={product.alt1} />
-        <Card.Content>
-          <Card.Header>
-            {product.title}
-          </Card.Header>
-          <Card.Header>
-            {product.variant_price}
-          </Card.Header>
-          <Card.Meta>
-            {product.vendor}
-          </Card.Meta>
-          <Card.Meta>
-            
-          </Card.Meta>
-        
-        </Card.Content>
-        <Card.Content extra>
-        </Card.Content>
-      </Card>
-    )
-  }
+products = () => {
+  const { products } = this.state;
+    const { handle } = this.state;
+    let visible = products;
+//added functionality to filter categories
+    if (handle)
+      visible = products.filter( product => product.handle === handle )
+    return visible.map( product =>
+  //return this.props.products.map(product =>
+    <Card key={product.id}>
+      <Image src={product.alt1} />
+      <Card.Content>
+        <Card.Header>
+          {product.title}
+        </Card.Header>
+        <Card.Header>
+          {product.variant_price}
+        </Card.Header>
+        <Card.Meta>
+       </Card.Meta>
+        <Image src={product.vendor} />
+        <Card.Meta>
+          {product.logo}
+        </Card.Meta>
+      
+      </Card.Content>
+      <Card.Content extra>
+      </Card.Content>
+    </Card>
+  )
+}
+
+// Figure out how we can add a Header for CATEGORIES and
+//for BRANDS then populate with Brands as well...
 
 
-// displayImage = () =>{
-//   let num = Math.floor(Math.random() * 3);
-//   let image = this.state.randomImages[num];
-//   return (
-//     <Image src={image}/>
-//   )
-// }
+clearCategory = () => {
+  this.setState({ handle: '' })
+}
+
+handleSelect = (e, {value}) => {
+  this.setState({ handle: value })
+}
+
+categoryOptions = () => {
+  const { handles } = this.props;
+  return handles.map( (h,i) => {
+    return { key: i, text: h, value: h }
+  })
+}
+
 
   render() {
-    return(
+    const {handle} = this.state;
+    return (
       <div>
-      <Segment inverted>
+    <Segment
+      style={styles.background}>
       <Header
         as='h3'
         size='huge'
         textAlign='center'
-        inverted color ='white'>
+         style={style.h3}>
           View All Products
-          </Header>
+        </Header>
         </Segment>
-          <Card.Group itemsPerRow = {4}>
+  
+            <Dropdown 
+              placeholder='Select Category or Brand' 
+              fluid 
+              selection
+              options={this.categoryOptions()}
+              value={handle}
+              onChange={this.handleSelect}
+              />            
+
+            { handle && 
+                <Button 
+                  fluid 
+                  color= 'black'
+                  onClick={this.clearCategory}
+                 >
+                   Clear Filter: {handle}
+                 </Button>
+            }
+            <Divider />
+                   
+         <Card.Group itemsPerRow = {4}>
               {this.products()}
         </Card.Group>
+        
       </div>
+      
     )
   }
 }
 
-const mapStateToProps = (state) => {
-  return {
-    products: state.products
-   }
+const styles = {
+  background: {
+    backgroundColor: "black",
+  }
 }
+const style = {
+  h3: {
+    color: "lightblue",
+  }
+}
+
+const mapStateToProps = (state) => {
+  
+    const {products}=state
+    const handles = [...new Set(products.map( h => h.handle))]
+    //const vendors = [...new Set(products.map(v => v.vendor))]    
+        return { products, handles}
+  }
 export default connect(mapStateToProps)(Products);
