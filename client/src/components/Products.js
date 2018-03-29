@@ -2,6 +2,7 @@
 import React from 'react';
 //Redux
 import {connect} from 'react-redux';
+import {Link} from 'react-router-dom';
 //axios
 import axios from 'axios';
 //Semantic-ui make everything nice
@@ -40,7 +41,7 @@ componentDidMount() {
 }
 
 products = () => {
-  const { products } = this.state;
+  const { products } = this.props;
     const { handle } = this.state;
     let visible = products;
 //added functionality to filter categories
@@ -67,6 +68,14 @@ products = () => {
       </Card.Content>
       <Card.Content extra>
       </Card.Content>
+      
+      <Link to= {`/products/${product.id}`}>
+        <Button
+        fluid
+        color='blue'>
+      View Item
+        </Button>
+      </Link> 
     </Card>
   )
 }
@@ -147,11 +156,16 @@ const style = {
   }
 }
 
-const mapStateToProps = (state) => {
+const mapStateToProps = (state, props) => {
   
     const {products}=state
     const handles = [...new Set(products.map( h => h.handle))]
     //const vendors = [...new Set(products.map(v => v.vendor))]    
-        return { products, handles}
+        return { products,
+                handles,
+                product: state.products.find(
+                  (product) => product.id === parseInt(props.match.params.id),
+                ),
+              }
   }
 export default connect(mapStateToProps)(Products);
