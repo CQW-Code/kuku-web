@@ -16,13 +16,10 @@ const AppLinks = styled.div`
 `
 
 const ButtonLink = styled.a`
-  border-radius: 4px;
-  float: right;
-  padding: 10px 30px;
-  border: 2px solid black
-  border-radius: 10px;
   background: linear-gradient(to bottom right, #838383, black, #838383);
   font-weight: bold;
+  display: flex;
+  justify-content: center;
 `
 
 class Home extends Component {
@@ -30,11 +27,13 @@ class Home extends Component {
     return (
       <Segment basic style={ styles.mainContainer}>
         <Image style={styles.image} height="560px" fluid centered src={Tshirt} />
+        <Segment>
+          <ButtonLink>
+            <Link to="/products">Test It Out For Free!</Link>
+          </ButtonLink>
+        </Segment>
         <Container style={styles.middleContainer}>
           <Divider />
-          <ButtonLink>
-            <Link to="/products" style={{ color: 'white' }}>Test It Out For Free!</Link>
-          </ButtonLink>
         <Grid>
           <Grid.Row centered columns={3}>
             <Grid.Column

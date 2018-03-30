@@ -5,7 +5,7 @@ class User < ActiveRecord::Base
           :omniauthable
   include DeviseTokenAuth::Concerns::User
 
-  serialize :loved, Array
+  serialize :loved_products, Array
 
   def self.loved(ids)
     ids = ids.empty? ? [0] : ids

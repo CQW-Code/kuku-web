@@ -14,7 +14,7 @@ class CreateProducts < ActiveRecord::Migration[5.1]
       t.string :address
       t.string :link
       t.string :logo
-      
+
       t.timestamps
     end
   end

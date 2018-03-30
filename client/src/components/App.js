@@ -10,6 +10,7 @@ import Home from './Home';
 import ProtectedRoute from './ProtectedRoute';
 import AuthRoute from './AuthRoute';
 import FetchUser from './FetchUser';
+import MyProducts from './MyProducts';
 import { Switch, Route } from 'react-router-dom';
 import { Segment } from 'semantic-ui-react';
 
@@ -26,6 +27,8 @@ class App extends Component {
             <AuthRoute exact path='/register' component={Register} />
             <Route exact path='/products' component={Products}/>
             <Route exact path='/products/:id' component={ProductView}/>
+            <Route exact path='/ProductView' component={ProductView}/>
+            <Route exact path='/my_products' component={MyProducts} />
             <Route component={NoMatch} />
           </Switch>
         </FetchUser>

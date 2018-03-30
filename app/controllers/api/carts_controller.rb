@@ -1,6 +1,5 @@
 class Api::CartsController < ApplicationController
-  before_action :set_cart, only: [:show, :update, :destroy]
-  before_action :authenticate_user!
+  before_action :set_cart, only: [ :destroy, :update, :show ]
 
   def index
     render json: Cart.all
@@ -10,37 +9,33 @@ class Api::CartsController < ApplicationController
     render json: @cart
   end
 
-
-  def create
-    cart = Cart.create(cart_params)
-    if Cart.save
-      render json: cart
-    else
-      render json: {errors: app.errors.full_messages.join(',')}, status: 422
-    end
-  end
-
-  #update items in cart- like changing total # of items
   def update
     if @cart.update(cart_params)
       render json: @cart
     else
-      render json: {errors: app.errors.full_messages.join(',')}, status: 422
+      render json: { errors: @cart.errors.full_messages }, status: 422
     end
   end
 
-  #remove/delete an item from the cart
+  def create
+    cart = Cart.new(cart_params)
+    if cart.save
+      render json: cart
+    else
+      render json: { errors: cart.errors.full_messages }, status: 422
+    end
+  end
+
   def destroy
     @cart.destroy
   end
-end
 
-private
+  private
+    def cart_params
+      params.require(:products).permit(:product_id)
+    end
 
-def cart_params
-  params.require(:cart).permit(:add_date, :items_count, :total_price)
-end
-
-def set_cart
-  @cart = Cart.find(params[:id])
+    def set_cart
+      @cart = Cart.find(params[:id])
+    end
 end

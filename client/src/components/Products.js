@@ -20,20 +20,22 @@ import {
   Menu,
 } from 'semantic-ui-react';
 import styled from 'styled-components';
-
+import { setHeaders } from '../actions/headers';
 import {getProducts} from '../actions/products';
-//import ItemCard from './ItemCard';
+import { addToCart } from '../actions/my_products';
 
 
 class Products extends React.Component {
 
 state = {handle: '', page: 1, products: []}
 
-componentDidMount() {
-  const { dispatch } = this.props;
-  axios.get('/api/products')
+  componentDidMount = () => {
+    const { dispatch } = this.props;
+    axios.get('/api/products')
     .then( res => {
+      dispatch(setHeaders(res.headers))
       this.setState({ products: res.data })
+<<<<<<< HEAD
       dispatch(getProducts(res.products));
   }).catch(err => {
       console.log(err)
@@ -64,24 +66,28 @@ products = () => {
         <Card.Meta>
           {product.logo}
         </Card.Meta>
-      
+
       </Card.Content>
       <Card.Content extra>
       </Card.Content>
-      
+
       <Link to= {`/products/${product.id}`}>
         <Button
         fluid
         color='blue'>
       View Item
         </Button>
-      </Link> 
+      </Link>
     </Card>
   )
 }
 
 // Figure out how we can add a Header for CATEGORIES and
 //for BRANDS then populate with Brands as well...
+=======
+    })
+  }
+>>>>>>> Items get pushed into the card
 
 
 clearCategory = () => {
@@ -99,6 +105,23 @@ categoryOptions = () => {
   })
 }
 
+handleClick = (id) => {
+  console.log(id);
+  const { products } = this.state;
+  const { dispatch } = this.props;
+  axios.put(`/api/products/${id}`)
+    .then( res => {
+      dispatch(setHeaders(res.headers))
+      this.setState({
+        products: products.filter( p => p.id !== id )
+      })
+    })
+    .catch( err => {
+      console.log(err)
+      debugger
+    })
+}
+
 
   render() {
     const {handle} = this.state;
@@ -111,22 +134,22 @@ categoryOptions = () => {
         size='huge'
         textAlign='center'
          style={style.h3}>
-          View All Products
+          Try It Out!
         </Header>
         </Segment>
-  
-            <Dropdown 
-              placeholder='Select Category or Brand' 
-              fluid 
+
+            <Dropdown
+              placeholder='Select Category or Brand'
+              fluid
               selection
               options={this.categoryOptions()}
               value={handle}
               onChange={this.handleSelect}
-              />            
+              />
 
-            { handle && 
-                <Button 
-                  fluid 
+            { handle &&
+                <Button
+                  fluid
                   color= 'black'
                   onClick={this.clearCategory}
                  >
@@ -134,13 +157,40 @@ categoryOptions = () => {
                  </Button>
             }
             <Divider />
-                   
+
          <Card.Group itemsPerRow = {4}>
-              {this.products()}
+              { this.state.products.map( p =>
+              <Card key={p.id}>
+                <h2>{p.name}</h2>
+                 <Image src={p.alt1} />
+               <Card.Content>
+                <Card.Header>
+                {p.title}
+                </Card.Header>
+                <Card.Header>
+                 {p.variant_price}
+                </Card.Header>
+                 <Card.Description>
+                   {p.vendor}
+                 </Card.Description>
+               </Card.Content>
+                 <Button
+                  onClick={() =>
+                    this.handleClick(p.id)
+                  }>
+                  {p.incart ? (
+                    <p>Remove From Cart</p>
+                  ) : (
+                    <p>Add to Cart</p>
+                  )}
+                </Button>
+              </Card>
+            )
+          }
         </Card.Group>
-        
+
       </div>
-      
+
     )
   }
 }
@@ -157,15 +207,17 @@ const style = {
 }
 
 const mapStateToProps = (state, props) => {
-  
+
     const {products}=state
     const handles = [...new Set(products.map( h => h.handle))]
-    //const vendors = [...new Set(products.map(v => v.vendor))]    
+    //const vendors = [...new Set(products.map(v => v.vendor))]
         return { products,
                 handles,
                 product: state.products.find(
                   (product) => product.id === parseInt(props.match.params.id),
                 ),
               }
-  }
+            }
+
+
 export default connect(mapStateToProps)(Products);

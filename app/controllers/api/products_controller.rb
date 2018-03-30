@@ -6,11 +6,12 @@ class Api::ProductsController < ApplicationController
   end
 
   def my_products
-    render json: User.loved(current_user.loved)
+    render json: User.loved(current_user.loved_products)
   end
 
   def update
-    current_user.loved << params[:id].to_i
+    binding.pry
+    current_user.loved_products << params[:id].to_i
     current_user.save
   end
 

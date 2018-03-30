@@ -11,6 +11,9 @@ class NavBar extends Component {
     if (user.id) {
       return (
         <Menu.Menu position='right'>
+          <Menu.Item>
+            <Link to='/my_products' style={{ color: '#ffffff' }}>My Products</Link>
+          </Menu.Item>
           <Menu.Item
             name='Logout'
             style={styles.text}
