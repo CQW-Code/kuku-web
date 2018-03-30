@@ -6,7 +6,7 @@ import Tshirt from '../images/home/tshirt.jpg'
 import styled from 'styled-components';
 import {getProducts} from '../actions/products';
 class ProductView extends React.Component{
-state = { active: false } 
+state = { active: false }  
   handleShow = () => this.setState({ active: !this.state.active })
   
   render() {
