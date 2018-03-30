@@ -10,8 +10,13 @@ class Api::ProductsController < ApplicationController
   end
 
   def update
-    current_user.loved_products << params[:id].to_i
-    current_user.save
+    if current_user.loved_products.include? '#{Product(params[:id])}'
+      current_user.loved_products.remove(params[:id].to_i)
+      current_user.save
+    else
+      current_user.loved_products << params[:id].to_i
+      current_user.save
+    end
   end
 
 end

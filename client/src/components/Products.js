@@ -112,7 +112,6 @@ handleClick = (id) => {
     })
     .catch( err => {
       console.log(err)
-      debugger
     })
 }
 
@@ -128,7 +127,7 @@ handleClick = (id) => {
         size='huge'
         textAlign='center'
          style={style.h3}>
-          Try It Out!
+          Go Kuku!
         </Header>
         </Segment>
 
@@ -176,7 +175,7 @@ handleClick = (id) => {
                     <p>Remove From Cart</p>
                   ) : (
                     <p>Add to Cart</p>
-                  )}
+                  )} 
                 </Button>
               </Card>
             )

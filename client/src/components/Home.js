@@ -16,8 +16,8 @@ const AppLinks = styled.div`
 `
 
 const ButtonLink = styled.a`
-  background: linear-gradient(to bottom right, #838383, black, #838383);
   font-weight: bold;
+  font-size: 20px;
   display: flex;
   justify-content: center;
 `
@@ -26,12 +26,13 @@ class Home extends Component {
   render() {
     return (
       <Segment basic style={ styles.mainContainer}>
+        <ButtonLink>
+          <Link to="/products" style={{ color: '#ffffff' }}>Try It Now!</Link>
+        </ButtonLink>
         <Image style={styles.image} height="560px" fluid centered src={Tshirt} />
-        <Segment>
           <ButtonLink>
-            <Link to="/products">Test It Out For Free!</Link>
+            <Link to="/products" style={{ color: '#ffffff' }}>Try It Now!</Link>
           </ButtonLink>
-        </Segment>
         <Container style={styles.middleContainer}>
           <Divider />
         <Grid>

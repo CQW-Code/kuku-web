@@ -2,10 +2,11 @@ import React from 'react';
 import {
   Card,
   Image,
-  Divider,
+  Button,
 } from 'semantic-ui-react';
 import axios from 'axios';
 import { connect } from 'react-redux';
+import { Link } from 'react-router-dom';
 import { setHeaders } from '../actions/headers';
 
 class MyProducts extends React.Component {
@@ -18,6 +19,22 @@ class MyProducts extends React.Component {
         this.setState({ products: res.data })
         dispatch(setHeaders(res.headers));
       });
+  }
+
+  handleClick = (id) => {
+    const { products } = this.state;
+    const { dispatch } = this.props;
+    axios.put(`/api/products/${id}`)
+      .then( res => {
+        dispatch(setHeaders(res.headers))
+        this.setState({
+          products: products.filter( p => p.id !== id )
+        })
+      })
+      .catch( err => {
+        console.log(err)
+        debugger
+      })
   }
 
   render() {
@@ -38,6 +55,15 @@ class MyProducts extends React.Component {
              <Card.Description>
                {p.vendor}
              </Card.Description>
+             <Button style={{ backgroundColor: '#000000', padding: '5px' }}>
+               <Link to={p.link} target="_blank" style={{ color: '#ffffff' }}>Buy it Now!</Link>
+             </Button>
+             <Button style={{
+                 color: '#ffffff',
+                 backgroundColor: '#000000',
+                 padding: '5px' }}
+                 onClick={() => this.handleClick(p.id)}
+              >Remove Item</Button>
            </Card.Content>
          </Card>
           )
