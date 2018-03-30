@@ -10,7 +10,6 @@ class Api::ProductsController < ApplicationController
   end
 
   def update
-    binding.pry
     current_user.loved_products << params[:id].to_i
     current_user.save
   end

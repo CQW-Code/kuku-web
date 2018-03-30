@@ -35,7 +35,6 @@ state = {handle: '', page: 1, products: []}
     .then( res => {
       dispatch(setHeaders(res.headers))
       this.setState({ products: res.data })
-<<<<<<< HEAD
       dispatch(getProducts(res.products));
   }).catch(err => {
       console.log(err)
@@ -84,11 +83,6 @@ products = () => {
 
 // Figure out how we can add a Header for CATEGORIES and
 //for BRANDS then populate with Brands as well...
-=======
-    })
-  }
->>>>>>> Items get pushed into the card
-
 
 clearCategory = () => {
   this.setState({ handle: '' })
