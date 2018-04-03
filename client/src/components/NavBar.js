@@ -12,7 +12,7 @@ class NavBar extends Component {
       return (
         <Menu.Menu position='right'>
           <Menu.Item>
-            <Link to='/my_products' style={{ color: '#ffffff' }}>My Products</Link>
+            <Link to='/my_products' style={{ color: '#ffffff' }}>My Loved Products</Link>
           </Menu.Item>
           <Menu.Item
             name='Logout'

@@ -61,26 +61,42 @@ filterCategory = () => {
          {p.vendor}
        </Card.Description>
      </Card.Content>
-     <Link to= {`/products/${p.id}`}>
+      <Link to= {`/products/${p.id}`}>
         <Button
             fluid
-            color='blue'>
-          View Me!
-            </Button>
-          </Link>
-        <Button
-        onClick={() =>
-          this.handleClick(p.id)
-        }>
-        {p.incart ? (
-          <p>Remove From Cart</p>
-        ) : (
-          <p>Add to Cart</p>
-        )} 
-      </Button>
+            color='teal'>
+          View Product Details
+        </Button>
+      </Link>
+      <Button.Group>
+        <Button 
+          icon 
+          labelPosition='left' 
+          floated='left'
+          onClick={() =>
+            this.handleClick(p.id)
+          }
+        >
+          <Icon name='thumbs down' />
+          Forget It. 
+        </Button>
+        <Button 
+          icon 
+          labelPosition='right' 
+          floated='right'
+          onClick={() =>
+            this.handleClick(p.id)
+          }
+        >
+          <Icon name='heart' color='pink' />
+          Love It! 
+        </Button>
+      </Button.Group>
      </Card>
      )
 }
+
+
 
 
 clearCategory = () => {
