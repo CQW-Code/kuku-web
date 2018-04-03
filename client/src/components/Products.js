@@ -7,27 +7,26 @@ import {Link} from 'react-router-dom';
 import axios from 'axios';
 //Semantic-ui make everything nice
 import {
+  Button,
   Card,
   Container,
   Divider,
   Dropdown,
   Grid,
-  Button,
-  Icon,
   Header,
-  Segment,
+  Icon,
   Image,
   Menu,
+  Segment,
 } from 'semantic-ui-react';
 import styled from 'styled-components';
 import { setHeaders } from '../actions/headers';
 import {getProducts} from '../actions/products';
 import { addToCart } from '../actions/my_products';
 
-
 class Products extends React.Component {
 
-state = {handle: '', page: 1, products: []}
+state = {handle: '', products: []}
 
   componentDidMount = () => {
     const { dispatch } = this.props;
@@ -41,55 +40,56 @@ state = {handle: '', page: 1, products: []}
   })
 }
 
-products = () => {
-  const { products } = this.props;
+filterCategory = () => {
+    const { products } = this.state;
     const { handle } = this.state;
     let visible = products;
-//added functionality to filter categories
     if (handle)
-      visible = products.filter( product => product.handle === handle )
-    return visible.map( product =>
-  //return this.props.products.map(product =>
-    <Card key={product.id}>
-      <Image src={product.alt1} />
-      <Card.Content>
-        <Card.Header>
-          {product.title}
-        </Card.Header>
-        <Card.Header>
-          {product.variant_price}
-        </Card.Header>
-        <Card.Meta>
-       </Card.Meta>
-        <Image src={product.vendor} />
-        <Card.Meta>
-          {product.logo}
-        </Card.Meta>
-
-      </Card.Content>
-      <Card.Content extra>
-      </Card.Content>
-
-      <Link to= {`/products/${product.id}`}>
+      visible = products.filter( p => p.handle === handle )
+    return visible.map( p =>
+      <Card key={p.id}>
+      <h2>{p.name}</h2>
+       <Image src={p.alt1} />
+     <Card.Content>
+      <Card.Header>
+      {p.title}
+      </Card.Header>
+      <Card.Header>
+       {p.variant_price}
+      </Card.Header>
+       <Card.Description>
+         {p.vendor}
+       </Card.Description>
+     </Card.Content>
+     <Link to= {`/products/${p.id}`}>
         <Button
-        fluid
-        color='blue'>
-      View Item
-        </Button>
-      </Link>
-    </Card>
-  )
+            fluid
+            color='blue'>
+          View Me!
+            </Button>
+          </Link>
+        <Button
+        onClick={() =>
+          this.handleClick(p.id)
+        }>
+        {p.incart ? (
+          <p>Remove From Cart</p>
+        ) : (
+          <p>Add to Cart</p>
+        )} 
+      </Button>
+     </Card>
+     )
 }
 
-// Figure out how we can add a Header for CATEGORIES and
-//for BRANDS then populate with Brands as well...
 
 clearCategory = () => {
   this.setState({ handle: '' })
 }
 
 handleSelect = (e, {value}) => {
-  this.setState({ handle: value })
+  this.setState({ handle: value });
+  this.visible
 }
 
 categoryOptions = () => {
@@ -100,7 +100,6 @@ categoryOptions = () => {
 }
 
 handleClick = (id) => {
-  console.log(id);
   const { products } = this.state;
   const { dispatch } = this.props;
   axios.put(`/api/products/${id}`)
@@ -118,6 +117,7 @@ handleClick = (id) => {
 
   render() {
     const {handle} = this.state;
+    
     return (
       <div>
     <Segment
@@ -135,11 +135,10 @@ handleClick = (id) => {
               placeholder='Select Category or Brand'
               fluid
               selection
-              options={this.categoryOptions()}
               value={handle}
+              options={this.categoryOptions()}
               onChange={this.handleSelect}
               />
-
             { handle &&
                 <Button
                   fluid
@@ -152,34 +151,7 @@ handleClick = (id) => {
             <Divider />
 
          <Card.Group itemsPerRow = {4}>
-              { this.state.products.map( p =>
-              <Card key={p.id}>
-                <h2>{p.name}</h2>
-                 <Image src={p.alt1} />
-               <Card.Content>
-                <Card.Header>
-                {p.title}
-                </Card.Header>
-                <Card.Header>
-                 {p.variant_price}
-                </Card.Header>
-                 <Card.Description>
-                   {p.vendor}
-                 </Card.Description>
-               </Card.Content>
-                 <Button
-                  onClick={() =>
-                    this.handleClick(p.id)
-                  }>
-                  {p.incart ? (
-                    <p>Remove From Cart</p>
-                  ) : (
-                    <p>Add to Cart</p>
-                  )} 
-                </Button>
-              </Card>
-            )
-          }
+                {this.filterCategory()}
         </Card.Group>
 
       </div>
