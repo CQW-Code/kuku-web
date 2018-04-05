@@ -69,27 +69,27 @@ filterCategory = () => {
         </Button>
       </Link>
       <Button.Group>
-        <Button 
-          icon 
-          labelPosition='left' 
+        <Button
+          icon
+          labelPosition='left'
           floated='left'
           onClick={() =>
-            this.handleClick(p.id)
+            this.handleHate(p.id)
           }
         >
           <Icon name='thumbs down' />
-          Forget It. 
+          Forget It.
         </Button>
-        <Button 
-          icon 
-          labelPosition='right' 
+        <Button
+          icon
+          labelPosition='right'
           floated='right'
           onClick={() =>
-            this.handleClick(p.id)
+            this.handleLove(p.id)
           }
         >
           <Icon name='heart' color='pink' />
-          Love It! 
+          Love It!
         </Button>
       </Button.Group>
      </Card>
@@ -115,7 +115,7 @@ categoryOptions = () => {
   })
 }
 
-handleClick = (id) => {
+handleLove = (id) => {
   const { products } = this.state;
   const { dispatch } = this.props;
   axios.put(`/api/products/${id}`)
@@ -130,10 +130,17 @@ handleClick = (id) => {
     })
 }
 
+handleHate = (id) => {
+  const { products } = this.state;
+  this.setState({
+    products: products.filter( p => p.id !== id )
+  })
+}
+
 
   render() {
     const {handle} = this.state;
-    
+
     return (
       <div>
     <Segment

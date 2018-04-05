@@ -1,5 +1,5 @@
 class Api::ProductsController < ApplicationController
-  before_action :authenticate_user!
+  before_action :authenticate_user!, only: [:my_products]
 
   def index
     render json: Product.all
