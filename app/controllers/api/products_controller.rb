@@ -1,5 +1,6 @@
 class Api::ProductsController < ApplicationController
-  before_action :authenticate_user!, only: [:my_products]
+  before_action :authenticate_user!, only: [:my_products, :update, :delete]
+  before_action :set_product, only: [:update, :delete]
 
   def index
     render json: Product.all
@@ -10,13 +11,20 @@ class Api::ProductsController < ApplicationController
   end
 
   def update
-    if current_user.loved_products.include? '#{Product(params[:id])}'
-      current_user.loved_products.remove(params[:id].to_i)
-      current_user.save
-    else
       current_user.loved_products << params[:id].to_i
       current_user.save
-    end
+  end
+
+  def delete
+    current_user.loved_products.delete_if{|i| i == @product.id}
+    current_user.save
+    binding.pry
+  end
+
+  private
+
+  def set_product
+    @product = Product.find(params[:id])
   end
 
 end

@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   namespace :api do
     resources :products, only: [:index, :update]
     get 'my_products', to: 'products#my_products'
+    delete 'my_products/:id', to: 'products#delete'
   end
 
   #Do not place any routes below this one
