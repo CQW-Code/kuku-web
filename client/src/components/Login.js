@@ -43,63 +43,63 @@ class Login extends Component {
 
     return (
       <div>
-      <RightContainer>
+        <RightContainer>
           <Segment basic>
             {this.displayImage()}
           </Segment>
         </RightContainer>
-      <LeftContainer>
-        <Segment basic>
-          <Header as='h1' textAlign='center'>Go Kuku Login</Header>
-          <Form onSubmit={this.handleSubmit}>
-            <Form.Field>
-              <label htmlFor='email'>Email</label>
-              <input
-                id='email'
-                placeholder='Email'
-                required
-                value={email}
-                onChange={this.handleChange}
-              />
-            </Form.Field>
-            <Form.Field>
-              <label htmlFor='password'>Password</label>
-              <input
-                id='password'
-                placeholder='Password'
-                type='password'
-                required
-                value={password}
-                onChange={this.handleChange}
-              />
-            </Form.Field>
+        <LeftContainer>
+          <Segment basic>
+            <Header as='h1' textAlign='center'>Go Kuku Login</Header>
+            <Form onSubmit={this.handleSubmit}>
+              <Form.Field>
+                <label htmlFor='email'>Email</label>
+                <input
+                  id='email'
+                  placeholder='Email'
+                  required
+                  value={email}
+                  onChange={this.handleChange}
+                />
+              </Form.Field>
+              <Form.Field>
+                <label htmlFor='password'>Password</label>
+                <input
+                  id='password'
+                  placeholder='Password'
+                  type='password'
+                  required
+                  value={password}
+                  onChange={this.handleChange}
+                />
+              </Form.Field>
+              <Segment basic textAlign='center'>
+                <Button type='submit'>Login</Button>
+              </Segment>
+            </Form>
             <Segment basic textAlign='center'>
-              <Button type='submit'>Login</Button>
+              - or -
+              < br/>
+              login with 
             </Segment>
-          </Form>
-          <Segment basic textAlign='center'>
-            - or -
-            < br/>
-            login with 
+            <Segment basic textAlign='center'>
+              <Button 
+                class="huge ui facebook button"
+                style={stylesfb.btn}
+              >
+                <i class="facebook icon"></i>
+                Facebook
+              </Button>
+              <Button 
+                class="huge ui twitter button"
+                style={stylestw.btn}
+              >
+                <i class="twitter icon"></i>
+                Twitter
+              </Button>
+            </Segment>
           </Segment>
-          <Segment basic textAlign='center'>
-          <Button 
-            class="huge ui facebook button"
-            style={stylesfb.btn}
-          >
-          <i class="facebook icon"></i>
-          Facebook
-          </Button>
-          <Button 
-            class="huge ui twitter button"
-            style={stylestw.btn}
-          >
-          <i class="twitter icon"></i>
-          Twitter
-          </Button>
-          </Segment>
-        </Segment>
-      </LeftContainer>
+        </LeftContainer>
       </div>
     );
   }
@@ -132,7 +132,6 @@ const stylesfb = {
     backgroundColor: '#3b5998',
     color: '#fff',
     textAlign: 'center'
-    
   },
 }
 
