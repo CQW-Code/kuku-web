@@ -1,36 +1,74 @@
-
+//React
 import React from 'react';
+//Redux
 import { connect } from 'react-redux';
-import { Card, Icon, Image, Button, Segment, Reveal, Header, Container, Dimmer,Grid } from 'semantic-ui-react';
-import Tshirt from '../images/home/tshirt.jpg'
+import { setHeaders } from '../actions/headers';
+import { getProducts } from '../actions/products';
+import { addToCart } from '../actions/my_products';
+//Axios
+import axios from 'axios';
+//Semantic-ui, styling
 import styled from 'styled-components';
-import {getProducts} from '../actions/products';
+import { 
+  Card, 
+  Icon, 
+  Image, 
+  Button, 
+  Segment, 
+  Reveal, 
+  Header, 
+  Container, 
+  Dimmer,
+  Grid 
+} from 'semantic-ui-react';
+
+
+
 class ProductView extends React.Component{
-state = { active: false }  
+state = { active: false, products: [] }  
   handleShow = () => this.setState({ active: !this.state.active })
+
+  handleLove = (id) => {
+    const { dispatch, history, productIndex, products } = this.props;
+    axios.put(`/api/products/${id}`)
+      .then( res => {
+        dispatch(setHeaders(res.headers))
+        const productListLength = products.length - 1
+        if (productIndex === productListLength) {
+          history.push('/products/')
+        } else {
+          const product = products[productIndex + 1]
+          history.push(`/products/${product.id}`)
+        }
+        this.setState({
+          products: this.state.products.filter( p => p.id !== id )
+        })
+      })
+      .catch( err => {
+        console.log(err)
+      })
+  }
   
+  handleHate = (id) => {
+    const { dispatch, history, productIndex, products } = this.props;
+    //TODO do some dispatch to updte database
+    const productListLength = products.length - 1
+    if (productIndex === productListLength) {
+      history.push('/products/')
+    } else {
+      const product = products[productIndex + 1]
+      history.push(`/products/${product.id}`)
+    }
+    this.setState({
+      products: this.state.products.filter( p => p.id !== id )
+    })
+  }
+
   render() {
     const { product={}} = this.props; 
      const { active } = this.state
   return( 
       <div>
-        <SegmentButtons>
-          <Button.Group compact>
-            <Button animated>
-              <Button.Content visible>Last Product</Button.Content>
-              <Button.Content hidden>
-                <Icon name='left arrow' />
-              </Button.Content>
-            </Button>
-            <Button animated>
-              <Button.Content visible>Next Please</Button.Content>
-              <Button.Content hidden>
-                <Icon name='right arrow' />
-              </Button.Content>
-            </Button>
-          </Button.Group>
-        </SegmentButtons>
-        <br />
         <SegmentMain>
           <GridMain>
             <Grid container columns={1}>
@@ -48,11 +86,25 @@ state = { active: false }
                 <Card fluid >
                   <Image src={product.image_src} />
                     <Card.Content>
-                    <Button icon labelPosition='left' floated='left'>
+                    <Button 
+                      icon 
+                      labelPosition='left' 
+                      floated='left'
+                      onClick={() =>
+                        this.handleHate(product.id)
+                      }
+                    >
                       <Icon name='thumbs down' />
                       Forget It. 
                     </Button>
-                    <Button icon labelPosition='right' floated='right'>
+                    <Button 
+                      icon 
+                      labelPosition='right' 
+                      floated='right'
+                      onClick={() =>
+                        this.handleLove(product.id)
+                      }
+                    >
                       <Icon name='heart' color='pink' />
                       Love It! 
                     </Button>
@@ -65,7 +117,7 @@ state = { active: false }
                   ?
                   "Tell Me More"
                   :
-                  "Back"
+                  "X"
                 }
               </Button>
             </Button.Group>
@@ -91,6 +143,11 @@ const SegmentButtons = styled.div`
   justify-content: center
 `
 const mapStateToProps = (state, props) => {
-  return { product: state.products.find( a => a.id === parseInt(props.match.params.id )) }
+  const { products } = state
+  return { 
+    product: products.find( a => a.id === parseInt(props.match.params.id )),
+    productIndex: products.findIndex( a => a.id === parseInt(props.match.params.id )),
+    products,
+  }
 }
 export default connect(mapStateToProps)(ProductView)
