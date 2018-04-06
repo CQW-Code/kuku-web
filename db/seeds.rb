@@ -48,11 +48,11 @@ products = [ {
   link: "http://bit.ly/2G5UtlI",
   logo: "https://cdn.shopify.com/s/files/1/0626/0625/files/checkoutlogo0_200x.png?v=1471083863"
 }, {
-  alt1: "https://cdn.shopify.com/s/files/1/1460/6104/products/KC5019WT_9_spo_spo.jpg?v=1514491990",
+  alt1: "https://static.independent.co.uk/s3fs-public/styles/article_small/public/thumbnails/image/2015/12/09/17/thedress.jpg",
   body: "White skinny capris featuring cuffed bottom hems, a single button fastening, zip fly, standard belt loop, two front pockets, and two back pockets.",
   gender: "Womens",
   handle: "Womens",
-  image_src: "https://cdn.shopify.com/s/files/1/1460/6104/products/KC5019WT_6_spo_spo.jpg?v=1514491988",
+  image_src: "https://static.independent.co.uk/s3fs-public/styles/article_small/public/thumbnails/image/2015/12/09/17/thedress.jpg",
   title: "ADRIAN - PIPRY",
   variety: "Jeans",
   variant_price: "$54.50 ",
@@ -126,11 +126,11 @@ products = [ {
   link: "http://bit.ly/2Bsy5iT",
   logo: "https://cdn.shopify.com/s/files/1/1445/1908/files/checkoutlogo_260x.png?v=1474178969"
 }, {
-  alt1: "https://cdn.shopify.com/s/files/1/1460/6104/products/KC9048M_2_spo_spo.jpg?v=1514491942",
+  alt1: "https://static.independent.co.uk/s3fs-public/styles/article_small/public/thumbnails/image/2015/12/09/17/thedress.jpg",
   body: "This long minimalist denim shirt featuring two front pockets is casually simple with clean understated lines. Structured enough to be dressed up or dressed down, this piece can easily add character to any outfit.",
   gender: "Womens",
   handle: "Womens",
-  image_src: "https://cdn.shopify.com/s/files/1/1460/6104/products/KC9048M_spo_spo.jpg?v=1514491941",
+  image_src: "https://static.independent.co.uk/s3fs-public/styles/article_small/public/thumbnails/image/2015/12/09/17/thedress.jpg",
   title: "ABREE",
   variety: "Shirt",
   variant_price: "$54.50 ",
@@ -204,11 +204,11 @@ products = [ {
   link: "https://kerfgear.com/products/nebo?variant=41272218760",
   logo: "https://cdn.shopify.com/s/files/1/2198/3767/files/New_KerfLogo80x.png?v=1504329195"
 }, {
-  alt1: "https://cdn.shopify.com/s/files/1/1460/6104/products/KC6147M_2_spo_spo.jpg?v=1514492724",
+  alt1: "https://static.independent.co.uk/s3fs-public/styles/article_small/public/thumbnails/image/2015/12/09/17/thedress.jpg",
   body: "The Classic high-rise overalls are given a subtle update for the warmer weather with a low-back, a mildly faded light wash, and frayed hems in a slim fit with distressed detailing.",
   gender: "Womens",
   handle: "Womens",
-  image_src: "https://cdn.shopify.com/s/files/1/1460/6104/products/KC6147M_2_spo_spo.jpg?v=1514492724",
+  image_src: "https://static.independent.co.uk/s3fs-public/styles/article_small/public/thumbnails/image/2015/12/09/17/thedress.jpg",
   title: "BARLETT-TRISHA",
   variety: "Overalls",
   variant_price: "$65.50 ",
@@ -217,11 +217,11 @@ products = [ {
   link: "http://bit.ly/2GdjR9b",
   logo: "https://cdn.shopify.com/s/files/1/1460/6104/t/21/assetslogong?15645760034489963637"
 }, {
-  alt1: "https://cdn.shopify.com/s/files/1/1460/6104/products/KC6147D_10_spo_spo.jpg?v=1514492673",
+  alt1: "https://static.independent.co.uk/s3fs-public/styles/article_small/public/thumbnails/image/2015/12/09/17/thedress.jpg",
   body: "The Classic high-rise overalls are given a subtle update for the warmer weather with a low-back, a mildly faded dark wash, and frayed hems in a slim fit with distressed detailing.",
   gender: "Womens",
   handle: "Womens",
-  image_src: "https://cdn.shopify.com/s/files/1/1460/6104/products/KC6147D_4_spo_spo.jpg?v=1514492664",
+  image_src: "https://static.independent.co.uk/s3fs-public/styles/article_small/public/thumbnails/image/2015/12/09/17/thedress.jpg",
   title: "BARLETT-SIENNA",
   variety: "Overalls",
   variant_price: "$65.50 ",
@@ -230,11 +230,11 @@ products = [ {
   link: "http://bit.ly/2Gh65T7",
   logo: "https://cdn.shopify.com/s/files/1/1460/6104/t/21/assetslogong?15645760034489963637"
 }, {
-  alt1: "https://cdn.shopify.com/s/files/1/1460/6104/products/KC9049M_11_spo_spo.jpg?v=1514494299",
+  alt1: "https://static.independent.co.uk/s3fs-public/styles/article_small/public/thumbnails/image/2015/12/09/17/thedress.jpg",
   body: "Super blue loose button-down collared denim tunic featuring a button down a-line back.",
   gender: "Womens",
   handle: "Womens",
-  image_src: "https://cdn.shopify.com/s/files/1/1460/6104/products/KC9049M_16_spo_spo.jpg?v=1514494296",
+  image_src: "https://static.independent.co.uk/s3fs-public/styles/article_small/public/thumbnails/image/2015/12/09/17/thedress.jpg",
   title: "GABIE",
   variety: "Shirt",
   variant_price: "$54.50 ",
@@ -243,11 +243,11 @@ products = [ {
   link: "http://bit.ly/2ncoskd",
   logo: "https://cdn.shopify.com/s/files/1/1460/6104/t/21/assetslogong?15645760034489963637"
 }, {
-  alt1: "https://cdn.shopify.com/s/files/1/1460/6104/products/KC6165M_8_spo.jpg?v=1514492041",
+  alt1: "https://static.independent.co.uk/s3fs-public/styles/article_small/public/thumbnails/image/2015/12/09/17/thedress.jpg",
   body: "Stunning jeans can flatter long silhouette. This will not fail to please. Dark blue wash with very light fading. Light fade pattern at the back of the knees. Distressed design in front showcases an effortless sexy look. Folded hem at the bottom for more appeal.",
   gender: "Womens",
   handle: "Womens",
-  image_src: "https://cdn.shopify.com/s/files/1/1460/6104/products/KC6165M_4_spo.jpg?v=1514492031",
+  image_src: "https://static.independent.co.uk/s3fs-public/styles/article_small/public/thumbnails/image/2015/12/09/17/thedress.jpg",
   title: "ADRINA EVERIT",
   variety: "Jeans",
   variant_price: "$63.50 ",
@@ -256,11 +256,11 @@ products = [ {
   link: "http://bit.ly/2Gdl2W9",
   logo: "https://cdn.shopify.com/s/files/1/1460/6104/t/21/assetslogong?15645760034489963637"
 }, {
-  alt1: "https://cdn.shopify.com/s/files/1/1460/6104/products/KC5015WT_4_spo_spo.jpg?v=1514492027",
+  alt1: "https://static.independent.co.uk/s3fs-public/styles/article_small/public/thumbnails/image/2015/12/09/17/thedress.jpg",
   body: "Sophisticated and versatile white denim, five-pocket skinny jeans finished with cute cuffed hems perfect for warmer weather.",
   gender: "Womens",
   handle: "Womens",
-  image_src: "https://cdn.shopify.com/s/files/1/1460/6104/products/KC5015WT_4_spo_spo.jpg?v=1514492027",
+  image_src: "https://static.independent.co.uk/s3fs-public/styles/article_small/public/thumbnails/image/2015/12/09/17/thedress.jpg",
   title: "ADRIAN-HERRAN",
   variety: "Jeans",
   variant_price: "$54.50 ",
@@ -282,11 +282,11 @@ products = [ {
   link: "http://bit.ly/2ndGmmD",
   logo: "https://cdn.shopify.com/s/files/1/2013/4501/files/felt_like_sharinglogohopify_720x.png?v=1497547273"
 }, {
-  alt1: "https://cdn.shopify.com/s/files/1/1460/6104/products/KC7213D_6_spo_spo.jpg?v=1514492080",
+  alt1: "https://static.independent.co.uk/s3fs-public/styles/article_small/public/thumbnails/image/2015/12/09/17/thedress.jpg",
   body: "Sexiest jeans so far. Slim fit plus distressed patches gives ideal pair of skinnies. Timeless and super flattering light denim wash. Perfect style. Uneven patches of distressed design. Whisker effect on the patches. Classic jeans turned to everyday essentials.",
   gender: "Womens",
   handle: "Womens",
-  image_src: "https://cdn.shopify.com/s/files/1/1460/6104/products/KC7213D_3_spo_spo.jpg?v=1514492075",
+  image_src: "https://static.independent.co.uk/s3fs-public/styles/article_small/public/thumbnails/image/2015/12/09/17/thedress.jpg",
   title: "ALEXA-VIVIANA",
   variety: "Jeans",
   variant_price: "$62.95 ",
@@ -295,11 +295,11 @@ products = [ {
   link: "http://bit.ly/2GirdbM",
   logo: "https://cdn.shopify.com/s/files/1/1460/6104/t/21/assetslogong?15645760034489963637"
 }, {
-  alt1: "https://cdn.shopify.com/s/files/1/1460/6104/products/KC8294M_6_spo_c9c50fe9-a6e5-4723-a17f-29849e1ad8e6_spo.jpg?v=1514491950",
+  alt1: "https://static.independent.co.uk/s3fs-public/styles/article_small/public/thumbnails/image/2015/12/09/17/thedress.jpg",
   body: "Say hello to these classic jeans. It is every girl's dream to have a pair that can complement any top. Get gorgeous in different shade of blue with white fade. Look good with no effort at all. Skinny jeans that hugs the lowerbodyGo wild with mixing and matching tops.",
   gender: "Womens",
   handle: "Womens",
-  image_src: "https://cdn.shopify.com/s/files/1/1460/6104/products/KC8294M_2_spo_6bf52220-3678-4177-9a29-6524ae8aa035_spo.jpg?v=1514491950",
+  image_src: "https://static.independent.co.uk/s3fs-public/styles/article_small/public/thumbnails/image/2015/12/09/17/thedress.jpg",
   title: "ADDISON-PETAL",
   variety: "Jeans",
   variant_price: "$59.50 ",
@@ -321,11 +321,11 @@ products = [ {
   link: "http://bit.ly/2rHs3ey",
   logo: "https://cdn.shopify.com/s/files/1/1445/1908/files/checkoutlogo_260x.png?v=1474178974"
 }, {
-  alt1: "https://cdn.shopify.com/s/files/1/1460/6104/products/KC5015D_13_spo_spo.jpg?v=1514492022",
+  alt1: "https://static.independent.co.uk/s3fs-public/styles/article_small/public/thumbnails/image/2015/12/09/17/thedress.jpg",
   body: "Sanded and whiskered cuffed denim jeans hug every curve down to the ankles with a hint of distress. Featuring a single button fastening, zip fly, two front pockets, a standard belt loop, and two rear pockets, and a cuffed hemline.",
   gender: "Womens",
   handle: "Womens",
-  image_src: "https://cdn.shopify.com/s/files/1/1460/6104/products/KC5015D_6_spo_spo.jpg?v=1514492018",
+  image_src: "https://static.independent.co.uk/s3fs-public/styles/article_small/public/thumbnails/image/2015/12/09/17/thedress.jpg",
   title: "ADRIAN-CORRAL",
   variety: "Jeans",
   variant_price: "$59.50 ",
@@ -334,11 +334,11 @@ products = [ {
   link: "http://bit.ly/2nbTcld",
   logo: "https://cdn.shopify.com/s/files/1/1460/6104/t/21/assetslogong?15645760034489963637"
 }, {
-  alt1: "https://cdn.shopify.com/s/files/1/1460/6104/products/KC5019D_7_spo_spo.jpg?v=1514491995",
+  alt1: "https://static.independent.co.uk/s3fs-public/styles/article_small/public/thumbnails/image/2015/12/09/17/thedress.jpg",
   body: "Perfectly fit and made to adorn extra rips and dirt with style. Live everyday without fear in these lightly distressed dark wash skinny capris featuring a standard zip fly, minimal belt loop, single button fastening, two front pockets, and two roomy back pockets.",
   gender: "Womens",
   handle: "Womens",
-  image_src: "https://cdn.shopify.com/s/files/1/1460/6104/products/KC5019D_9_spo_spo.jpg?v=1514491993",
+  image_src: "https://static.independent.co.uk/s3fs-public/styles/article_small/public/thumbnails/image/2015/12/09/17/thedress.jpg",
   title: "ADRIAN - WILLIE",
   variety: "Jeans",
   variant_price: "$54.50 ",
@@ -347,11 +347,11 @@ products = [ {
   link: "http://bit.ly/2GhgDS4",
   logo: "https://cdn.shopify.com/s/files/1/1460/6104/t/21/assetslogong?15645760034489963637"
 }, {
-  alt1: "https://cdn.shopify.com/s/files/1/0407/0829/products/Utitle2_1024x1024.jpg?v=1466663301",
+  alt1: "https://images-na.ssl-images-amazon.com/images/I/41qe7TXAMVL._SL500_AC_SS350_.jpg",
   body: "Our signature Navy Blue Skinny Dot Tie is made from 100% silk and is enhanced with a hydrophobic stain-resistant application. Rest assured you'll be protected all day and night from any coffee or wine spills that might come your way. This white polka dot embroidered tie is cut in a classic blue shade that goes perfectly with any white or blue shirt. Impeccably hand made from 100% silk, this piece is a must have for any formal affair, business trip or after work drinks.",
   gender: "Mens",
   handle: "Mens",
-  image_src: "https://cdn.shopify.com/s/files/1/0407/0829/products/Utitle88_1024x1024.jpg?v=1468110796",
+  image_src: "https://images-na.ssl-images-amazon.com/images/I/41qe7TXAMVL._SL500_AC_SS350_.jpg",
   title: "The Grind Tie",
   variety: "Tie",
   variant_price: "$39.00 ",
@@ -373,11 +373,11 @@ products = [ {
   link: "http://bit.ly/2Bmq7rt",
   logo: "https://cdn.shopify.com/s/files/1/0407/0829/t/14/assetslogong?982946970901202054"
 }, {
-  alt1: "https://cdn.shopify.com/s/files/1/1460/6104/products/KC6176D_9_spo_spo.jpg?v=1514492218",
+  alt1: "https://static.independent.co.uk/s3fs-public/styles/article_small/public/thumbnails/image/2015/12/09/17/thedress.jpg",
   body: "One of the best jeans in our Kancan collection. Pull off for day and night look with these skinnies. Stylish dark wash that hugs thebodySlim fit that hits the spot of fashionable trend. Sexiest skinnies to your hidden secret. Subtle rips on the right places.",
   gender: "Womens",
   handle: "Womens",
-  image_src: "https://cdn.shopify.com/s/files/1/1460/6104/products/KC6176D_4_spo_spo.jpg?v=1514492211",
+  image_src: "https://static.independent.co.uk/s3fs-public/styles/article_small/public/thumbnails/image/2015/12/09/17/thedress.jpg",
   title: "ANSON-WILLA",
   variety: "Jeans",
   variant_price: "$62.95 ",
@@ -412,11 +412,11 @@ products = [ {
   link: "http://bit.ly/2GhbjOJ",
   logo: "https://cdn.shopify.com/s/files/1/1445/1908/files/checkoutlogo_260x.png?v=1474178975"
 }, {
-  alt1: "https://cdn.shopify.com/s/files/1/1460/6104/products/KC5112L_7_32779ab0-0f01-453a-90db-e51385c01dbe_spo_spo.jpg?v=1514492162",
+  alt1: "https://static.independent.co.uk/s3fs-public/styles/article_small/public/thumbnails/image/2015/12/09/17/thedress.jpg",
   body: "Never too late to shine. This would be your favorite style for all seasons. Rock the high waisted jeans with glittery belt. Distressed holes with glittery ribbons serving as an accent. A perfect pair of jeans that can never go out of style.",
   gender: "Womens",
   handle: "Womens",
-  image_src: "https://cdn.shopify.com/s/files/1/1460/6104/products/KC5112L_2_spo_fa7e5aad-3c66-49b8-b569-f2a9713d0848_spo.jpg?v=1514492153",
+  image_src: "https://static.independent.co.uk/s3fs-public/styles/article_small/public/thumbnails/image/2015/12/09/17/thedress.jpg",
   title: "AMY-ROSALIND",
   variety: "Jeans",
   variant_price: "$64.50 ",
@@ -438,11 +438,11 @@ products = [ {
   link: "https://kerfgear.com/products/lone-peak?variant=41410342600",
   logo: "https://cdn.shopify.com/s/files/1/2198/3767/files/New_KerfLogo80x.png?v=1504329192"
 }, {
-  alt1: "https://cdn.shopify.com/s/files/1/1460/6104/products/KC5088D_4_spo_3b60b3d8-6992-4b7d-bf0f-b6b3cd753e30_spo.jpg?v=1514493872",
+  alt1: "https://static.independent.co.uk/s3fs-public/styles/article_small/public/thumbnails/image/2015/12/09/17/thedress.jpg",
   body: "Love the outdoors? Get the best outfit for it. Constructed with durable denim. Suspendervarietyack. Different kind of blue denim wash. Distressed knee cap. Three buttons on each side. It will be your all-time favorite overalls. Light distressed design. Old time to modern look.",
   gender: "Womens",
   handle: "Womens",
-  image_src: "https://cdn.shopify.com/s/files/1/1460/6104/products/KC5088D_2_spo_3a44f911-88c8-47e0-963a-07ba1a2348b9_spo.jpg?v=1514493868",
+  image_src: "https://static.independent.co.uk/s3fs-public/styles/article_small/public/thumbnails/image/2015/12/09/17/thedress.jpg",
   title: "CLEO-ADDIE",
   variety: "Overalls",
   variant_price: "$65.50 ",
@@ -477,11 +477,11 @@ products = [ {
   link: "http://bit.ly/2BtMLhD",
   logo: "https://cdn.shopify.com/s/files/1/1445/1908/files/checkoutlogo_260x.png?v=1474178973"
 }, {
-  alt1: "https://cdn.shopify.com/s/files/1/1460/6104/products/KC6175D_10_spo_spo.jpg?v=1514492209",
+  alt1: "https://static.independent.co.uk/s3fs-public/styles/article_small/public/thumbnails/image/2015/12/09/17/thedress.jpg",
   body: "Intelligent light wash denim that sculpts sexybodyRips and shreds all over the front. It shows bold personality of destruction design. Flattering legs. Sweeping pants that are so fabulous. Bottom hems that add stylish touch.",
   gender: "Womens",
   handle: "Womens",
-  image_src: "https://cdn.shopify.com/s/files/1/1460/6104/products/KC6175D_3_spo_spo.jpg?v=1514492202",
+  image_src: "https://static.independent.co.uk/s3fs-public/styles/article_small/public/thumbnails/image/2015/12/09/17/thedress.jpg",
   title: "ANSON-DULCE",
   variety: "Jeans",
   variant_price: "$62.95 ",
@@ -490,11 +490,11 @@ products = [ {
   link: "http://bit.ly/2Gir7k2",
   logo: "https://cdn.shopify.com/s/files/1/1460/6104/t/21/assetslogong?15645760034489963637"
 }, {
-  alt1: "https://cdn.shopify.com/s/files/1/1460/6104/products/KC6125_4_spo_spo.jpg?v=1514494402",
+  alt1: "https://static.independent.co.uk/s3fs-public/styles/article_small/public/thumbnails/image/2015/12/09/17/thedress.jpg",
   body: "Gunmetal gray distressed denim shorts featuring contrasting fringe-cuffed bottom hems, a single button fastening, zip fly, standard belt loop, two front pockets, and two back pockets.",
   gender: "Womens",
   handle: "Womens",
-  image_src: "https://cdn.shopify.com/s/files/1/1460/6104/products/KC6125_9_spo_spo.jpg?v=1514494399",
+  image_src: "https://static.independent.co.uk/s3fs-public/styles/article_small/public/thumbnails/image/2015/12/09/17/thedress.jpg",
   title: "HILARY - TICHY",
   variety: "Shorts",
   variant_price: "$45.95 ",
@@ -516,11 +516,11 @@ products = [ {
   link: "http://www.fuelbabybottle.com/fuelbaby?rfsn=962625.99d56",
   logo: "https://cdn.shopify.com/s/files/1/0922/0630/t/8/assetslogong?458267086882615200"
 }, {
-  alt1: "https://cdn.shopify.com/s/files/1/1460/6104/products/KC6062D_7_spo_spo.jpg?v=1514493999",
+  alt1: "https://static.independent.co.uk/s3fs-public/styles/article_small/public/thumbnails/image/2015/12/09/17/thedress.jpg",
   body: "Faded denim skirt with frayed hem detailing perfect for warm-weather adventures. Made with two front pockets, a zip fly with button closure, a standard belt loop, and two back pockets.",
   gender: "Womens",
   handle: "Womens",
-  image_src: "https://cdn.shopify.com/s/files/1/1460/6104/products/KC6062D_3_spo_spo.jpg?v=1514493996",
+  image_src: "3996",
   title: "DANAHA",
   variety: "Skirt",
   variant_price: "$54.50 ",
@@ -529,11 +529,11 @@ products = [ {
   link: "http://bit.ly/2rG0fr1",
   logo: "https://cdn.shopify.com/s/files/1/1460/6104/t/21/assetslogong?15645760034489963637"
 }, {
-  alt1: "https://cdn.shopify.com/s/files/1/1460/6104/products/KC5019M_5_spo_spo.jpg?v=1514491974",
+  alt1: "https://static.independent.co.uk/s3fs-public/styles/article_small/public/thumbnails/image/2015/12/09/17/thedress.jpg",
   body: "Faded blue cropped denim skinny jeans featuring knee distress, cuffed bottom hems, a single button fastening, zip fly, standard belt loop, two front pockets, and two back pockets.",
   gender: "Womens",
   handle: "Womens",
-  image_src: "https://cdn.shopify.com/s/files/1/1460/6104/products/KC5019M_2_spo_spo.jpg?v=1514491972",
+  image_src: "https://static.independent.co.uk/s3fs-public/styles/article_small/public/thumbnails/image/2015/12/09/17/thedress.jpg",
   title: "ADRIAN - ASISSI",
   variety: "Jeans",
   variant_price: "$54.50 ",
@@ -542,11 +542,11 @@ products = [ {
   link: "http://bit.ly/2Gg6kxT",
   logo: "https://cdn.shopify.com/s/files/1/1460/6104/t/21/assetslogong?15645760034489963637"
 }, {
-  alt1: "https://cdn.shopify.com/s/files/1/1460/6104/products/KC9048L_5_spo_spo.jpg?v=1514493973",
+  alt1: "https://static.independent.co.uk/s3fs-public/styles/article_small/public/thumbnails/image/2015/12/09/17/thedress.jpg",
   body: "Environmentally friendly light-weight collared button-down blouse featuring two front pockets, rolled sleeves, and a high-low bottom trim.",
   gender: "Womens",
   handle: "Womens",
-  image_src: "https://cdn.shopify.com/s/files/1/1460/6104/products/KC9048L_4_spo_spo.jpg?v=1514493971",
+  image_src: "https://static.independent.co.uk/s3fs-public/styles/article_small/public/thumbnails/image/2015/12/09/17/thedress.jpg",
   title: "DALYN",
   variety: "Shirt",
   variant_price: "$54.50 ",
@@ -555,11 +555,11 @@ products = [ {
   link: "http://bit.ly/2rIcjZ2",
   logo: "https://cdn.shopify.com/s/files/1/1460/6104/t/21/assetslogong?15645760034489963637"
 }, {
-  alt1: "https://cdn.shopify.com/s/files/1/1460/6104/products/KC6112BK_9_spo_spo.jpg?v=1514492237",
+  alt1: "https://static.independent.co.uk/s3fs-public/styles/article_small/public/thumbnails/image/2015/12/09/17/thedress.jpg",
   body: "Distressed black denim shorts featuring cuffed bottom hems, a single button fastening, zip fly, standard belt loop, two front pockets, and two back pockets.",
   gender: "Womens",
   handle: "Womens",
-  image_src: "https://cdn.shopify.com/s/files/1/1460/6104/products/KC6112BK_11_spo_spo.jpg?v=1514492232",
+  image_src: "https://static.independent.co.uk/s3fs-public/styles/article_small/public/thumbnails/image/2015/12/09/17/thedress.jpg",
   title: "ARIA - CANAILY",
   variety: "Shorts",
   variant_price: "$49.50 ",
@@ -568,11 +568,11 @@ products = [ {
   link: "http://bit.ly/2rCqBu5",
   logo: "https://cdn.shopify.com/s/files/1/1460/6104/t/21/assetslogong?15645760034489963637"
 }, {
-  alt1: "https://cdn.shopify.com/s/files/1/1460/6104/products/KC9044D_10_spo_spo.jpg?v=1514492786",
+  alt1: "https://static.independent.co.uk/s3fs-public/styles/article_small/public/thumbnails/image/2015/12/09/17/thedress.jpg",
   body: "Dark wash denim skirt featuring spotlight fading, scattered distress, a centerfold back slit, single button fastening, zip fly, standard belt loop, two front pockets, and two back pockets.",
   gender: "Womens",
   handle: "Womens",
-  image_src: "https://cdn.shopify.com/s/files/1/1460/6104/products/KC9044D_3_spo_spo.jpg?v=1514492781",
+  image_src: "https://static.independent.co.uk/s3fs-public/styles/article_small/public/thumbnails/image/2015/12/09/17/thedress.jpg",
   title: "BARRER",
   variety: "Skirt",
   variant_price: "$54.50 ",
@@ -581,11 +581,11 @@ products = [ {
   link: "http://bit.ly/2nbUqNl",
   logo: "https://cdn.shopify.com/s/files/1/1460/6104/t/21/assetslogong?15645760034489963637"
 }, {
-  alt1: "https://cdn.shopify.com/s/files/1/1460/6104/products/KC5019L_11_spo_spo.jpg?v=1514492002",
+  alt1: "https://static.independent.co.uk/s3fs-public/styles/article_small/public/thumbnails/image/2015/12/09/17/thedress.jpg",
   body: "Cloudy light blue denim skinny capris featuring distressed rips, spotlight fading, light whiskering, cuffed bottom hems, a single button fastening, zip fly, standard belt loop, two front pockets, and two back pockets.",
   gender: "Womens",
   handle: "Womens",
-  image_src: "https://cdn.shopify.com/s/files/1/1460/6104/products/KC5019L_3_spo_spo.jpg?v=1514491999",
+  image_src: "https://static.independent.co.uk/s3fs-public/styles/article_small/public/thumbnails/image/2015/12/09/17/thedress.jpg",
   title: "ADRIAN - YELTIN",
   variety: "Jeans",
   variant_price: "$54.50 ",
@@ -594,11 +594,11 @@ products = [ {
   link: "http://bit.ly/2GfMxOV",
   logo: "https://cdn.shopify.com/s/files/1/1460/6104/t/21/assetslogong?15645760034489963637"
 }, {
-  alt1: "https://cdn.shopify.com/s/files/1/1460/6104/products/KC5019BK_9_spo_spo.jpg?v=1514491983",
+  alt1: "https://static.independent.co.uk/s3fs-public/styles/article_small/public/thumbnails/image/2015/12/09/17/thedress.jpg",
   body: "Black cropped denim skinny jeans featuring cuffed bottom hems, a single button fastening, zip fly, standard belt loop, two front pockets, and two back pockets.",
   gender: "Womens",
   handle: "Womens",
-  image_src: "https://cdn.shopify.com/s/files/1/1460/6104/products/KC5019BK_3_spo_spo.jpg?v=1514491979",
+  image_src: "https://static.independent.co.uk/s3fs-public/styles/article_small/public/thumbnails/image/2015/12/09/17/thedress.jpg",
   title: "ADRIAN - AULLY",
   variety: "Jeans",
   variant_price: "$54.50 ",
@@ -607,11 +607,11 @@ products = [ {
   link: "http://bit.ly/2rHBwmc",
   logo: "https://cdn.shopify.com/s/files/1/1460/6104/t/21/assetslogong?15645760034489963637"
 }, {
-  alt1: "https://cdn.shopify.com/s/files/1/1460/6104/products/KC5088M_4_spo_54e46b27-d99c-4ae2-b97a-0a39b1ebb308_spo.jpg?v=1514493895",
+  alt1: "https://static.independent.co.uk/s3fs-public/styles/article_small/public/thumbnails/image/2015/12/09/17/thedress.jpg",
   body: "Be sexy in overalls. A denim collection is not complete without one overall. Work the hot right now with boyfriend jeans turned into sexy jumper. Take your blues away with large rip on one knee. Buttons on the side for easy adjustment. These overalls can be transformed from day to night.",
   gender: "Womens",
   handle: "Womens",
-  image_src: "https://cdn.shopify.com/s/files/1/1460/6104/products/KC5088M_3_spo_348afd28-df35-43c6-803f-9e8a7a738593_spo.jpg?v=1514493893",
+  image_src: "https://static.independent.co.uk/s3fs-public/styles/article_small/public/thumbnails/image/2015/12/09/17/thedress.jpg",
   title: "CLEO-ALLIE",
   variety: "Overalls",
   variant_price: "$65.50 ",
@@ -685,11 +685,11 @@ products = [ {
   link: "https://kerfgear.com/products/half-dome",
   logo: "https://cdn.shopify.com/s/files/1/2198/3767/files/New_KerfLogo80x.png?v=1504329189"
 }, {
-  alt1: "https://cdn.shopify.com/s/files/1/1460/6104/products/KC8347M_11_spo.jpg?v=1514492190",
+  alt1: "https://static.independent.co.uk/s3fs-public/styles/article_small/public/thumbnails/image/2015/12/09/17/thedress.jpg",
   body: "A girl is no saint with tight fitting jeans. Light wash denim with dark fade. White fade at the side hem for added design. Frayed hem at the outline of the rear pockets. Distressed holes scattered in front. Bottom hem is uneven with frayed edges.",
   gender: "Womens",
   handle: "Womens",
-  image_src: "https://cdn.shopify.com/s/files/1/1460/6104/products/KC8347M_2_spo.jpg?v=1514492181",
+  image_src: "https://static.independent.co.uk/s3fs-public/styles/article_small/public/thumbnails/image/2015/12/09/17/thedress.jpg",
   title: "ANNA LAUREL",
   variety: "Jeans",
   variant_price: "$63.50 ",
@@ -724,11 +724,11 @@ products = [ {
   link: "http://bit.ly/2GjznAr",
   logo: "https://cdn.shopify.com/s/files/1/1527/5153/t/4/assetslogong?2668212377839619198"
 }, {
-  alt1: "https://cdn.shopify.com/s/files/1/1527/5153/products/pizza-pie-pizza-slice-matching-set-free-shipping-cole-coddle-clothing-set-608462995464_grande.png?v=1516321075",
+  alt1: "http://jetspizza.com/dbphotos/display/24a6af7b5dd62183d15f56d33b4d4152/664/410",
   body: "Searching high and low, we could not find cute, yet also infant-certified outfits...so we created our own for Cole (and now for 36,580+ other families around the world)!!!",
   gender: "Baby",
   handle: "Baby",
-  image_src: "https://cdn.shopify.com/s/files/1/1527/5153/products/pizza-pie-pizza-slice-matching-set-free-shipping-cole-coddle-clothing-set-608462962696_grande.png?v=1516321075",
+  image_src: "http://jetspizza.com/dbphotos/display/24a6af7b5dd62183d15f56d33b4d4152/664/410",
   title: "Pizza Pie - Pizza Slice",
   variety: "Baby Clothes",
   variant_price: "$39.95 ",
