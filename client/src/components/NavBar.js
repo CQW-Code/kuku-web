@@ -42,7 +42,10 @@ class NavBar extends Component {
             <Menu.Item style={styles.text} name='home' />
           </Link>
           <Link to='/products'>
-            <Menu.Item style={styles.text} name='Shop' />
+            <Menu.Item style={styles.text} name='List Items' />
+          </Link>
+          <Link to='/products/1'>
+            <Menu.Item style={styles.text} name='Go KUKU' />
           </Link>
           { this.rightNavs() }
         </Menu>

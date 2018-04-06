@@ -6,6 +6,7 @@ class User < ActiveRecord::Base
   include DeviseTokenAuth::Concerns::User
 
   serialize :loved_products, Array
+  serialize :show_products, Array
 
   def self.loved(ids)
     ids = ids.empty? ? [0] : ids

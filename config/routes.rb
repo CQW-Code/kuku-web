@@ -4,6 +4,7 @@ Rails.application.routes.draw do
     resources :products, only: [:index, :update]
     get 'my_products', to: 'products#my_products'
     delete 'my_products/:id', to: 'products#delete'
+    put 'products/:id/hate', to: 'products#show_products'
   end
 
   #Do not place any routes below this one

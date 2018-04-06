@@ -19,7 +19,7 @@ const ButtonLink = styled.a`
   font-weight: bold;
   font-size: 20px;
   display: flex;
-  justify-content: center;
+  justify-content: space-around;
 `
 
 class Home extends Component {
@@ -27,11 +27,13 @@ class Home extends Component {
     return (
       <Segment basic style={ styles.mainContainer}>
         <ButtonLink>
-          <Link to="/products" style={{ color: '#ffffff' }}>Try It Now!</Link>
+          <Link to="/products" style={{ color: '#ffffff' }}>Shop The Usual Way</Link>
+          <Link to="/products/32" style={{ color: '#ffffff' }}>Go KUKU!</Link>
         </ButtonLink>
         <Image style={styles.image} height="560px" fluid centered src={Tshirt} />
           <ButtonLink>
             <Link to="/products" style={{ color: '#ffffff' }}>Try It Now!</Link>
+            <Link to="/products/1" style={{ color: '#ffffff' }}>Go KUKU!</Link>
           </ButtonLink>
         <Container style={styles.middleContainer}>
           <Divider />
@@ -64,7 +66,7 @@ class Home extends Component {
                 tablet={8}
               >
                 <h2>Like Tinder But Every Match Is A Winner!</h2>
-                <p>Hodor hodor - hodor... Hodor hodor hodor hodor hodor. Hodor. Hodor hodor - hodor, hodor. Hodor hodor hodor! Hodor, hodor - hodor?! Hodor hodor - hodor... Hodor hodor hodor, hodor, hodor hodor. Hodor! Hodor hodor, HODOR hodor, hodor hodor... Hodor hodor hodor. Hodor, hodor, hodor. Hodor HODOR hodor, hodor HODOR hodor, hodor hodor. Hodor. Hodor. Hodor hodor; hodor hodor? </p>              
+                <p>Hodor hodor - hodor... Hodor hodor hodor hodor hodor. Hodor. Hodor hodor - hodor, hodor. Hodor hodor hodor! Hodor, hodor - hodor?! Hodor hodor - hodor... Hodor hodor hodor, hodor, hodor hodor. Hodor! Hodor hodor, HODOR hodor, hodor hodor... Hodor hodor hodor. Hodor, hodor, hodor. Hodor HODOR hodor, hodor HODOR hodor, hodor hodor. Hodor. Hodor. Hodor hodor; hodor hodor? </p>
               </Grid.Column>
               <Grid.Column
                 computer={8}

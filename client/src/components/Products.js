@@ -26,7 +26,7 @@ import { addToCart } from '../actions/my_products';
 
 class Products extends React.Component {
 
-state = {handle: '', products: []}
+state = {handle: '', products: [], showProduct: true }
 
   componentDidMount = () => {
     const { dispatch } = this.props;
@@ -41,8 +41,7 @@ state = {handle: '', products: []}
   }
 
   filterCategory = () => {
-    const { products } = this.state;
-    const { handle } = this.state;
+    const { products, handle } = this.state;
     let visible = products;
     if (handle)
       visible = products.filter( p => p.handle === handle )
@@ -76,7 +75,7 @@ state = {handle: '', products: []}
             floated='left'
             onClick={() =>
               this.handleHate(p.id)
-            } 
+            }
           >
             <Icon name='thumbs down' />
             Forget It.
@@ -87,7 +86,7 @@ state = {handle: '', products: []}
             floated='right'
             onClick={() =>
               this.handleLove(p.id)
-            } 
+            }
           >
             <Icon name='heart' color='pink' />
             Love It!
@@ -190,7 +189,7 @@ const mapStateToProps = (state, props) => {
   const {products}=state
   const handles = [...new Set(products.map( h => h.handle))]
   //const vendors = [...new Set(products.map(v => v.vendor))]
-  return { 
+  return {
     products,
     handles,
     product: state.products.find(

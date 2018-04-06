@@ -11,8 +11,12 @@ class Api::ProductsController < ApplicationController
   end
 
   def update
-      current_user.loved_products << params[:id].to_i
-      current_user.save
+    current_user.loved_products << params[:id].to_i
+    current_user.save
+  end
+
+  def show_products
+    current_user.Product.boolean !current_user.Product.boolean
   end
 
   def delete

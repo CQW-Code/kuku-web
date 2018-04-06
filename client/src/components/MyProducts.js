@@ -56,15 +56,31 @@ class MyProducts extends React.Component {
                <Card.Description>
                  {p.vendor}
                </Card.Description>
-               <Button style={{ backgroundColor: '#000000', padding: '5px' }}>
-                 <Link to={p.link} target="_blank" style={{ color: '#ffffff' }}>Buy it Now!</Link>
-               </Button>
-               <Button style={{
-                   color: '#ffffff',
-                   backgroundColor: '#000000',
-                   padding: '5px' }}
+               <Link to= {`/products/${p.id}`}>
+                 <Button
+                   fluid
+                   color='teal'
+                 >
+                   View Product Details
+                 </Button>
+               </Link>
+                <Button.Group>
+                 <Button
+                   icon
+                   labelPosition='left'
+                   floated='left'
+                   >
+                   <Link to={p.link} target="_blank">Buy it Now!</Link>
+                 </Button>
+                 <Button
+                   icon
+                   labelPosition='right'
+                   floated='right'
                    onClick={() => this.handleClick(p.id)}
-                >Remove Item</Button>
+                  >
+                  Remove Item
+                  </Button>
+                </Button.Group>
              </Card.Content>
            </Card>
             )
