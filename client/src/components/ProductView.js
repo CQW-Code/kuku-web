@@ -19,7 +19,7 @@ import {
   Header, 
   Container, 
   Dimmer,
-  Grid 
+  Grid,
 } from 'semantic-ui-react';
 
 
@@ -75,11 +75,20 @@ state = { active: false, products: [] }
             <Grid.Column>
               <Dimmer.Dimmable as={Card} dimmed={active} fluid>
                 <Dimmer active={active} onClickOutside={this.handleHide}>
-                  <Header as='h3' icon inverted>
-                    Title: {product.title}
-                    Price: {product.variant_price}
-                    Vendor: {product.vendor}
-                    Description: {product.body}
+                  <Header as='h1' inverted>
+                    {product.title}
+                  </Header>
+                  <br />
+                  <Header as='h2' inverted>
+                    {product.variant_price}
+                  </Header>
+                  <br />
+                  <Header as='h3' inverted>
+                    {product.vendor}
+                  </Header>
+                  <br />
+                  <Header as='h3' color='teal'>
+                    {product.body}
                   </Header>
                 </Dimmer>
               <Header as='h3'>{product.title} </Header>

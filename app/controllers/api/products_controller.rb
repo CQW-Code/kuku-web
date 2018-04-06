@@ -18,7 +18,6 @@ class Api::ProductsController < ApplicationController
   def delete
     current_user.loved_products.delete_if{|i| i == @product.id}
     current_user.save
-    binding.pry
   end
 
   private
