@@ -27,7 +27,7 @@ import { addToCart } from '../actions/my_products';
 class Products extends React.Component {
 
 state = {handle: '', products: [], showProduct: true }
-
+//Nothing
   componentDidMount = () => {
     const { dispatch } = this.props;
     axios.get('/api/products')
@@ -128,8 +128,15 @@ state = {handle: '', products: [], showProduct: true }
 
   handleHate = (id) => {
     const { products } = this.state;
-    this.setState({
-      products: products.filter( p => p.id !== id )
+    const { dispatch } = this.props;
+    axios.put(`/api/hated_items/${id}`)
+      .then( res => {
+        dispatch(setHeaders(res.headers))
+        this.setState({
+          products: products.filter( p => p.id !== id )
+        })
+    }).catch( err => {
+      console.log(err)
     })
   }
 

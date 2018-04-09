@@ -9,15 +9,15 @@ import { addToCart } from '../actions/my_products';
 import axios from 'axios';
 //Semantic-ui, styling
 import styled from 'styled-components';
-import { 
-  Card, 
-  Icon, 
-  Image, 
-  Button, 
-  Segment, 
-  Reveal, 
-  Header, 
-  Container, 
+import {
+  Card,
+  Icon,
+  Image,
+  Button,
+  Segment,
+  Reveal,
+  Header,
+  Container,
   Dimmer,
   Grid,
 } from 'semantic-ui-react';
@@ -25,7 +25,7 @@ import {
 
 
 class ProductView extends React.Component{
-state = { active: false, products: [] }  
+state = { active: false, products: [] }
   handleShow = () => this.setState({ active: !this.state.active })
 
   handleLove = (id) => {
@@ -48,10 +48,12 @@ state = { active: false, products: [] }
         console.log(err)
       })
   }
-  
+
   handleHate = (id) => {
     const { dispatch, history, productIndex, products } = this.props;
-    //TODO do some dispatch to updte database
+    axios.put(`/api/hated_items/${id}`)
+      .then( res => {
+        dispatch(setHeaders(res.headers))
     const productListLength = products.length - 1
     if (productIndex === productListLength) {
       history.push('/products/')
@@ -65,9 +67,9 @@ state = { active: false, products: [] }
   }
 
   render() {
-    const { product={}} = this.props; 
+    const { product={}} = this.props;
      const { active } = this.state
-  return( 
+  return(
       <div>
         <SegmentMain>
           <GridMain>
@@ -95,34 +97,34 @@ state = { active: false, products: [] }
                 <Card fluid >
                   <Image src={product.image_src} />
                     <Card.Content>
-                    <Button 
-                      icon 
-                      labelPosition='left' 
+                    <Button
+                      icon
+                      labelPosition='left'
                       floated='left'
                       onClick={() =>
                         this.handleHate(product.id)
                       }
                     >
                       <Icon name='thumbs down' />
-                      Forget It. 
+                      Forget It.
                     </Button>
-                    <Button 
-                      icon 
-                      labelPosition='right' 
+                    <Button
+                      icon
+                      labelPosition='right'
                       floated='right'
                       onClick={() =>
                         this.handleLove(product.id)
                       }
                     >
                       <Icon name='heart' color='pink' />
-                      Love It! 
+                      Love It!
                     </Button>
                   </Card.Content>
                 </Card>
             </Dimmer.Dimmable>
             <Button.Group compact>
               <Button onClick={this.handleShow}>
-                { active === false 
+                { active === false
                   ?
                   "Tell Me More"
                   :
@@ -142,7 +144,7 @@ const GridMain = styled.div`
   width: 58%
   height: 58%
   text-align: center
-` 
+`
 const SegmentMain = styled.div`
   display: flex
   justify-content: center
@@ -153,7 +155,7 @@ const SegmentButtons = styled.div`
 `
 const mapStateToProps = (state, props) => {
   const { products } = state
-  return { 
+  return {
     product: products.find( a => a.id === parseInt(props.match.params.id )),
     productIndex: products.findIndex( a => a.id === parseInt(props.match.params.id )),
     products,

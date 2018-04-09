@@ -16,7 +16,7 @@ class Api::ProductsController < ApplicationController
   end
 
   def show_products
-    current_user.Product.boolean !current_user.Product.boolean
+    current_user.Product.boolean = !current_user.Product.boolean
   end
 
   def delete
