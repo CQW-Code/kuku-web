@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Image, Segment, Container, Grid, Divider, Responsive } from 'semantic-ui-react';
+import { Image, Segment, Container, Grid, Divider, Responsive, Button } from 'semantic-ui-react';
 import Tshirt from '../images/home/Kuku.main.jpg';
 import Iphone from '../images/home/IphoneX.png';
 import appIcon from '../images/home/button-appstore.png';
@@ -27,11 +27,17 @@ class Home extends Component {
     return (
       <Segment basic style={ styles.mainContainer}>
         <ButtonLink>
-          <Link to="/products" style={{ color: '#ffffff' }}>Shop Traditionally</Link>
-          <Link to="/products/32" style={{ color: '#ffffff' }}>Go KUKU!</Link>
+          <Button fluid color='teal'>
+            <Link to="/products" style={{ color: '#ffffff' }}>Shop Traditionally</Link>
+          </Button>
+          <Button fluid color='teal'>
+            <Link to="/products/32" style={{ color: '#ffffff' }}>Go KUKU!</Link>
+          </Button>
         </ButtonLink>
-        <Divider hidden />
+        <br/>
         <Image style={styles.image} height="fill" fluid centered src={Tshirt} />
+        <br/>
+        <Button compact basic fluid color='teal'>What Is KUKU?</Button>
         <Container style={styles.middleContainer}>
           <Divider />
           <Grid>
