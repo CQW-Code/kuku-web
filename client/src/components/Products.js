@@ -9,26 +9,21 @@ import axios from 'axios';
 import {
   Button,
   Card,
-  Container,
   Divider,
   Dropdown,
-  Grid,
   Header,
   Icon,
   Image,
-  Menu,
   Segment,
   Visibility,
 } from 'semantic-ui-react';
 import styled from 'styled-components';
 import { setHeaders } from '../actions/headers';
 import {getProducts} from '../actions/products';
-import { addToCart } from '../actions/my_products';
 
 class Products extends React.Component {
+state = {handle: '', products: [], page:1, totalPages:0 }
 
-state = {handle: '', products: [], showProduct: true, page:1, totalPages:0 }
-//Nothing
   componentDidMount = () => {
     const { dispatch } = this.props;
     axios.get('/api/products')
@@ -45,7 +40,7 @@ state = {handle: '', products: [], showProduct: true, page:1, totalPages:0 }
     const { products, handle } = this.state;
     let visible = products;
     if (handle)
-      visible = products.filter( p => p.handle === handle )
+      visible = products.filter( p => p.handle === handle && p.show_product == true )
     return visible.map( p =>
       <Card key={p.id}>
         <h2>{p.name}</h2>
@@ -117,6 +112,7 @@ state = {handle: '', products: [], showProduct: true, page:1, totalPages:0 }
     const { products } = this.state;
     const { dispatch } = this.props;
     axios.put(`/api/products/${id}`)
+    axios.put(`/api/show_products/${id}`)
       .then( res => {
         dispatch(setHeaders(res.headers))
         this.setState({
@@ -131,6 +127,7 @@ state = {handle: '', products: [], showProduct: true, page:1, totalPages:0 }
     const { products } = this.state;
     const { dispatch } = this.props;
     axios.put(`/api/hated_items/${id}`)
+    axios.put(`/api/show_products/${id}`)
       .then( res => {
         dispatch(setHeaders(res.headers))
         this.setState({
@@ -143,7 +140,7 @@ state = {handle: '', products: [], showProduct: true, page:1, totalPages:0 }
 
   onBottomVisible=()=>{
     const page = this.state.page + 1;
-    const { dispatch } = this.props; 
+    const { dispatch } = this.props;
     axios.get(`/api/products?page=${page}&per_page=12`)
       .then( ({data}) => {
         this.setState( state => {
@@ -188,7 +185,7 @@ state = {handle: '', products: [], showProduct: true, page:1, totalPages:0 }
             once = {false}
             continuous={true}
             onBottomVisible={()=>this.onBottomVisible()}
-          > 
+          >
           <Card.Group itemsPerRow = {4}>
             {this.filterCategory()}
           </Card.Group>

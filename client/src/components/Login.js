@@ -1,7 +1,7 @@
 //React
 import React, { Component } from 'react';
-// Styles 
-import { Header, Form, Button, Segment, Container, Image } from 'semantic-ui-react';
+// Styles
+import { Header, Form, Button, Segment, Image } from 'semantic-ui-react';
 import { connect } from 'react-redux';
 import { handleLogin } from '../actions/auth';
 import { setFlash } from '../actions/flash';
@@ -27,7 +27,7 @@ class Login extends Component {
     this.setState({ [id]: value });
   }
 
-  
+
 
   render() {
     const {email, password} = this.state;
@@ -71,17 +71,17 @@ class Login extends Component {
             <Segment basic textAlign='center'>
               - or -
               < br/>
-              login with 
+              login with
             </Segment>
             <Segment basic textAlign='center'>
-              <Button 
+              <Button
                 class="huge ui facebook button"
                 style={stylesfb.btn}
               >
                 <i class="facebook icon"></i>
                 Facebook
               </Button>
-              <Button 
+              <Button
                 class="huge ui twitter button"
                 style={stylestw.btn}
               >
@@ -97,14 +97,14 @@ class Login extends Component {
 }
 
 
-//Styled Components 
+//Styled Components
 const LeftContainer = styled.div`
   background: white;
   width: 50%;
   float: left;
 `
 //appcontainerRight
-const RightContainer = styled.div` 
+const RightContainer = styled.div`
   background: white;
   width: 50%;
   float: right;
@@ -114,7 +114,7 @@ const stylestw = {
     backgroundColor: '#55acee',
     color: '#fff',
     textAlign: 'center'
-    
+
   },
 }
 
@@ -144,5 +144,5 @@ export default connect()(Login);
 //   let image = this.state.randomImages[num];
 //   return (
 //     <Image src={image}/>
-//   ) 
+//   )
 // }

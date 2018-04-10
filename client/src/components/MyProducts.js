@@ -3,7 +3,6 @@ import {
   Card,
   Image,
   Button,
-  Header,
 } from 'semantic-ui-react';
 import axios from 'axios';
 import { connect } from 'react-redux';
@@ -25,6 +24,7 @@ class MyProducts extends React.Component {
   handleClick = (id) => {
     const { products } = this.state;
     const { dispatch } = this.props;
+    axios.put(`/api/show_products/${id}`)
     axios.delete(`/api/my_products/${id}`)
       .then( res => {
         dispatch(setHeaders(res.headers))

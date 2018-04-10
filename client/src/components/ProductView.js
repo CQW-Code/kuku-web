@@ -3,8 +3,6 @@ import React from 'react';
 //Redux
 import { connect } from 'react-redux';
 import { setHeaders } from '../actions/headers';
-import { getProducts } from '../actions/products';
-import { addToCart } from '../actions/my_products';
 //Axios
 import axios from 'axios';
 //Semantic-ui, styling
@@ -31,6 +29,7 @@ state = { active: false, products: [] }
   handleLove = (id) => {
     const { dispatch, history, productIndex, products } = this.props;
     axios.put(`/api/products/${id}`)
+    axios.put(`/api/show_products/${id}`)
       .then( res => {
         dispatch(setHeaders(res.headers))
         const productListLength = products.length - 1
@@ -52,6 +51,7 @@ state = { active: false, products: [] }
   handleHate = (id) => {
     const { dispatch, history, productIndex, products } = this.props;
     axios.put(`/api/hated_items/${id}`)
+    axios.put(`/api/show_products/${id}`)
       .then( res => {
         dispatch(setHeaders(res.headers))
       })

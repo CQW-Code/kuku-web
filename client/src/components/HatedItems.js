@@ -3,11 +3,9 @@ import {
   Card,
   Image,
   Button,
-  Header,
 } from 'semantic-ui-react';
 import axios from 'axios';
 import { connect } from 'react-redux';
-import { Link } from 'react-router-dom';
 import { setHeaders } from '../actions/headers';
 
 class HatedItems extends React.Component {
@@ -27,6 +25,7 @@ class HatedItems extends React.Component {
   handleClick = (id) => {
     const { products } = this.state;
     const { dispatch } = this.props;
+    axios.put(`/api/show_products/${id}`)
     axios.delete(`/api/hated_items/${id}`)
       .then( res => {
         dispatch(setHeaders(res.headers))
@@ -58,14 +57,6 @@ class HatedItems extends React.Component {
                <Card.Description>
                  {p.vendor}
                </Card.Description>
-               <Link to= {`/products/${p.id}`}>
-                 <Button
-                   fluid
-                   color='teal'
-                 >
-                   View Product Details
-                 </Button>
-               </Link>
                 <Button.Group>
                  <Button
                    icon

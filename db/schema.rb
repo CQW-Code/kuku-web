@@ -29,6 +29,7 @@ ActiveRecord::Schema.define(version: 20180409195446) do
     t.string "address"
     t.string "link"
     t.string "logo"
+    t.boolean "show_product", default: true
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -57,7 +58,6 @@ ActiveRecord::Schema.define(version: 20180409195446) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "loved_products"
-    t.boolean "show_products"
     t.string "hated_items"
     t.index ["confirmation_token"], name: "index_users_on_confirmation_token", unique: true
     t.index ["email"], name: "index_users_on_email", unique: true
