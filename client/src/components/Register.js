@@ -1,7 +1,7 @@
 //React
 import React, { Component } from 'react';
 // Styles 
-import { Header, Form, Button, Segment, Container, Image } from 'semantic-ui-react';
+import { Header, Form, Button, Segment, Image } from 'semantic-ui-react';
 import { connect } from 'react-redux';
 import { registerUser } from '../actions/auth';
 import { setFlash } from '../actions/flash';

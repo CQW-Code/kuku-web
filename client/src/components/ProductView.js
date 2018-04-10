@@ -5,6 +5,8 @@ import { connect } from 'react-redux';
 import { setHeaders } from '../actions/headers';
 //Axios
 import axios from 'axios';
+//Modal
+import Modal from 'react-responsive-modal';
 //Semantic-ui, styling
 import styled from 'styled-components';
 import {
@@ -12,18 +14,16 @@ import {
   Icon,
   Image,
   Button,
-  Segment,
-  Reveal,
   Header,
-  Container,
   Dimmer,
   Grid,
 } from 'semantic-ui-react';
+import { Link } from 'react-router-dom'
 
 
 
 class ProductView extends React.Component{
-state = { active: false, products: [] }
+state = { active: false, products: [], open: false }
   handleShow = () => this.setState({ active: !this.state.active })
 
   handleLove = (id) => {
@@ -67,9 +67,17 @@ state = { active: false, products: [] }
     })
   }
 
+  onOpenModal = () => {
+    this.setState({ open: true });
+  };
+  
+  onCloseModal = () => {
+    this.setState({ open: false });
+  };
+
   render() {
-    const { product={}} = this.props;
-     const { active } = this.state
+    const { product={}, user} = this.props;
+     const { active, open } = this.state
   return(
       <div>
         <SegmentMain>
@@ -103,7 +111,7 @@ state = { active: false, products: [] }
                       labelPosition='left'
                       floated='left'
                       onClick={() =>
-                        this.handleHate(product.id)
+                        user.id === undefined ? this.onOpenModal() : this.handleHate(product.id)
                       }
                     >
                       <Icon name='thumbs down' />
@@ -114,12 +122,25 @@ state = { active: false, products: [] }
                       labelPosition='right'
                       floated='right'
                       onClick={() =>
-                        this.handleLove(product.id)
+                        user.id === undefined ? this.onOpenModal() : this.handleLove(product.id)
                       }
                     >
                       <Icon name='heart' color='pink' />
                       Love It!
                     </Button>
+                    <Modal open={open} onClose={this.onCloseModal} little textAlign='center'>
+                      <h2>You are not logged in!</h2>
+                      <p>
+                        Unless you have an account with KUKU, we can't remember what products you like! For the best user experience,
+                        please register and login.
+                      </p>
+                      <Link to={'/register'}>
+                        <Button basic color='teal'>Register</Button>
+                      </Link>
+                      <Link to={'/login'}>
+                        <Button basic color='teal'>Login</Button>
+                      </Link>
+                    </Modal>
                   </Card.Content>
                 </Card>
             </Dimmer.Dimmable>
@@ -150,16 +171,13 @@ const SegmentMain = styled.div`
   display: flex
   justify-content: center
 `
-const SegmentButtons = styled.div`
-  display: flex
-  justify-content: center
-`
 const mapStateToProps = (state, props) => {
   const { products } = state
   return {
     product: products.find( a => a.id === parseInt(props.match.params.id )),
     productIndex: products.findIndex( a => a.id === parseInt(props.match.params.id )),
     products,
+    user: state.user
   }
 }
 export default connect(mapStateToProps)(ProductView)

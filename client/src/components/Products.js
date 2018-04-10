@@ -5,6 +5,8 @@ import {connect} from 'react-redux';
 import {Link} from 'react-router-dom';
 //axios
 import axios from 'axios';
+//Modal
+import Modal from 'react-responsive-modal';
 //Semantic-ui make everything nice
 import {
   Button,
@@ -24,6 +26,8 @@ import {getProducts} from '../actions/products';
 class Products extends React.Component {
 state = {handle: '', products: [], page:1, totalPages:0 }
 
+state = {handle: '', products: [], showProduct: true, page:1, totalPages:0, open: false }
+//Nothing
   componentDidMount = () => {
     const { dispatch } = this.props;
     axios.get('/api/products')
@@ -37,7 +41,8 @@ state = {handle: '', products: [], page:1, totalPages:0 }
   }
 
   filterCategory = () => {
-    const { products, handle } = this.state;
+    const { products, handle, open } = this.state;
+    const {user} = this.props;
     let visible = products;
     if (handle)
       visible = products.filter( p => p.handle === handle && p.show_product == true )
@@ -70,7 +75,7 @@ state = {handle: '', products: [], page:1, totalPages:0 }
             labelPosition='left'
             floated='left'
             onClick={() =>
-              this.handleHate(p.id)
+              user.id === undefined ? this.onOpenModal() : this.handleHate(p.id)
             }
           >
             <Icon name='thumbs down' />
@@ -81,13 +86,26 @@ state = {handle: '', products: [], page:1, totalPages:0 }
             labelPosition='right'
             floated='right'
             onClick={() =>
-              this.handleLove(p.id)
+              user.id === undefined ? this.onOpenModal() : this.handleLove(p.id)
             }
           >
             <Icon name='heart' color='pink' />
             Love It!
           </Button>
         </Button.Group>
+        <Modal open={open} onClose={this.onCloseModal} little textAlign='center'>
+          <h2>You are not logged in!</h2>
+          <p>
+            Unless you have an account with KUKU, we can't remember what products you like! For the best user experience,
+            please register and login.
+          </p>
+          <Link to={'/register'}>
+            <Button basic color='teal'>Register</Button>
+          </Link>
+          <Link to={'/login'}>
+            <Button basic color='teal'>Login</Button>
+          </Link>
+        </Modal>
       </Card>
     )
   }
@@ -148,9 +166,19 @@ state = {handle: '', products: [], page:1, totalPages:0 }
       }).catch(err => {
         console.log(err)
       })
-  }
+    }
+
+  onOpenModal = () => {
+    this.setState({ open: true });
+  };
+
+  onCloseModal = () => {
+    this.setState({ open: false });
+  };
+  
   render() {
-    const {handle} = this.state;
+    const {handle, open} = this.state;
+    const {user} = this.props;
     return (
       <div>
         <Segment style={styles.background}>
@@ -207,7 +235,7 @@ const style = {
 }
 
 const mapStateToProps = (state, props) => {
-  const {products}=state
+  const { products } = state
   const handles = [...new Set(products.map( h => h.handle))]
   //const vendors = [...new Set(products.map(v => v.vendor))]
   return {
@@ -216,6 +244,7 @@ const mapStateToProps = (state, props) => {
     product: state.products.find(
       (product) => product.id === parseInt(props.match.params.id),
     ),
+    user: state.user,
   }
 }
 

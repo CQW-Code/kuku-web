@@ -1,13 +1,11 @@
 //React
 import React, { Component } from 'react';
-// Styles
+// Styles 
 import { Header, Form, Button, Segment, Image } from 'semantic-ui-react';
 import { connect } from 'react-redux';
 import { handleLogin } from '../actions/auth';
-import { setFlash } from '../actions/flash';
 import styled from 'styled-components';
 import Tshirt1 from '../images/home/tshirt.jpg';
-import { Link } from 'react-router-dom'
 
 class Login extends Component {
   state = {email: '', password: ''};
