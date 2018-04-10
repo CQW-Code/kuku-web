@@ -16,12 +16,6 @@ class Api::ProductsController < ApplicationController
     current_user.save
   end
 
-  def show_product
-    @product.update(
-      show_product: !show_product
-    )
-  end
-
   def delete
     current_user.loved_products.delete_if{|i| i == @product.id}
     current_user.save

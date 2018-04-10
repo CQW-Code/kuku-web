@@ -27,14 +27,11 @@ class Home extends Component {
     return (
       <Segment basic style={ styles.mainContainer}>
         <ButtonLink>
-          <Link to="/products" style={{ color: '#ffffff' }}>Shop The Usual Way</Link>
+          <Link to="/products" style={{ color: '#ffffff' }}>Shop Traditionally</Link>
           <Link to="/products/32" style={{ color: '#ffffff' }}>Go KUKU!</Link>
         </ButtonLink>
-        <Image style={styles.image} height="560px" fluid centered src={Tshirt} />
-          <ButtonLink>
-            <Link to="/products" style={{ color: '#ffffff' }}>Try It Now!</Link>
-            <Link to="/products/1" style={{ color: '#ffffff' }}>Go KUKU!</Link>
-          </ButtonLink>
+        <Divider hidden />
+        <Image style={styles.image} height="fill" fluid centered src={Tshirt} />
         <Container style={styles.middleContainer}>
           <Divider />
           <Grid>
@@ -117,7 +114,7 @@ const styles = {
   },
 
   middleContainer: {
-    height:'900px',
+    height:'fill',
     background: 'white',
     width: '100%',
     justifyContent: 'center',

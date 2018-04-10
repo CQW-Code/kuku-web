@@ -18,6 +18,7 @@ import {
   Image,
   Segment,
   Visibility,
+  Responsive,
 } from 'semantic-ui-react';
 import styled from 'styled-components';
 import { setHeaders } from '../actions/headers';
@@ -27,7 +28,7 @@ class Products extends React.Component {
 state = {handle: '', products: [], page:1, totalPages:0 }
 
 state = {handle: '', products: [], showProduct: true, page:1, totalPages:0, open: false }
-//Nothing
+
   componentDidMount = () => {
     const { dispatch } = this.props;
     axios.get('/api/products')
@@ -45,11 +46,11 @@ state = {handle: '', products: [], showProduct: true, page:1, totalPages:0, open
     const {user} = this.props;
     let visible = products;
     if (handle)
-      visible = products.filter( p => p.handle === handle && p.show_product == true )
+      visible = products.filter( p => p.handle === handle && p.show_product === true )
     return visible.map( p =>
-      <Card key={p.id}>
+      <Card style={styles.cardStyle} key={p.id}>
         <h2>{p.name}</h2>
-        <Image src={p.alt1} />
+        <Image style={styles.images} src={p.alt1} />
         <Card.Content>
           <Card.Header>
             {p.title}
@@ -61,37 +62,41 @@ state = {handle: '', products: [], showProduct: true, page:1, totalPages:0, open
             {p.vendor}
           </Card.Description>
         </Card.Content>
-        <Link to= {`/products/${p.id}`}>
-          <Button
-            fluid
-            color='teal'
-          >
-            View Product Details
-          </Button>
-        </Link>
+        <Responsive as="Image" minWidth={1000}>
+          <Link to= {`/products/${p.id}`}>
+            <Button
+              fluid
+              color='teal'
+            >
+              View Product Details
+            </Button>
+          </Link>
+        </Responsive>
         <Button.Group>
-          <Button
-            icon
-            labelPosition='left'
-            floated='left'
-            onClick={() =>
-              user.id === undefined ? this.onOpenModal() : this.handleHate(p.id)
-            }
-          >
-            <Icon name='thumbs down' />
-            Forget It.
-          </Button>
-          <Button
-            icon
-            labelPosition='right'
-            floated='right'
-            onClick={() =>
-              user.id === undefined ? this.onOpenModal() : this.handleLove(p.id)
-            }
-          >
-            <Icon name='heart' color='pink' />
-            Love It!
-          </Button>
+          <Responsive as="Image" minWidth={1000}>
+            <Button
+              icon
+              labelPosition='left'
+              floated='left'
+              onClick={() =>
+                user.id === undefined ? this.onOpenModal() : this.handleHate(p.id)
+              }
+            >
+              <Icon name='thumbs down' />
+              Forget It.
+            </Button>
+          </Responsive>
+            <Button
+              icon
+              labelPosition='right'
+              floated='right'
+              onClick={() =>
+                user.id === undefined ? this.onOpenModal() : this.handleLove(p.id)
+              }
+            >
+              <Icon name='heart' color='pink' />
+              Love It!
+            </Button>
         </Button.Group>
         <Modal open={open} onClose={this.onCloseModal} little textAlign='center'>
           <h2>You are not logged in!</h2>
@@ -158,7 +163,6 @@ state = {handle: '', products: [], showProduct: true, page:1, totalPages:0, open
 
   onBottomVisible=()=>{
     const page = this.state.page + 1;
-    const { dispatch } = this.props;
     axios.get(`/api/products?page=${page}&per_page=12`)
       .then( ({data}) => {
         this.setState( state => {
@@ -175,10 +179,9 @@ state = {handle: '', products: [], showProduct: true, page:1, totalPages:0, open
   onCloseModal = () => {
     this.setState({ open: false });
   };
-  
+
   render() {
-    const {handle, open} = this.state;
-    const {user} = this.props;
+    const {handle} = this.state;
     return (
       <div>
         <Segment style={styles.background}>
@@ -214,7 +217,12 @@ state = {handle: '', products: [], showProduct: true, page:1, totalPages:0, open
             continuous={true}
             onBottomVisible={()=>this.onBottomVisible()}
           >
-          <Card.Group itemsPerRow = {4}>
+          <Card.Group
+            computer={8}
+            mobile={2}
+            tablet={4}
+            centered
+            >
             {this.filterCategory()}
           </Card.Group>
         </Visibility>
@@ -226,13 +234,27 @@ state = {handle: '', products: [], showProduct: true, page:1, totalPages:0, open
 const styles = {
   background: {
     backgroundColor: "black",
-  }, scroller: {height: '80vh', overflow:'auto'}
+  },
+  scroller: {
+    height: '80vh',
+    overflow:'auto'
+  },
+  cardStyle: {
+    display: 'block',
+    width: '22vw',
+    height: '26vw',
+  },
+  images: {
+    height: '15vw',
+    alignSelf: 'center'
+  },
 }
 const style = {
   h3: {
     color: "lightblue",
   }
 }
+
 
 const mapStateToProps = (state, props) => {
   const { products } = state
