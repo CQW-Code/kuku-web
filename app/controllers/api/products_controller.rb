@@ -3,7 +3,8 @@ class Api::ProductsController < ApplicationController
   before_action :set_product, only: [:update, :delete]
 
   def index
-    render json: Product.all.shuffle
+    products = Product.all
+    render json: products.page(params[:page]).per(12)
   end
 
   def my_products

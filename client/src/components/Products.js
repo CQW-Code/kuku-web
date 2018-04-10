@@ -18,6 +18,7 @@ import {
   Image,
   Menu,
   Segment,
+  Visibility,
 } from 'semantic-ui-react';
 import styled from 'styled-components';
 import { setHeaders } from '../actions/headers';
@@ -26,7 +27,7 @@ import { addToCart } from '../actions/my_products';
 
 class Products extends React.Component {
 
-state = {handle: '', products: [], showProduct: true }
+state = {handle: '', products: [], showProduct: true, page:1, totalPages:0 }
 //Nothing
   componentDidMount = () => {
     const { dispatch } = this.props;
@@ -140,7 +141,17 @@ state = {handle: '', products: [], showProduct: true }
     })
   }
 
-
+  onBottomVisible=()=>{
+    const page = this.state.page + 1;
+    const { dispatch } = this.props; 
+    axios.get(`/api/products?page=${page}&per_page=12`)
+      .then( ({data}) => {
+        this.setState( state => {
+          return {products: [...state.products, ...data], page: state.page+1}})
+      }).catch(err => {
+        console.log(err)
+      })
+  }
   render() {
     const {handle} = this.state;
     return (
@@ -173,9 +184,15 @@ state = {handle: '', products: [], showProduct: true }
           </Button>
         }
         <Divider />
-        <Card.Group itemsPerRow = {4}>
-          {this.filterCategory()}
-        </Card.Group>
+        <Visibility
+            once = {false}
+            continuous={true}
+            onBottomVisible={()=>this.onBottomVisible()}
+          > 
+          <Card.Group itemsPerRow = {4}>
+            {this.filterCategory()}
+          </Card.Group>
+        </Visibility>
       </div>
     )
   }
@@ -184,7 +201,7 @@ state = {handle: '', products: [], showProduct: true }
 const styles = {
   background: {
     backgroundColor: "black",
-  }
+  }, scroller: {height: '80vh', overflow:'auto'}
 }
 const style = {
   h3: {

@@ -54,6 +54,7 @@ state = { active: false, products: [] }
     axios.put(`/api/hated_items/${id}`)
       .then( res => {
         dispatch(setHeaders(res.headers))
+      })
     const productListLength = products.length - 1
     if (productIndex === productListLength) {
       history.push('/products/')
