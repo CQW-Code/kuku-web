@@ -6,6 +6,7 @@ import {
 } from 'semantic-ui-react';
 import axios from 'axios';
 import { connect } from 'react-redux';
+import styled from 'styled-components';
 import { setHeaders } from '../actions/headers';
 
 class HatedItems extends React.Component {
@@ -42,11 +43,16 @@ class HatedItems extends React.Component {
     const { products } = this.state;
     return (
       <Fragment>
-        <Card.Group itemsPerRow={4}>
+        <Card.Group
+          computer={8}
+          mobile={2}
+          tablet={4}
+          centered
+        >
           { products.map( p =>
-            <Card key={p.id}>
+            <Card style={styles.cardStyle} key={p.id}>
               <h2>{p.name}</h2>
-               <Image src={p.alt1} />
+               <Image style={styles.images} src={p.alt1} />
              <Card.Content>
               <Card.Header>
               {p.title}
@@ -74,6 +80,15 @@ class HatedItems extends React.Component {
         </Card.Group>
       </Fragment>
     )
+  }
+}
+
+const styles = {
+  cardStyle: {
+    display: 'block',
+  },
+  images: {
+    height: '12vw',
   }
 }
 

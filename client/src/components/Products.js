@@ -27,8 +27,6 @@ import {getProducts} from '../actions/products';
 class Products extends React.Component {
 state = {handle: '', products: [], page:1, totalPages:0 }
 
-state = {handle: '', products: [], showProduct: true, page:1, totalPages:0, open: false }
-
   componentDidMount = () => {
     const { dispatch } = this.props;
     axios.get('/api/products')
@@ -72,32 +70,36 @@ state = {handle: '', products: [], showProduct: true, page:1, totalPages:0, open
             </Button>
           </Link>
         </Responsive>
-        <Button.Group>
-          <Responsive as="Image" minWidth={1000}>
+        <Card.Content>
             <Button
               icon
-              labelPosition='left'
+              size='big'
+              animated='fade'
               floated='left'
               onClick={() =>
                 user.id === undefined ? this.onOpenModal() : this.handleHate(p.id)
               }
             >
-              <Icon name='thumbs down' />
-              Forget It.
+            <Button.Content hidden>
+              <Icon name='thumbs down' color='red' />
+            </Button.Content>
+            <Button.Content visible>Dislike</Button.Content>
             </Button>
-          </Responsive>
             <Button
               icon
-              labelPosition='right'
+              size='big'
+              animated='fade'
               floated='right'
               onClick={() =>
                 user.id === undefined ? this.onOpenModal() : this.handleLove(p.id)
               }
             >
+            <Button.Content hidden>
               <Icon name='heart' color='pink' />
-              Love It!
+            </Button.Content>
+            <Button.Content visible>Love It!</Button.Content>
             </Button>
-        </Button.Group>
+        </Card.Content>
         <Modal open={open} onClose={this.onCloseModal} little textAlign='center'>
           <h2>You are not logged in!</h2>
           <p>
@@ -241,12 +243,9 @@ const styles = {
   },
   cardStyle: {
     display: 'block',
-    width: '22vw',
-    height: '26vw',
   },
   images: {
-    height: '15vw',
-    alignSelf: 'center'
+    height: '12vw',
   },
 }
 const style = {

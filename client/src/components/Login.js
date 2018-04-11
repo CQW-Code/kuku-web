@@ -1,6 +1,6 @@
 //React
 import React, { Component } from 'react';
-// Styles 
+// Styles
 import { Header, Form, Button, Segment, Image } from 'semantic-ui-react';
 import { connect } from 'react-redux';
 import { handleLogin } from '../actions/auth';

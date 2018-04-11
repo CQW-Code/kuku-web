@@ -2,6 +2,7 @@ import React from 'react';
 import {
   Card,
   Image,
+  Icon,
   Button,
   Container
 } from 'semantic-ui-react';
@@ -52,6 +53,7 @@ class MyProducts extends React.Component {
             computer={8}
             mobile={2}
             tablet={4}
+            centered
           >
             { products.map( p =>
               <Card style={styles.cardStyle} key={p.id}>
@@ -77,16 +79,30 @@ class MyProducts extends React.Component {
                  </Link>
                    <Button
                      icon
+                     size='large'
+                     animated='fade'
                      centered
+                     floated='left'
                      >
-                     <Link to={p.link} target="_blank">Buy it Now!</Link>
+                     <Button.Content visible>
+                       <Link to={p.link} target="_blank" style={{ color: '#4d4d4d' }}>Buy Item</Link>
+                     </Button.Content>
+                     <Button.Content hidden>
+                       <Icon name="check" color="green" />
+                     </Button.Content>
                    </Button>
                    <Button
                      icon
+                     size='large'
+                     animated='fade'
                      centered
+                     floated='right'
                      onClick={() => this.handleClick(p.id)}
                     >
-                    Remove Item
+                    <Button.Content visible>Remove Item</Button.Content>
+                    <Button.Content hidden>
+                      <Icon name="trash" />
+                    </Button.Content>
                     </Button>
                </Card.Content>
              </Card>
@@ -102,12 +118,9 @@ class MyProducts extends React.Component {
 const styles = {
   cardStyle: {
     display: 'block',
-    width: '20vw',
-    height: '30vw',
   },
   images: {
-    height: '15vw',
-    alignSelf: 'center'
+    height: '12vw',
   }
 }
 
