@@ -19,7 +19,7 @@ import {
   Grid,
 } from 'semantic-ui-react';
 import { Link } from 'react-router-dom'
-
+import Logo from '../images/home/KUKU2 (2).jpg'
 
 
 class ProductView extends React.Component{
@@ -82,6 +82,7 @@ state = { active: false, products: [], open: false }
       <div>
         <SegmentMain>
           <GridMain>
+         <Image src={Logo} className="ui centered image" size="medium" alt="Kuku Logo" style={{paddingBottom:'15px'}}/>
             <Grid container columns={1}>
             <Grid.Column>
               <Dimmer.Dimmable as={Card} dimmed={active} fluid>

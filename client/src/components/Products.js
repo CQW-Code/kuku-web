@@ -21,11 +21,12 @@ import {
   Responsive,
 } from 'semantic-ui-react';
 import styled from 'styled-components';
+import Logo from '../images/home/KUKU2 (2).jpg'
 import { setHeaders } from '../actions/headers';
 import {getProducts} from '../actions/products';
 
 class Products extends React.Component {
-state = {handle: '', products: [], page:1, totalPages:0 }
+state = {handle: '', products: [], showProduct: true, page:1, totalPages:0, open: false }
 
   componentDidMount = () => {
     const { dispatch } = this.props;
@@ -187,14 +188,8 @@ state = {handle: '', products: [], page:1, totalPages:0 }
     return (
       <div>
         <Segment style={styles.background}>
-          <Header
-            as='h3'
-            size='huge'
-            textAlign='center'
-            style={style.h3}
-          >
-            Go Kuku!
-          </Header>
+        <Image src={Logo} className="ui centered image" size="medium" alt="Kuku Logo"/>
+
         </Segment>
         <Dropdown
           placeholder='Select Category or Brand'
