@@ -4,6 +4,7 @@ import NavBar from './NavBar';
 import Login from './Login';
 import Faq from './Faq';
 import Privacy from './Privacy'
+import Terms from './Terms';
 import Register from './Register';
 import Products from './Products';
 import ProductView from './ProductView'
@@ -29,6 +30,7 @@ class App extends Component {
             <Route exact path='/login' component={Login} />
             <Route exact path='/faq' component={Faq} />
             <Route exact path='/privacy' component={Privacy} />
+            <Route exact path='/terms' component={Terms} />
             <AuthRoute exact path='/register' component={Register} />
             <Route exact path='/products' component={Products}/>
             <Route exact path='/products/:id' component={ProductView}/>
