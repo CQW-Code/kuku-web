@@ -109,25 +109,31 @@ state = { active: false, products: [], open: false }
                     <Card.Content>
                     <Button
                       icon
-                      labelPosition='left'
+                      size='big'
+                      animated='fade'
                       floated='left'
                       onClick={() =>
                         user.id === undefined ? this.onOpenModal() : this.handleHate(product.id)
                       }
                     >
-                      <Icon name='thumbs down' />
-                      Forget It.
+                      <Button.Content hidden>
+                        <Icon name='thumbs down' color='red' />
+                      </Button.Content>
+                      <Button.Content visible>Dislike</Button.Content>
                     </Button>
                     <Button
                       icon
-                      labelPosition='right'
+                      size='big'
+                      animated='fade'
                       floated='right'
                       onClick={() =>
                         user.id === undefined ? this.onOpenModal() : this.handleLove(product.id)
                       }
                     >
-                      <Icon name='heart' color='pink' />
-                      Love It!
+                      <Button.Content hidden>
+                        <Icon name='heart' color='pink' />
+                      </Button.Content>
+                      <Button.Content visible>Love It!</Button.Content>
                     </Button>
                     <Modal open={open} onClose={this.onCloseModal} little textAlign='center'>
                       <h2>You are not logged in!</h2>
