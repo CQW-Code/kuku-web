@@ -34,79 +34,85 @@ class Register extends Component {
 
     return (
       <div>
-        <AppContainerR>
-          <Segment basic>
-            <Image src={Tshirt2} />
-          </Segment>
-        </AppContainerR>
-        <AppContainer>
-          <Segment basic>
-            <Header as='h1' textAlign='center'>Register To Go Kuku</Header>
-            <Form onSubmit={this.handleSubmit}>
-              <Form.Field>
-              <label htmlFor='name'>First Name</label>
-              <input
-                id='name'
-                placeholder='First Name'
-                required
-                value={name}
-                onChange={this.handleChange}
-              />
-              </Form.Field>
-              <Form.Field>
-                <label htmlFor='email'>Email</label>
+       <MainContainer>
+          <RightContainer>
+            <Segment basic>
+              <Image src={Tshirt2} />
+            </Segment>
+          </RightContainer>
+          <LeftContainer>
+            <Segment basic>
+              <Header as='h1' textAlign='center'>Register To Go Kuku</Header>
+              <Form onSubmit={this.handleSubmit}>
+                <Form.Field>
+                <label htmlFor='name'>First Name</label>
                 <input
-                  id='email'
-                  placeholder='Email'
+                  id='name'
+                  placeholder='First Name'
                   required
-                  value={email}
+                  value={name}
                   onChange={this.handleChange}
                 />
-              </Form.Field>
-              <Form.Field>
-                <label htmlFor='password'>Password</label>
-                <input
-                  id='password'
-                  placeholder='Password'
-                  type='password'
-                  required
-                  value={password}
-                  onChange={this.handleChange}
-                />
-              </Form.Field>
-              <Form.Field>
-                <label htmlFor='passwordConfirmation'>Password Confirmation</label>
-                <input
-                  id='passwordConfirmation'
-                  placeholder='Password Confirmation'
-                  type='password'
-                  required
-                  value={passwordConfirmation}
-                  onChange={this.handleChange}
-                />
-              </Form.Field>
-              <Segment basic textAlign='center'>
-                <Button type='submit'>Submit</Button>
-              </Segment>
-            </Form>
-          </Segment>
-        </AppContainer>
+                </Form.Field>
+                <Form.Field>
+                  <label htmlFor='email'>Email</label>
+                  <input
+                    id='email'
+                    placeholder='Email'
+                    required
+                    value={email}
+                    onChange={this.handleChange}
+                  />
+                </Form.Field>
+                <Form.Field>
+                  <label htmlFor='password'>Password</label>
+                  <input
+                    id='password'
+                    placeholder='Password'
+                    type='password'
+                    required
+                    value={password}
+                    onChange={this.handleChange}
+                  />
+                </Form.Field>
+                <Form.Field>
+                  <label htmlFor='passwordConfirmation'>Password Confirmation</label>
+                  <input
+                    id='passwordConfirmation'
+                    placeholder='Password Confirmation'
+                    type='password'
+                    required
+                    value={passwordConfirmation}
+                    onChange={this.handleChange}
+                  />
+                </Form.Field>
+                <Segment basic textAlign='center'>
+                  <Button type='submit'>Submit</Button>
+                </Segment>
+              </Form>
+            </Segment>
+          </LeftContainer>
+       </MainContainer>
       </div>
     );
   }
 }
 
 //Styled Components 
-const AppContainer = styled.div`
-  background: white;
-  width: 50%;
-  float: left;
+const MainContainer = styled.div`
+  display: flex;
+  justify-content: center;
 `
-//appcontainerRight
-const AppContainerR = styled.div` 
+const LeftContainer = styled.div`
   background: white;
   width: 50%;
-  float: right;
+  display: flex;
+`
+//RightContaineright
+const RightContainer = styled.div` 
+  background: white;
+  width: 50%;
+  display: flex
 `
 
 export default connect()(Register);

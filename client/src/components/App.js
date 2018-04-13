@@ -17,6 +17,7 @@ import MyProducts from './MyProducts';
 import HatedItems from './HatedItems';
 import { Switch, Route } from 'react-router-dom';
 import { Segment } from 'semantic-ui-react';
+import Footer from './Footer'; 
 
 class App extends Component {
   render() {
@@ -40,6 +41,7 @@ class App extends Component {
             <Route component={NoMatch} />
           </Switch>
         </FetchUser>
+        <Footer />
       </Segment>
     );
   }
