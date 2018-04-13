@@ -33,10 +33,10 @@ class App extends Component {
             <Route exact path='/terms' component={Terms} />
             <AuthRoute exact path='/register' component={Register} />
             <Route exact path='/products' component={Products}/>
-            <Route exact path='/products/:id' component={ProductView}/>
-            <Route exact path='/my_hated_products' component={HatedItems} />
-            <Route exact path='/ProductView' component={ProductView}/>
-            <Route exact path='/my_products' component={MyProducts} />
+            <ProtectedRoute exact path='/products/:id' component={ProductView}/>
+            <ProtectedRoute exact path='/my_hated_products' component={HatedItems} />
+            <ProtectedRoute exact path='/ProductView' component={ProductView}/>
+            <ProtectedRoute exact path='/my_products' component={MyProducts} />
             <Route component={NoMatch} />
           </Switch>
         </FetchUser>

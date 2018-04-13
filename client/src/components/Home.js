@@ -27,17 +27,17 @@ class Home extends Component {
     return (
       <Segment basic style={ styles.mainContainer}>
         <ButtonLink>
-          <Button fluid color='teal'>
-            <Link to="/products" style={{ color: '#ffffff' }}>Shop Traditionally</Link>
+          <Button fluid color='black'>
+            <Link to="/products" style={styles.text}>Shop Traditionally</Link>
           </Button>
-          <Button fluid color='teal'>
-            <Link to="/products/32" style={{ color: '#ffffff' }}>Go KUKU!</Link>
+          <Button fluid color='black'>
+            <Link to="/products/32" style={styles.text}>Go KUKU!</Link>
           </Button>
         </ButtonLink>
         <br/>
         <Image style={styles.image} height="fill" fluid centered src={Tshirt} />
         <br/>
-        <Button compact basic fluid color='teal'>What Is KUKU?</Button>
+        <Button compact fluid color='black' style={styles.text}>What Is KUKU?</Button>
         <Container style={styles.middleContainer}>
           <Divider />
           <Grid>
@@ -112,6 +112,9 @@ class Home extends Component {
 }
 
 const styles = {
+  text: {
+    color: '#ffffff',
+  },
   main: {
     color: "#FFF",
   },

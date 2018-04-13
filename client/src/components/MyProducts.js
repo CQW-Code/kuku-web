@@ -46,6 +46,13 @@ class MyProducts extends React.Component {
 
   render() {
     const { products } = this.state;
+    if (products.length === 0)
+    return (
+      <div>
+        <h1 style={{color: '#ffffff'}} textAlign='center'>"I'm all out of love, I'm so lost without you!"</h1>
+        <p style={{color: '#ffffff'}} textAlign='center'>Go ahead and keep on shopping by<Link to='/products'> clicking here.</Link></p>
+      </div>
+    )
     return (
       <ItemsList>
         <Container>

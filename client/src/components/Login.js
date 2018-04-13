@@ -3,6 +3,7 @@ import React, { Component } from 'react';
 // Styles
 import { Header, Form, Button, Segment, Image } from 'semantic-ui-react';
 import { connect } from 'react-redux';
+import {Link} from 'react-router-dom';
 import { handleLogin } from '../actions/auth';
 import styled from 'styled-components';
 import Tshirt1 from '../images/home/tshirt.jpg';
@@ -66,6 +67,10 @@ class Login extends Component {
                 <Button type='submit'>Login</Button>
               </Segment>
             </Form>
+            <Segment basic textAlign='center'>
+              If you have never logged in before
+              Then <Link to='/register'>Register Now!</Link>
+            </Segment>
             <Segment basic textAlign='center'>
               - or -
               < br/>

@@ -19,7 +19,6 @@ import {
   Grid,
 } from 'semantic-ui-react';
 import { Link } from 'react-router-dom'
-import Logo from '../images/home/KUKU2 (2).jpg'
 
 
 class ProductView extends React.Component{
@@ -70,7 +69,7 @@ state = { active: false, products: [], open: false }
   onOpenModal = () => {
     this.setState({ open: true });
   };
-  
+
   onCloseModal = () => {
     this.setState({ open: false });
   };
@@ -82,7 +81,6 @@ state = { active: false, products: [], open: false }
       <div>
         <SegmentMain>
           <GridMain>
-         <Image src={Logo} className="ui centered image" size="medium" alt="Kuku Logo" style={{paddingBottom:'15px'}}/>
             <Grid container columns={1}>
             <Grid.Column>
               <Dimmer.Dimmable as={Card} dimmed={active} fluid>
@@ -90,13 +88,16 @@ state = { active: false, products: [], open: false }
                   <Header as='h1' inverted>
                     {product.title}
                   </Header>
+                  <Header as='h2' inverted>
+                    {product.variety}
+                  </Header>
                   <br />
                   <Header as='h2' inverted>
                     {product.variant_price}
                   </Header>
                   <br />
                   <Header as='h3' inverted>
-                    {product.vendor}
+                     Made By: {product.vendor}
                   </Header>
                   <br />
                   <Header as='h3' color='teal'>
