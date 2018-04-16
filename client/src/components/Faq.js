@@ -40,11 +40,11 @@ export default class AccordionExampleStyled extends Component {
           </Accordion.Content>
           <Accordion.Title active={activeIndex === 2} index={2} onClick={this.handleClick}>
             <Icon name='dropdown' />
-            How much does Kuku charge for its services?
+            How much does Kuku charge for it's services?
           </Accordion.Title>
           <Accordion.Content active={activeIndex === 2}>
             <p>
-              Kuku it totally free to use...that's right free-ninety-nine...the big goose egg! We are an affliate site, so our merchants pay us a commision based on sales through our site. All items available on our app are priced as per the retailer's websites and Kuku never charges a premium.
+            Kuku is totally free to use...that's right free-ninety-nine...the big goose egg! We are an affliate site, so our merchants pay us a commision based on sales through our site. All items available on our app are priced as per the retailer's websites and Kuku never charges a premium.
             </p>
           </Accordion.Content>
 
@@ -63,7 +63,7 @@ export default class AccordionExampleStyled extends Component {
           </Accordion.Title>
           <Accordion.Content active={activeIndex === 4}>
             <p>
-              All the items you love will appear in the 'My Loved Products' tab on the top right of the page in the navigation bar. from there, you can purchase the item on the affiliate company's website, clear it from your cart, or look at product details again to help you make your final decision.
+            All the items you love will appear in the 'My Loved Products' tab on the top right of the page in the navigation bar. From there, you can purchase the item on the affiliate company's website, clear it from your cart, or look at product details again to help you make your final decision.
             </p>
           </Accordion.Content>
           <Accordion.Title active={activeIndex === 5} index={5} onClick={this.handleClick}>
@@ -72,7 +72,7 @@ export default class AccordionExampleStyled extends Component {
           </Accordion.Title>
           <Accordion.Content active={activeIndex === 5}>
             <p>
-              From your 'My Products' cart, , click on the item you wish to purchase to see additional pictures and a description of the item. From there simply click on the Buy from Retailer button to be linked to the retailer's web site. All transactions are handled by the retailer.
+            From your 'My Products' cart, click on the item you wish to purchase to see additional pictures and a description of the item. From there simply click on the Buy from Retailer button to be linked to the retailer's web site. All transactions are handled by the retailer.
             </p>
           </Accordion.Content>
           <Accordion.Title active={activeIndex === 6} index={6} onClick={this.handleClick}>

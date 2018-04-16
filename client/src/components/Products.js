@@ -217,8 +217,16 @@ state = {handle: '', products: [], showProduct: true, page:1, totalPages:0, open
     } else {
     return (
       <div>
-        <Select
-          placeholder='Filter'
+        <Segment style={styles.background}>
+        <Image src={Logo} 
+          className="ui centered image" 
+          size="medium" 
+          alt="Kuku Logo"/>
+
+        </Segment>
+        <Dropdown
+          placeholder='Select Category'
+          fluid
           selection
           value={handle}
           options={this.categoryOptions()}
@@ -264,12 +272,9 @@ const styles = {
   images: {
     height: '12vw',
   },
+  
 }
-const style = {
-  h3: {
-    color: "lightblue",
-  }
-}
+
 
 
 const mapStateToProps = (state, props) => {

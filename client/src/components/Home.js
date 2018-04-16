@@ -37,7 +37,6 @@ class Home extends Component {
         <br/>
         <Image style={styles.image} height="fill" fluid centered src={Tshirt} />
         <br/>
-        <Button compact fluid color='black' style={styles.text}>What Is KUKU?</Button>
         <Container style={styles.middleContainer}>
           <Divider />
           <Grid>
@@ -47,6 +46,7 @@ class Home extends Component {
                 mobile={16}
                 tablet={8}
               >
+
                 <Responsive as="Image" minWidth={750}>
                   <Image style={styles.iPhone} centered width="35%" src={Iphone}/>
                 </Responsive>
@@ -69,7 +69,7 @@ class Home extends Component {
                 tablet={8}
               >
                 <h2>Like Tinder But Every Match Is A Winner!</h2>
-                <p>Hodor hodor - hodor... Hodor hodor hodor hodor hodor. Hodor. Hodor hodor - hodor, hodor. Hodor hodor hodor! Hodor, hodor - hodor?! Hodor hodor - hodor... Hodor hodor hodor, hodor, hodor hodor. Hodor! Hodor hodor, HODOR hodor, hodor hodor... Hodor hodor hodor. Hodor, hodor, hodor. Hodor HODOR hodor, hodor HODOR hodor, hodor hodor. Hodor. Hodor. Hodor hodor; hodor hodor? </p>
+                <p>QUACK! Hodor hodor - hodor... Hodor hodor hodor hodor hodor. Hodor. Hodor hodor - hodor, hodor. Hodor hodor hodor! Hodor, hodor - hodor?! Hodor hodor - hodor... Hodor hodor hodor, hodor, hodor hodor. Hodor! Hodor hodor, HODOR hodor, hodor hodor... Hodor hodor hodor. Hodor, hodor, hodor. Hodor HODOR hodor, hodor HODOR hodor, hodor hodor. Hodor. Hodor. Hodor hodor; hodor hodor? QUACK! </p>
               </Grid.Column>
               <Grid.Column
                 computer={8}
@@ -82,10 +82,12 @@ class Home extends Component {
               </Grid.Column>
             </Grid.Row>
           </Grid>
+         
         </Container>
         <Divider />
         <Container>
-          <AppLinks>
+  
+       <AppLinks>
             <Image
               src={appIcon}
               as='a'
@@ -105,8 +107,30 @@ class Home extends Component {
               centered
             />
           </AppLinks>
+         
+          <LinkLink
+              to= '/faq'
+            >
+             FAQs
+          </LinkLink>
+          <LinkLink
+            to= '/privacypolicy'
+          >
+            Privacy Policy
+          </LinkLink>                          
+          <LinkLink
+            to= '/terms'
+          >
+            Terms and Conditions
+          </LinkLink>
+          <LinkLink
+            to= '/settings'
+          >
+           Settings
+          </LinkLink>
         </Container>
       </Segment>
+       
     );
   }
 }
@@ -130,8 +154,33 @@ const styles = {
   },
   appIcon:{
     width: '160px'
-  }
+  },
+  btns:{
+    padding: '10px',
+    width: '10vw',
+    height: '5vh',
+  },
+  btnsTOS:{
+    padding: '10px',
+    width: '15vw',
+    height: '5vh',
+  },
 
 }
+
+const LinkLink= styled.a`
+  color: teal;
+  font-weight: bold;
+  font-size: 14px;
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  justify-content: center;
+  text-align: center;
+  cursor: pointer;
+  &:hover{
+     color: #b2d8d8;
+  }
+`
 
 export default Home;
