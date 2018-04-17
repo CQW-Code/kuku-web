@@ -7,11 +7,11 @@ class NoMatch extends Component {
     return (
       <Segment>
         <Header as='h2' textAlign='center'>
-          KUKU is looking everywhere for your page request and we cant find it. Sorry! Start over at 
-          <Link to='/'> Home</Link> !
+          KUKU is looking everywhere for your page request and we cant find it. Sorry! Start over at
+          <Link to='/'> Home</Link>!
         </Header>
-        <Image 
-          centered 
+        <Image
+          centered
           src='https://media0.giphy.com/media/xTiTnJ3BooiDs8dL7W/giphy.gif'
           height='70%'
           width='70%'

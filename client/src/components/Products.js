@@ -13,11 +13,11 @@ import {
   Card,
   Divider,
   Select,
-  Header,
   Icon,
   Image,
-  Segment,
   Visibility,
+  Segment,
+  Dropdown,
   Responsive,
   Container,
   Dimmer,
@@ -50,8 +50,8 @@ state = {handle: '', products: [], showProduct: true, page:1, totalPages:0, open
     if (products.length === 0)
     return (
       <div>
-        <h1 style={{color: '#ffffff'}} textAlign='center'>All out of products.</h1>
-        <p style={{color: '#ffffff'}} textAlign='center'>If you want to add more products, you can add them back in by <Link to='/my_hated_products'>clicking here.</Link></p>
+        <h1 style={styles.text} textAlign='center'>All out of products.</h1>
+        <p style={styles.text} textAlign='center'>If you want to add more products, you can add them back in by <Link to='/my_hated_products'>clicking here.</Link></p>
       </div>
     )
       if (handle)
@@ -181,7 +181,7 @@ state = {handle: '', products: [], showProduct: true, page:1, totalPages:0, open
 
   onBottomVisible=()=>{
     const page = this.state.page + 1;
-    axios.get(`/api/products?page=${page}&per_page=12`)
+    axios.get(`/api/products?page=${page}&per_page=24`)
       .then( ({data}) => {
         this.setState( state => {
           return {products: [...state.products, ...data], page: state.page+1}})
@@ -217,16 +217,8 @@ state = {handle: '', products: [], showProduct: true, page:1, totalPages:0, open
     } else {
     return (
       <div>
-        <Segment style={styles.background}>
-        <Image src={Logo} 
-          className="ui centered image" 
-          size="medium" 
-          alt="Kuku Logo"/>
-
-        </Segment>
-        <Dropdown
-          placeholder='Select Category'
-          fluid
+        <Select
+          placeholder='Filter'
           selection
           value={handle}
           options={this.categoryOptions()}
@@ -242,10 +234,10 @@ state = {handle: '', products: [], showProduct: true, page:1, totalPages:0, open
         }
         <Divider />
         <Visibility
-            once = {false}
-            continuous={true}
-            onBottomVisible={()=>this.onBottomVisible()}
-          >
+          once = {false}
+          continuous={true}
+          onBottomVisible={()=>this.onBottomVisible()}
+        >
           <Card.Group
             computer={8}
             mobile={2}
@@ -262,6 +254,9 @@ state = {handle: '', products: [], showProduct: true, page:1, totalPages:0, open
 }
 
 const styles = {
+  text: {
+    color: "#FFF",
+  },
   scroller: {
     height: '80vh',
     overflow:'auto'
@@ -272,7 +267,7 @@ const styles = {
   images: {
     height: '12vw',
   },
-  
+
 }
 
 

@@ -1,9 +1,9 @@
-import React, { Component } from 'react'; 
-import { Link, withRouter } from 'react-router-dom'; 
-import { connect } from 'react-redux'; 
-import {Segment, Container, Grid, List, Header, Icon } from 'semantic-ui-react';
-import styled from 'styled-components'; 
-class Footer extends Component{ 
+import React, { Component } from 'react';
+import { Link, withRouter } from 'react-router-dom';
+import { connect } from 'react-redux';
+import {Segment, Grid, List, Header, Icon } from 'semantic-ui-react';
+import styled from 'styled-components';
+class Footer extends Component{
   render(){
     return (
 
@@ -42,9 +42,9 @@ class Footer extends Component{
   }
 }
 
-// Styled Components 
+// Styled Components
 const FooterContainer = styled.div `
   style={{ padding: '2em 0em', position:'absolute', bottom:'0', width:'100%'}}
 `
 
-export default Footer; 
+export default Footer;

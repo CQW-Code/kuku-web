@@ -17,6 +17,7 @@ import {
   Header,
   Dimmer,
   Grid,
+  Divider,
 } from 'semantic-ui-react';
 import { Link } from 'react-router-dom'
 
@@ -24,6 +25,15 @@ import { Link } from 'react-router-dom'
 class ProductView extends React.Component{
 state = { active: false, products: [], open: false }
   handleShow = () => this.setState({ active: !this.state.active })
+
+  componentDidMount() {
+    const { dispatch } = this.props;
+    axios.get('/api/my_products')
+      .then( res => {
+        dispatch(setHeaders(res.headers));
+        this.setState({ products: res.data })
+      });
+  }
 
   handleLove = (id) => {
     const { dispatch, history, productIndex, products } = this.props;
@@ -166,6 +176,7 @@ state = { active: false, products: [], open: false }
             </Grid>
           </GridMain>
         </SegmentMain>
+        <Divider />
       </div>
    )
   }

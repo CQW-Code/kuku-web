@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Menu, Dropdown, Icon, Segment, Image, Divider } from 'semantic-ui-react';
+import { Menu, Dropdown, Image, Divider } from 'semantic-ui-react';
 import { Link, withRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
 import Logo from '../images/home/KUKU2 (2).jpg'
@@ -44,7 +44,6 @@ class NavBar extends Component {
 
   render() {
     let int  = this.getRandomInt()
-    let route = `/products/${int}`
     return (
       <div>
         <Menu pointing secondary>
@@ -66,7 +65,9 @@ class NavBar extends Component {
                 </Link>
               </Dropdown.Item>
               <Dropdown.Item>
+                <Link to={'/settings'}>
                   <Menu.Item icon='setting' name='Settings' />
+                </Link>
               </Dropdown.Item>
             </Dropdown.Menu>
           </Dropdown>
