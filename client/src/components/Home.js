@@ -113,27 +113,6 @@ class Home extends Component {
               centered
             />
           </AppLinks>
-
-          <LinkLink
-              to= '/faq'
-            >
-             FAQs
-          </LinkLink>
-          <LinkLink
-            to= '/privacypolicy'
-          >
-            Privacy Policy
-          </LinkLink>
-          <LinkLink
-            to= '/terms'
-          >
-            Terms and Conditions
-          </LinkLink>
-          <LinkLink
-            to= '/settings'
-          >
-           Settings
-          </LinkLink>
         </Container>
       </Segment>
 
@@ -174,19 +153,5 @@ const styles = {
 
 }
 
-const LinkLink= styled.a`
-  color: teal;
-  font-weight: bold;
-  font-size: 14px;
-  display: flex;
-  flex-direction: row;
-  width: 100%;
-  justify-content: center;
-  text-align: center;
-  cursor: pointer;
-  &:hover{
-     color: #b2d8d8;
-  }
-`
 
 export default Home;

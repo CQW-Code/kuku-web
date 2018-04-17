@@ -18,4 +18,4 @@ const products = (state = [], action ) => {
   }
 }
 
-export default products;
+export default users;

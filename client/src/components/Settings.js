@@ -10,6 +10,7 @@ import {
   Header,
   Icon,
   Image,
+  List,
   Segment,
  } from 'semantic-ui-react';
 import styled from 'styled-components';
@@ -35,7 +36,7 @@ class Settings extends React.Component {
       products: [],
       showProduct: true,
       open: false,
-      category: false,
+      // category: false,
   };
         
         
@@ -113,7 +114,7 @@ class Settings extends React.Component {
     e.preventDefault();
     const { formValues: { name, email, password }} = this.state;
     const { user, dispatch } = this.state;
-    dispatch(updateUser(user.id, { name, email, password }))
+    dispatch(updateUser( { name, email, password }))
     this.setState({
       editing: false,
       formValues: {
@@ -136,6 +137,7 @@ class Settings extends React.Component {
             style={styles.form}
             label="Name"
             name="name"
+            disabled            
             size='medium'
             value={name}
             onChange={this.handleChange}
@@ -153,6 +155,7 @@ class Settings extends React.Component {
             style={styles.form}
             label="New Password"
             name="password"
+            disabled
             size='medium'
             value={password}
             type="password"
@@ -160,6 +163,7 @@ class Settings extends React.Component {
           />
           <Button
             size='medium'
+            disabled
             style = {styles.btns}  
             inverted color='teal'>
               Update
@@ -198,7 +202,7 @@ class Settings extends React.Component {
             alt="Kuku Logo"/>
         </Segment>
         <Divider hidden />
-        <Grid columns={2} divided>       
+        <Grid columns={2}>       
           <Grid.Row>
           <Grid.Column
             width={8}>
@@ -209,46 +213,37 @@ class Settings extends React.Component {
             <Grid.Column>
             <Header
               as='h4'
-              textAlign='center'
+              textAlign='left'
               size='large'
               color='teal'>
                  I want to shop for:
               </Header> 
         
                 <Dropdown
-                  label='Shop for'
-                  placeholder='Categories'  
+                  floated='left'  
+                  placeholder='Choose a Category'  
                   style={styles.dropdown} 
                   selection 
                   value={this.state.handle}
                   options={this.categoryPreference()}
                   onChange={this.handleSelected} 
-                />         
-              </Grid.Column>
-              <Grid.Column>
-            </Grid.Column>
+                /> 
+                
+                <br/> <br/>
+           <Grid.Row centered>
+            <Header inverted as='h4' content='' />
+            <List inverted style={styles.list} link floated='left' vertical align='middle' size='massive'>
+              <List.Item as='a' href="ProductView">Go Kuku</List.Item>
+              <List.Item as='a' href="faq">FAQs</List.Item>
+              <List.Item as='a' href="privacypolicy">Privacy</List.Item>
+              <List.Item as='a' href="terms">Terms & Conditions</List.Item>
+              <List.Item as='a' href="/">Home</List.Item>
+            </List>
             </Grid.Row>
-            </Grid>
-            <LinkLink
-              to= '/faq'
-            >
-             FAQs
-          </LinkLink>
-          <LinkLink
-            to= '/privacypolicy'
-          >
-            Privacy Policy
-          </LinkLink>                          
-          <LinkLink
-            to= '/terms'
-          >
-            Terms and Conditions
-          </LinkLink>
-          <LinkLink
-            to= '/settings'
-          >
-           Settings
-          </LinkLink>
+            </Grid.Column>
+          </Grid.Row> 
+      </Grid>
+
       </Container> 
       </div>
     ) } 
@@ -269,8 +264,8 @@ class Settings extends React.Component {
       height: '12vw',
     },
     dropdown: {
-      margin: '20px 20px',
-      padding: '20px 20px',
+      margin: '20px',
+      padding: '20px',
       border: '10px solid #008080',
       height: '2vh',
       width: '25vw',
@@ -283,12 +278,6 @@ class Settings extends React.Component {
       height: '10vh',
 
     },  
-    
-    a: {
-    hover: {
-        color: 'orange'
-      },
-    },
    
     kukuHeader: {
       border: '10px solid #008080',
@@ -296,38 +285,31 @@ class Settings extends React.Component {
     form: {
       border: '6px solid #008080',
 
+    },
+    list:{
+      paddingRight: '50px',
+      marginLeft: '50px',
+      cursor: 'pointer',
+      color: 'teal',
+      fontSize: '24px',
     }
-
     
   }
 
-  const LinkLink= styled.a`
-  color: teal;
-  font-weight: bold;
-  font-size: 14px;
-  display: flex;
-  flex-direction: row;
-  width: 100%;
-  justify-content: center;
-  text-align: center;
-  cursor: pointer;
-  &:hover{
-     color: #b2d8d8;
-  }
-`
 
   
 
-const mapStateToProps = (state,props) => {
-  const {products}=state;
-    const handles = [...new Set(products.map( h => h.handle))];
-        return { user: state.user,
-                products,
-                handles,
-                product: state.products.find(
-                  (product) => product.id === parseInt(props.match.params.id),
-                ),
-              }
-            }
+  const mapStateToProps = (state, props) => {
+    const { products } = state
+    const handles = [...new Set(products.map( h => h.handle))]
+    //const vendors = [...new Set(products.map(v => v.vendor))]
+    return {
+      products,
+      handles,
+      product: state.products.find(
+        (product) => product.id === parseInt(props.match.params.id),
+      ),
+      user: state.user,
+    }}
   
 export default connect(mapStateToProps)(Settings)
