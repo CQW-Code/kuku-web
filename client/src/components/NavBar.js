@@ -48,18 +48,32 @@ class NavBar extends Component {
       <div>
         <Image src={Logo} style={styles.image} alt="Kuku Logo"/>
         <Menu pointing secondary>
-          <Dropdown style={styles.text} text='Menu' size='big' pointing>
+          <Dropdown style={styles.text} size='big' pointing>
             <Dropdown.Menu>
               <Dropdown.Item>
                 <Link to='/'>
                   <Menu.Item icon='home' name='home' />
                 </Link>
               </Dropdown.Item>
-              <Dropdown.Item>
-                <Link to='/products'>
-                  <Menu.Item icon='cart' name='View All Items' />
-                </Link>
-              </Dropdown.Item>
+              <Dropdown text='Shopping' icon='cart'>
+                <Dropdown.Menu>
+                  <Link to={'/products'}>
+                    <Dropdown.Item>All Products</Dropdown.Item>
+                  </Link>
+                  <Link to={'/mens'}>
+                    <Dropdown.Item>Mens</Dropdown.Item>
+                  </Link>
+                  <Link to={'/womens'}>
+                    <Dropdown.Item>Womens</Dropdown.Item>
+                  </Link>
+                  <Link to={'/baby'}>
+                    <Dropdown.Item>Baby</Dropdown.Item>
+                  </Link>
+                  <Link to={'/accessories'}>
+                    <Dropdown.Item>Accessories</Dropdown.Item>
+                  </Link>
+                </Dropdown.Menu>
+              </Dropdown>
               <Dropdown.Item>
                 <Link to={`/products/${int}`}>
                   <Menu.Item icon='trophy' name='Go KUKU!' />
@@ -92,7 +106,7 @@ const styles = {
     backgroundColor: "black",
   },
   image: {
-    marginLeft: '45%',
+    verticalAlign: 'middle',
     height: '5%',
     width: '10%',
   }

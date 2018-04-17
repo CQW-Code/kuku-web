@@ -13,16 +13,16 @@ import Home from './Home';
 import ProtectedRoute from './ProtectedRoute';
 import AuthRoute from './AuthRoute';
 import FetchUser from './FetchUser';
+import Mens from './Mens';
+import Womens from './Womens';
+import Baby from './Baby';
+import Accessories from './Accessories';
 import MyProducts from './MyProducts';
 import HatedItems from './HatedItems';
 import Settings from './Settings';
-import Mens from './Mens';
-import Womens from './Womens';
-import Accessories from './Accessories';
-import Baby from './Baby';
 import { Switch, Route } from 'react-router-dom';
 import { Segment } from 'semantic-ui-react';
-import Footer from './Footer'; 
+import Footer from './Footer';
 
 
 class App extends Component {

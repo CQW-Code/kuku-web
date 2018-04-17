@@ -3,41 +3,48 @@ import React from 'react';
 import Modal from 'react-responsive-modal';
 import {
   Button,
-  Card, 
+  Card,
   Container,
   Header,
   Icon,
   Image,
   Responsive,
-  Segment,
-  Visibility,
+  Dimmer,
+  Loader,
 } from 'semantic-ui-react';
 import axios from 'axios';
+import {connect} from 'react-redux';
 import {setHeaders} from '../actions/headers';
 import {Link} from 'react-router-dom';
-import Logo from '../images/home/KUKU2 (2).jpg'
+import {getProducts} from '../actions/products';
+
 
 
  class Womens extends React.Component {
 
   state = {
     products: [],
-    showProduct: true, 
-    page:1, 
-    totalPages:0, 
-    open: false
+    showProduct: true,
+    page:1,
+    totalPages:0,
+    open: false,
+    loading: true,
   }
 
-  componentDidMount() {
+  componentDidMount = () => {
+    const { dispatch } = this.props;
     axios.get('/api/products')
       .then( res => {
+        dispatch(setHeaders(res.headers))
         this.setState({ products: res.data })
-        console.log(this.state.products)
-    }).catch(err => {
-      console.log(err)
+        dispatch(getProducts(res.products));
+    }).then(() => {
+      this.setState({loading: false});
     })
   }
-     handleLove = (id) => {
+
+
+  handleLove = (id) => {
     const { products } = this.state;
     const { dispatch } = this.props;
     axios.put(`/api/products/${id}`)
@@ -52,7 +59,7 @@ import Logo from '../images/home/KUKU2 (2).jpg'
     })
   }
 
-   handleHate = (id) => {
+  handleHate = (id) => {
     const { products } = this.state;
     const { dispatch } = this.props;
     axios.put(`/api/hated_items/${id}`)
@@ -67,6 +74,14 @@ import Logo from '../images/home/KUKU2 (2).jpg'
     })
   }
 
+  loadingMessage = () => {
+    return (
+      <Dimmer active style={{height: '100vh'}}>
+        <Loader>Loading</Loader>
+      </Dimmer>
+    );
+  }
+
   onOpenModal = () => {
     this.setState({ open: true });
   };
@@ -75,23 +90,12 @@ import Logo from '../images/home/KUKU2 (2).jpg'
     this.setState({ open: false });
   };
 
-  onBottomVisible=()=>{
-    const page = this.state.page + 1;
-    axios.get(`/api/products?page=${page}&per_page=12`)
-      .then( ({data}) => {
-        this.setState( state => {
-          return {products: [...state.products, ...data], page: state.page+1}})
-      }).catch(err => {
-        console.log(err)
-      })
-    }
-
   filterWomen = (handle) => {
     const { products, open } = this.state;
     const {user}= this.props;
 
     return products.map( p => {
-      if(p.handle === 'Womens' && p.show_product === true){
+      if(p.handle === "Womens" && p.show_product === true){
         return(
           <Card style={styles.cardStyle} key={p.id}>
             <h2>{p.name}</h2>
@@ -118,39 +122,39 @@ import Logo from '../images/home/KUKU2 (2).jpg'
             </Link>
           </Responsive>
           <Card.Content>
-            <Button
-              icon
-              size='big'
-              animated='fade'
-              floated='left'
-              onClick={() =>
-                user.id === undefined ? this.onOpenModal() : this.handleHate(p.id)
-              }
-            >
+              <Button
+                icon
+                size='big'
+                animated='fade'
+                floated='left'
+                onClick={() =>
+                  user.id === undefined ? this.onOpenModal() : this.handleHate(p.id)
+                }
+              >
               <Button.Content hidden>
-              <Icon name='thumbs down' color='red' />
-            </Button.Content>
+                <Icon name='thumbs down' color='red' />
+              </Button.Content>
               <Button.Content visible>Dislike</Button.Content>
-            </Button>
-            <Button
-              icon
-              size='big'
-              animated='fade'
-              floated='right'
-              onClick={() =>
-                user.id === undefined ? this.onOpenModal() : this.handleLove(p.id)
-              }
-            >
-            <Button.Content hidden>
-              <Icon name='heart' color='pink' />
-            </Button.Content>
-            <Button.Content visible>Love It!</Button.Content>
-          </Button>
+              </Button>
+              <Button
+                icon
+                size='big'
+                animated='fade'
+                floated='right'
+                onClick={() =>
+                  user.id === undefined ? this.onOpenModal() : this.handleLove(p.id)
+                }
+              >
+                <Button.Content hidden>
+                  <Icon name='heart' color='pink' />
+                </Button.Content>
+                <Button.Content visible>Love It!</Button.Content>
+              </Button>
           </Card.Content>
           <Modal open={open} onClose={this.onCloseModal} little textAlign='center'>
             <h2>You are not logged in!</h2>
             <p>
-              Unless you have an account with KUKU, we can't remember what products you like! For the best user experience,
+              Unless you have an account with KUKU, we cannot remember what products you like! For the best user experience,
               please register and login.
             </p>
             <Link to={'/register'}>
@@ -167,52 +171,62 @@ import Logo from '../images/home/KUKU2 (2).jpg'
   }
 
   render() {
-    return(
-      <Container>
-        <Segment style={styles.background}>
-          <Image src={Logo} 
-            className="ui centered image" 
-            size="medium" 
-            alt="Kuku Logo"/>
-        </Segment>
-         <Visibility
-          once = {false}
-          continuous={true}
-          onBottomVisible={()=>this.onBottomVisible()}
-        >
-        <Header
-          inverted color = 'teal'
-          textAlign='center'
-          size='huge'>
-            Women's Collection
-        </Header>
-        <Card.Group 
-          computer={8}
-          mobile={2}
-          tablet={4}
-          centered>
-            {this.filterWomen()}
-        </Card.Group>
-        </Visibility>
-      </Container>
-    )
+    const {loading} = this.state;
+    if (loading) {
+      return (
+        <Container>
+          {this.loadingMessage()}
+        </Container>
+      )
+    } else {
+      return(
+        <Container>
+          <Header
+            inverted color = 'teal'
+            textAlign='center'
+            size='huge'>
+              Womens
+          </Header>
+          <Card.Group
+            computer={8}
+            mobile={2}
+            tablet={4}
+            centered>
+              {this.filterWomen()}
+          </Card.Group>
+       </Container>
+      )
+    }
   }
-} 
-
-const styles = {
-  background: {
-    backgroundColor: "black",
-  },
-  scroller: {
-    height: '80vh',
-    overflow:'auto'
-  },
-  cardStyle: {
-    display: 'block',
-  },
-  images: {
-    height: '12vw',
-  },
-  
 }
-export default Womens;
+
+  const styles = {
+    background: {
+      backgroundColor: "black",
+    },
+    scroller: {
+      height: '80vh',
+      overflow:'auto'
+    },
+    cardStyle: {
+      display: 'block',
+    },
+    images: {
+      height: '12vw',
+    },
+  }
+
+  const mapStateToProps = (state, props) => {
+    const { products } = state
+    const handles = [...new Set(products.map( h => h.handle))]
+    //const vendors = [...new Set(products.map(v => v.vendor))]
+    return {
+      products,
+      handles,
+      product: state.products.find(
+        (product) => product.id === parseInt(props.match.params.id),
+      ),
+      user: state.user,
+    }
+  }
+export default connect(mapStateToProps)(Womens);

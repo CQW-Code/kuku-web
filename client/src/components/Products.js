@@ -15,16 +15,12 @@ import {
   Select,
   Icon,
   Image,
-  Visibility,
-  Segment,
-  Dropdown,
   Responsive,
   Container,
   Dimmer,
   Loader,
 } from 'semantic-ui-react';
 import styled from 'styled-components';
-import Logo from '../images/home/KUKU2 (2).jpg';
 import { setHeaders } from '../actions/headers';
 import {getProducts} from '../actions/products';
 
@@ -179,17 +175,6 @@ state = {handle: '', products: [], showProduct: true, page:1, totalPages:0, open
     })
   }
 
-  onBottomVisible=()=>{
-    const page = this.state.page + 1;
-    axios.get(`/api/products?page=${page}&per_page=24`)
-      .then( ({data}) => {
-        this.setState( state => {
-          return {products: [...state.products, ...data], page: state.page+1}})
-      }).catch(err => {
-        console.log(err)
-      })
-    }
-
   onOpenModal = () => {
     this.setState({ open: true });
   };
@@ -217,13 +202,6 @@ state = {handle: '', products: [], showProduct: true, page:1, totalPages:0, open
     } else {
     return (
       <div>
-        <Select
-          placeholder='Filter'
-          selection
-          value={handle}
-          options={this.categoryOptions()}
-          onChange={this.handleSelect}
-        />
         { handle &&
           <Button
             color= 'black'
@@ -233,11 +211,6 @@ state = {handle: '', products: [], showProduct: true, page:1, totalPages:0, open
           </Button>
         }
         <Divider />
-        <Visibility
-          once = {false}
-          continuous={true}
-          onBottomVisible={()=>this.onBottomVisible()}
-        >
           <Card.Group
             computer={8}
             mobile={2}
@@ -246,11 +219,10 @@ state = {handle: '', products: [], showProduct: true, page:1, totalPages:0, open
             >
             {this.filterCategory()}
           </Card.Group>
-        </Visibility>
       </div>
-    )
-  }
+      )
     }
+  }
 }
 
 const styles = {
