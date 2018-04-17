@@ -33,65 +33,65 @@ class Login extends Component {
 
     return (
       <div>
-       <MainContainer>
-          <RightContainer>
-            <Segment basic>
-              <Image src={Tshirt1} />
-            </Segment>
-          </RightContainer>
-          <LeftContainer>
-            <Segment basic>
-              <Header as='h1' textAlign='center'>Go Kuku Login</Header>
-              <Form onSubmit={this.handleSubmit}>
-                <Form.Field>
-                  <label htmlFor='email'>Email</label>
-                  <input
-                    id='email'
-                    placeholder='Email'
-                    required
-                    value={email}
-                    onChange={this.handleChange}
-                  />
-                </Form.Field>
-                <Form.Field>
-                  <label htmlFor='password'>Password</label>
-                  <input
-                    id='password'
-                    placeholder='Password'
-                    type='password'
-                    required
-                    value={password}
-                    onChange={this.handleChange}
-                  />
-                </Form.Field>
-                <Segment basic textAlign='center'>
-                  <Button type='submit'>Login</Button>
-                </Segment>
-              </Form>
+      <MainContainer>
+        <FormContainer>
+          <Segment basic>
+            <Header as='h1' textAlign='center'>Go Kuku Login</Header>
+            <Form onSubmit={this.handleSubmit}>
+              <Form.Field>
+                <label htmlFor='email'>Email</label>
+                <input
+                  id='email'
+                  placeholder='Email'
+                  required
+                  value={email}
+                  onChange={this.handleChange}
+                />
+              </Form.Field>
+              <Form.Field>
+                <label htmlFor='password'>Password</label>
+                <input
+                  id='password'
+                  placeholder='Password'
+                  type='password'
+                  required
+                  value={password}
+                  onChange={this.handleChange}
+                />
+              </Form.Field>
               <Segment basic textAlign='center'>
-                - or -
-                < br/>
-                login with
+                <Button type='submit'>Login</Button>
               </Segment>
-              <Segment basic textAlign='center'>
-                <Button
-                  class="huge ui facebook button"
-                  style={stylesfb.btn}
-                >
-                  <i class="facebook icon"></i>
-                  Facebook
-                </Button>
-                <Button
-                  class="huge ui twitter button"
-                  style={stylestw.btn}
-                >
-                  <i class="twitter icon"></i>
-                  Twitter
-                </Button>
-              </Segment>
+            </Form>
+            <Segment basic textAlign='center'>
+              - or -
+              < br/>
+              login with
             </Segment>
-          </LeftContainer>
-       </MainContainer>
+            <Segment basic textAlign='center'>
+              <Button
+                class="huge ui facebook button"
+                style={stylesfb.btn}
+              >
+                <i class="facebook icon"></i>
+                Facebook
+              </Button>
+              <Button
+                class="huge ui twitter button"
+                style={stylestw.btn}
+              >
+                <i class="twitter icon"></i>
+                Twitter
+              </Button>
+            </Segment>
+          </Segment>
+        </FormContainer>
+        <ImageContainer>
+          <Image src={Tshirt1}/>
+        </ImageContainer>
+      </MainContainer>
+       <br/>
+       <br/>
       </div>
     );
   }
@@ -103,18 +103,14 @@ const MainContainer = styled.div`
   display: flex;
   justify-content: center;
 `
-const LeftContainer = styled.div`
+const FormContainer = styled.div`
   background: white;
   width: 50%;
-  display: flex;
-  
 `
-//appcontainerRight
-const RightContainer = styled.div`
+
+const ImageContainer = styled.div`
   background: white;
   width: 50%;
-  display: flex;
-  
 `
 const stylestw = {
   btn: {

@@ -35,12 +35,7 @@ class Register extends Component {
     return (
       <div>
        <MainContainer>
-          <RightContainer>
-            <Segment basic>
-              <Image src={Tshirt2} />
-            </Segment>
-          </RightContainer>
-          <LeftContainer>
+          <FormContainer>
             <Segment basic>
               <Header as='h1' textAlign='center'>Register To Go Kuku</Header>
               <Form onSubmit={this.handleSubmit}>
@@ -91,8 +86,13 @@ class Register extends Component {
                 </Segment>
               </Form>
             </Segment>
-          </LeftContainer>
+          </FormContainer>
+          <ImageContainer>
+            <Image src={Tshirt2} />
+          </ImageContainer>
        </MainContainer>
+       <br />
+       <br />
       </div>
     );
   }
@@ -103,16 +103,13 @@ const MainContainer = styled.div`
   display: flex;
   justify-content: center;
 `
-const LeftContainer = styled.div`
+const FormContainer = styled.div`
   background: white;
   width: 50%;
-  display: flex;
 `
-//RightContaineright
-const RightContainer = styled.div` 
+const ImageContainer = styled.div`
   background: white;
   width: 50%;
-  display: flex
 `
 
 export default connect()(Register);

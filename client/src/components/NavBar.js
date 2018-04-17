@@ -46,6 +46,7 @@ class NavBar extends Component {
     let int  = this.getRandomInt()
     return (
       <div>
+        <Image src={Logo} style={styles.image} alt="Kuku Logo"/>
         <Menu pointing secondary>
           <Dropdown style={styles.text} text='Menu' size='big' pointing>
             <Dropdown.Menu>
@@ -71,7 +72,6 @@ class NavBar extends Component {
               </Dropdown.Item>
             </Dropdown.Menu>
           </Dropdown>
-          <Image src={Logo} style={styles.image} alt="Kuku Logo"/>
           { this.rightNavs() }
         </Menu>
       </div>
