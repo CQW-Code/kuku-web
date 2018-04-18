@@ -1,20 +1,18 @@
 import React, { Component, Fragment } from 'react'
 import { Accordion, Icon, Header } from 'semantic-ui-react'
 
-export default class Terms extends Component {
+class Terms extends Component {
   state = { activeIndex: 0 }
 
   handleClick = (e, titleProps) => {
     const { index } = titleProps
     const { activeIndex } = this.state
     const newIndex = activeIndex === index ? -1 : index
-
     this.setState({ activeIndex: newIndex })
   }
 
   render() {
     const { activeIndex } = this.state
-
     return (
       <Fragment>
         <Header as='h1' basic inverted textAlign='center' color='teal'> KUKU Terms and Conditions</Header>
@@ -231,3 +229,5 @@ export default class Terms extends Component {
     )
   }
 }
+
+export default Terms;

@@ -60,17 +60,17 @@ class HatedItems extends React.Component {
           { products.map( p =>
             <Card style={styles.cardStyle} key={p.id}>
               <h2>{p.name}</h2>
-               <Image style={styles.images} src={p.alt1} />
-             <Card.Content>
-              <Card.Header>
-              {p.title}
-              </Card.Header>
-              <Card.Header>
-               {p.variant_price}
-              </Card.Header>
-               <Card.Description>
+              <Image style={styles.images} src={p.alt1} />
+              <Card.Content>
+                <Card.Header>
+                  {p.title}
+                </Card.Header>
+                <Card.Header>
+                  {p.variant_price}
+                </Card.Header>
+                <Card.Description>
                  {p.vendor}
-               </Card.Description>
+                </Card.Description>
                 <Button.Group>
                  <Button
                    icon
@@ -78,13 +78,13 @@ class HatedItems extends React.Component {
                    floated='right'
                    onClick={() => this.handleClick(p.id)}
                   >
-                  Return Item to List
+                    Return Item to List
                   </Button>
                 </Button.Group>
              </Card.Content>
            </Card>
-            )
-          }
+          )
+        }
         </Card.Group>
       </Fragment>
     )

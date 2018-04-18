@@ -21,9 +21,8 @@ import {
 } from 'semantic-ui-react';
 import { Link } from 'react-router-dom'
 
-
 class ProductView extends React.Component{
-state = { active: false, products: [], open: false }
+  state = { active: false, products: [], open: false }
   handleShow = () => this.setState({ active: !this.state.active })
 
   componentDidMount() {
@@ -86,8 +85,8 @@ state = { active: false, products: [], open: false }
 
   render() {
     const { product={}, user} = this.props;
-     const { active, open } = this.state
-  return(
+    const { active, open } = this.state
+    return(
       <div>
         <SegmentMain>
           <GridMain>
@@ -161,26 +160,26 @@ state = { active: false, products: [], open: false }
                     </Modal>
                   </Card.Content>
                 </Card>
-            </Dimmer.Dimmable>
-            <Button.Group compact>
-              <Button onClick={this.handleShow}>
-                { active === false
-                  ?
-                  "Tell Me More"
-                  :
-                  "X"
-                }
-              </Button>
-            </Button.Group>
-              </Grid.Column>
-            </Grid>
-          </GridMain>
-        </SegmentMain>
-        <Divider />
-      </div>
-   )
-  }
+              </Dimmer.Dimmable>
+              <Button.Group compact>
+                <Button onClick={this.handleShow}>
+                  { active === false
+                    ?
+                    "Tell Me More"
+                    :
+                    "X"
+                  }
+                </Button>
+              </Button.Group>
+            </Grid.Column>
+          </Grid>
+        </GridMain>
+      </SegmentMain>
+      <Divider />
+    </div>
+  )}
 }
+
 const GridMain = styled.div`
   width: 58%
   height: 58%

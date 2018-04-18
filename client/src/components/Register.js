@@ -8,10 +8,9 @@ import { setFlash } from '../actions/flash';
 import styled from 'styled-components';
 import Tshirt2 from '../images/home/tshirt2.jpg';
 
-
-
 class Register extends Component {
   state = {name:'', email: '', password: '', passwordConfirmation: '' };
+  
   handleSubmit = event => {
     event.preventDefault();
     const { name, email, password, passwordConfirmation } = this.state;
@@ -113,21 +112,3 @@ const ImageContainer = styled.div`
 `
 
 export default connect()(Register);
-
-// tshirts state,and function to display random images if we want to fix bug:
-
-// import Tshirt1 from '../images/home/tshirt.jpg';
-// import Tshirt3 from '../images/home/tshirt3.jpg';
-// import Tshirt4 from '../images/home/tshirt4.jpg';
-
-// randomImages:[Tshirt1, Tshirt2, Tshirt3, Tshirt4]}
-
-
-// displayImage = () =>{
-//   let num = Math.floor(Math.random() * 3);
-//   let image = this.state.randomImages[num];
-//   return (
-//     <Image src={image}/>
-//   ) 
-// }
-

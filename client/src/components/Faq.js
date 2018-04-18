@@ -1,7 +1,7 @@
 import React, { Component, Fragment } from 'react'
 import { Accordion, Icon, Header } from 'semantic-ui-react'
 
-export default class AccordionExampleStyled extends Component {
+class FAQ extends Component {
   state = { activeIndex: 0 }
 
   handleClick = (e, titleProps) => {
@@ -116,3 +116,5 @@ export default class AccordionExampleStyled extends Component {
     )
   }
 }
+
+export default FAQ;

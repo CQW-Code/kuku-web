@@ -1,20 +1,18 @@
 import React, { Component, Fragment } from 'react'
 import { Accordion, Icon, Header } from 'semantic-ui-react'
 
-export default class Privacy extends Component {
+class Privacy extends Component {
   state = { activeIndex: 0 }
 
   handleClick = (e, titleProps) => {
     const { index } = titleProps
     const { activeIndex } = this.state
     const newIndex = activeIndex === index ? -1 : index
-
     this.setState({ activeIndex: newIndex })
   }
 
   render() {
     const { activeIndex } = this.state
-
     return (
       <Fragment>
         <Header as='h1' basic inverted textAlign='center' color='teal'> Terms of Privacy </Header>
@@ -190,3 +188,5 @@ export default class Privacy extends Component {
     )
   }
 }
+
+export default Privacy;

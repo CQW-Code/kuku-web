@@ -44,14 +44,13 @@ state = {handle: '', products: [], showProduct: true, page:1, totalPages:0, open
     const {user} = this.props;
     let visible = products;
     if (products.length === 0)
-    return (
-      <div>
-        <h1 style={styles.text} textAlign='center'>All out of products.</h1>
-        <p style={styles.text} textAlign='center'>If you want to add more products, you can add them back in by <Link to='/my_hated_products'>clicking here.</Link></p>
-      </div>
-    )
-      if (handle)
-        visible = products.filter( p => p.handle === handle && p.show_product === true )
+      return (
+        <div>
+          <h1 style={styles.text} textAlign='center'>All out of products.</h1>
+          <p style={styles.text} textAlign='center'>If you want to add more products, you can add them back in by <Link to='/my_hated_products'>clicking here.</Link></p>
+        </div>
+      ) if (handle)
+      visible = products.filter( p => p.handle === handle && p.show_product === true )
       return visible.map( p =>
         <Card style={styles.cardStyle} key={p.id}>
           <h2>{p.name}</h2>
@@ -83,34 +82,34 @@ state = {handle: '', products: [], showProduct: true, page:1, totalPages:0, open
             </Link>
           </Responsive>
           <Card.Content>
-              <Button
-                icon
-                size='big'
-                animated='fade'
-                floated='left'
-                onClick={() =>
-                  user.id === undefined ? this.onOpenModal() : this.handleHate(p.id)
-                }
-              >
+            <Button
+              icon
+              size='big'
+              animated='fade'
+              floated='left'
+              onClick={() =>
+                user.id === undefined ? this.onOpenModal() : this.handleHate(p.id)
+              }
+            >
               <Button.Content hidden>
                 <Icon name='thumbs down' color='red' />
               </Button.Content>
               <Button.Content visible>Dislike</Button.Content>
-              </Button>
-              <Button
-                icon
-                size='big'
-                animated='fade'
-                floated='right'
-                onClick={() =>
-                  user.id === undefined ? this.onOpenModal() : this.handleLove(p.id)
-                }
-              >
+            </Button>
+            <Button
+              icon
+              size='big'
+              animated='fade'
+              floated='right'
+              onClick={() =>
+                user.id === undefined ? this.onOpenModal() : this.handleLove(p.id)
+              }
+            >
               <Button.Content hidden>
                 <Icon name='heart' color='pink' />
               </Button.Content>
               <Button.Content visible>Love It!</Button.Content>
-              </Button>
+            </Button>
           </Card.Content>
           <Modal open={open} onClose={this.onCloseModal} little textAlign='center'>
             <h2>You are not logged in!</h2>
@@ -241,8 +240,6 @@ const styles = {
   },
 
 }
-
-
 
 const mapStateToProps = (state, props) => {
   const { products } = state

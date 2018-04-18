@@ -22,10 +22,7 @@ import {setHeaders} from '../actions/headers';
 import { updateUser } from '../actions/user';
 import {getProducts} from '../actions/products';
 
-
-class Settings extends React.Component {
-
-  
+class Settings extends React.Component { 
   state = { 
       editing: false,
       formValues: { 
@@ -38,21 +35,20 @@ class Settings extends React.Component {
       open: false,
       // category: false,
   };
-        
-        
+
   componentDidMount() {
     const { user: { name, email, password }, handle} = this.props
     this.setState({ formValues: { name, email, password },handle })
     const { dispatch } = this.props;
     axios.get('/api/products')
-    .then( res => {
-      dispatch(setHeaders(res.headers))
-      this.setState({ products: res.data })
-      dispatch(getProducts(res.products));
-  })
-}
+      .then( res => {
+        dispatch(setHeaders(res.headers))
+        this.setState({ products: res.data })
+        dispatch(getProducts(res.products));
+    })
+  }
 
-//Profile view on left side
+  //Profile view on left side
   profileView = () => {
     const { user } = this.props;
     return (
@@ -74,26 +70,27 @@ class Settings extends React.Component {
           style= {styles.kukuHeader}
         >
           <Icon 
-          size='large'
-          name='settings' />
+            size='large'
+            name='settings' 
+          />
             Account Settings
           <Header.Subheader>
             Manage your settings & preferences
           </Header.Subheader>
-          </Header>
-          <Header 
-            as="h5"
-            color='teal'
-            size='large'>
-             Name: { user.name}          
-           </Header>
-           <Header 
-            as="h5"
-            color='teal'
-            size='large'
-            >
-             EMail:  {user.email}
-           </Header>
+        </Header>
+        <Header 
+          as="h5"
+          color='teal'
+          size='large'>
+          Name: { user.name}          
+        </Header>
+        <Header 
+          as="h5"
+          color='teal'
+          size='large'
+        >
+          Email:  {user.email}
+       </Header>
      </div>
     )
   }
@@ -119,7 +116,6 @@ class Settings extends React.Component {
       editing: false,
       formValues: {
         ...this.state.formValues,
-    
       }
     })
   }
@@ -191,7 +187,6 @@ class Settings extends React.Component {
   }
 
   render() {
-    //const {handle} = this.state;
     return (
       <div>
       <Container>
@@ -199,26 +194,26 @@ class Settings extends React.Component {
           <Image src={Logo} 
             className="ui centered image" 
             size="medium" 
-            alt="Kuku Logo"/>
+            alt="Kuku Logo"
+          />
         </Segment>
         <Divider hidden />
         <Grid columns={2}>       
           <Grid.Row>
-          <Grid.Column
-            width={8}>
-              {this.profileView()}
-              <br/>
-              {this.editView()} 
-            </Grid.Column>
-            <Grid.Column>
-            <Header
-              as='h4'
-              textAlign='left'
-              size='large'
-              color='teal'>
-                 I want to shop for:
-              </Header> 
-        
+            <Grid.Column
+              width={8}>
+                {this.profileView()}
+                <br/>
+                {this.editView()} 
+              </Grid.Column>
+              <Grid.Column>
+                <Header
+                  as='h4'
+                  textAlign='left'
+                  size='large'
+                  color='teal'>
+                    I want to shop for:
+                </Header> 
                 <Dropdown
                   floated='left'  
                   placeholder='Choose a Category'  
@@ -228,88 +223,81 @@ class Settings extends React.Component {
                   options={this.categoryPreference()}
                   onChange={this.handleSelected} 
                 /> 
-                
-                <br/> <br/>
-           <Grid.Row centered>
-            <Header inverted as='h4' content='' />
-            <List inverted style={styles.list} link floated='left' vertical align='middle' size='massive'>
-              <List.Item as='a' href="ProductView">Go Kuku</List.Item>
-              <List.Item as='a' href="faq">FAQs</List.Item>
-              <List.Item as='a' href="privacypolicy">Privacy</List.Item>
-              <List.Item as='a' href="terms">Terms & Conditions</List.Item>
-              <List.Item as='a' href="/">Home</List.Item>
-            </List>
-            </Grid.Row>
-            </Grid.Column>
-          </Grid.Row> 
-      </Grid>
-
-      </Container> 
+                <br/>
+                <br/>
+                <Grid.Row centered>
+                  <Header inverted as='h4' content='' />
+                  <List inverted style={styles.list} link floated='left' vertical align='middle' size='massive'>
+                    <List.Item as='a' href="ProductView">Go Kuku</List.Item>
+                    <List.Item as='a' href="faq">FAQs</List.Item>
+                    <List.Item as='a' href="privacypolicy">Privacy</List.Item>
+                    <List.Item as='a' href="terms">Terms & Conditions</List.Item>
+                    <List.Item as='a' href="/">Home</List.Item>
+                  </List>
+                </Grid.Row>
+              </Grid.Column>
+            </Grid.Row> 
+          </Grid>
+        </Container> 
       </div>
-    ) } 
+    )
+  } 
+}
+
+const styles = {
+  background: {
+    backgroundColor: "black",
+  },
+  scroller: {
+    height: '80vh',
+    overflow:'auto'
+  },
+  cardStyle: {
+    display: 'block',
+  },
+  images: {
+    height: '12vw',
+  },
+  dropdown: {
+    margin: '20px',
+    padding: '20px',
+    border: '10px solid #008080',
+    height: '2vh',
+    width: '25vw',
+  }	,
+  btns: {
+    padding: '20px 40px',
+    margin: '20px',
+    marginLeft: '50px',
+    width: '15vw',
+    height: '10vh',
+  },  
+  kukuHeader: {
+    border: '10px solid #008080',
+  },
+  form: {
+    border: '6px solid #008080',
+  },
+  list:{
+    paddingRight: '50px',
+    marginLeft: '50px',
+    cursor: 'pointer',
+    color: 'teal',
+    fontSize: '24px',
   }
-
-  const styles = {
-    background: {
-      backgroundColor: "black",
-    },
-    scroller: {
-      height: '80vh',
-      overflow:'auto'
-    },
-    cardStyle: {
-      display: 'block',
-    },
-    images: {
-      height: '12vw',
-    },
-    dropdown: {
-      margin: '20px',
-      padding: '20px',
-      border: '10px solid #008080',
-      height: '2vh',
-      width: '25vw',
-    }	,
-    btns: {
-      padding: '20px 40px',
-      margin: '20px',
-      marginLeft: '50px',
-      width: '15vw',
-      height: '10vh',
-
-    },  
-   
-    kukuHeader: {
-      border: '10px solid #008080',
-    },
-    form: {
-      border: '6px solid #008080',
-
-    },
-    list:{
-      paddingRight: '50px',
-      marginLeft: '50px',
-      cursor: 'pointer',
-      color: 'teal',
-      fontSize: '24px',
-    }
-    
+}
+ 
+const mapStateToProps = (state, props) => {
+  const { products } = state
+  const handles = [...new Set(products.map( h => h.handle))]
+  return {
+    products,
+    handles,
+    product: state.products.find(
+      (product) => product.id === parseInt(props.match.params.id),
+    ),
+    user: state.user,
   }
-
-
-  
-
-  const mapStateToProps = (state, props) => {
-    const { products } = state
-    const handles = [...new Set(products.map( h => h.handle))]
-    //const vendors = [...new Set(products.map(v => v.vendor))]
-    return {
-      products,
-      handles,
-      product: state.products.find(
-        (product) => product.id === parseInt(props.match.params.id),
-      ),
-      user: state.user,
-    }}
+}
   
 export default connect(mapStateToProps)(Settings)
