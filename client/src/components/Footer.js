@@ -51,7 +51,7 @@ class Footer extends Component{
                 <List link inverted>
                   <List.Item as='a' href="ProductView">Go Kuku</List.Item>
                   <List.Item as='a' href="faq">Frequently Asked Questions</List.Item>
-                  <List.Item as='a' href="privacy">Privacy</List.Item>
+                  <List.Item as='a' href="privacypolicy">Privacy</List.Item>
                   <List.Item as='a' href="register">Register now!</List.Item>
                 </List>
               </Grid.Column>
