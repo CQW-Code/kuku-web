@@ -149,6 +149,7 @@ class Mens extends React.Component {
                 </Button.Content>
                 <Button.Content visible>Love It!</Button.Content>
               </Button>
+<<<<<<< HEAD
             </Card.Content>
             <Modal open={open} onClose={this.onCloseModal} little textAlign='center'>
               <h2>You are not logged in!</h2>
@@ -168,6 +169,31 @@ class Mens extends React.Component {
       }
     })
   }
+=======
+          </Card.Content>
+          <Modal open={open} onClose={this.onCloseModal} little textAlign='center'>
+            <h2>You are not logged in!</h2>
+            <p>
+              Unless you have an account with KUKU, we cannot remember what products you like! For the best user experience,
+              please register and login.
+            </p>
+            <Link to={'/register'}>
+              <Button basic color='teal'>Register</Button>
+            </Link>
+            <Link to={'/login'}>
+              <Button basic color='teal'>Login</Button>
+            </Link>
+          </Modal>
+        </Card>
+          )
+        }
+      
+            else  {
+              return null
+                  }
+      })
+    }
+>>>>>>> fix indentations
 
   render() {
     const {loading} = this.state;

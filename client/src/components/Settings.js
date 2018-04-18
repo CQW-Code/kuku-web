@@ -1,5 +1,5 @@
 import React from 'react';
-import {Link} from 'react-router-dom';
+//import {Link} from 'react-router-dom';
 import {
   Button,
   Container,
@@ -13,11 +13,10 @@ import {
   List,
   Segment,
  } from 'semantic-ui-react';
-import styled from 'styled-components';
+//import styled from 'styled-components';
 import Logo from '../images/home/KUKU2 (2).jpg';
 import { connect } from 'react-redux';
 import axios from 'axios';
-import Modal from 'react-responsive-modal';
 import {setHeaders} from '../actions/headers';
 import { updateUser } from '../actions/user';
 import {getProducts} from '../actions/products';
@@ -210,20 +209,6 @@ class Settings extends React.Component {
                   color='teal'>
                     I want to shop for:
                 </Header>
-          <Grid.Column
-            width={8}>
-              {this.profileView()}
-              <br/>
-              {this.editView()}
-            </Grid.Column>
-            <Grid.Column>
-            <Header
-              as='h4'
-              textAlign='left'
-              size='large'
-              color='teal'>
-                 I want to shop for:
-              </Header>
                 <Dropdown
                   floated='left'
                   placeholder='Choose a Category'
