@@ -1,5 +1,7 @@
 //React
 import React, { Component } from 'react';
+//Modal
+import Modal from 'react-responsive-modal';
 // Styles
 import { Header, Form, Button, Segment, Image, Responsive } from 'semantic-ui-react';
 import { connect } from 'react-redux';
@@ -9,7 +11,7 @@ import styled from 'styled-components';
 import Tshirt1 from '../images/home/tshirt.jpg';
 
 class Login extends Component {
-  state = {email: '', password: ''};
+  state = {email: '', password: '', open: false};
 
   handleSubmit = event => {
     event.preventDefault();
@@ -26,11 +28,17 @@ class Login extends Component {
     this.setState({ [id]: value });
   }
 
+  onOpenModal = () => {
+    this.setState({ open: true });
+  };
 
+  onCloseModal = () => {
+    this.setState({ open: false });
+  };
 
   render() {
-    const {email, password} = this.state;
-
+    const {email, password, open} = this.state;
+  
     return (
       <div>
       <MainContainer>
@@ -72,6 +80,7 @@ class Login extends Component {
               <Button
                 class="huge ui facebook button"
                 style={stylesfb.btn}
+                onClick={this.onOpenModal}
               >
                 <i class="facebook icon"></i>
                 Facebook
@@ -79,12 +88,17 @@ class Login extends Component {
               <Button
                 class="huge ui twitter button"
                 style={stylestw.btn}
+                onClick={this.onOpenModal}
               >
                 <i class="twitter icon"></i>
                 Twitter
               </Button>
             </Segment>
           </Segment>
+          <Modal open={open} onClose={this.onCloseModal} little textAlign='center'>
+            <h3>Sorry!</h3>
+            <p>This function is still under construction</p>
+          </Modal>
         </FormContainer>
         <ImageContainer>
           <Image src={Tshirt1}/>
