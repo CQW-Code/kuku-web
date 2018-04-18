@@ -8,6 +8,7 @@ import styled from 'styled-components';
 import Android from '../images/home/Android.png';
 import { Link } from 'react-router-dom';
 
+
 const AppLinks = styled.div`
   display: flex;
   justify-content: space-around;
@@ -32,12 +33,12 @@ class Home extends Component {
     return (
       <Segment basic style={ styles.mainContainer}>
         <ButtonLink>
-          <Button fluid color='black'>
+
             <Link to="/products" style={styles.text}>Shop Traditionally</Link>
-          </Button>
-          <Button fluid color='black'>
+
+
             <Link to={`/products/${int}`} style={styles.text}>Go KUKU!</Link>
-          </Button>
+
         </ButtonLink>
         <br/>
         <Image style={styles.image} height="20" fluid centered src={Tshirt} />
@@ -51,6 +52,7 @@ class Home extends Component {
                 mobile={16}
                 tablet={8}
               >
+
                 <Responsive as="Image" minWidth={750}>
                   <Image style={styles.iPhone} centered width="35%" src={Iphone}/>
                 </Responsive>
@@ -86,10 +88,12 @@ class Home extends Component {
               </Grid.Column>
             </Grid.Row>
           </Grid>
+
         </Container>
         <Divider />
         <Container>
-          <AppLinks>
+
+       <AppLinks>
             <Image
               src={appIcon}
               as='a'
@@ -111,6 +115,7 @@ class Home extends Component {
           </AppLinks>
         </Container>
       </Segment>
+
     );
   }
 }
@@ -145,6 +150,8 @@ const styles = {
     width: '15vw',
     height: '5vh',
   },
+
 }
+
 
 export default Home;

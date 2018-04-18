@@ -19,7 +19,10 @@ import {setHeaders} from '../actions/headers';
 import {Link} from 'react-router-dom';
 import {getProducts} from '../actions/products';
 
+
+
 class Womens extends React.Component {
+
   state = {
     products: [],
     showProduct: true,
@@ -40,6 +43,7 @@ class Womens extends React.Component {
       this.setState({loading: false});
     })
   }
+
 
   handleLove = (id) => {
     const { products } = this.state;
@@ -90,6 +94,7 @@ class Womens extends React.Component {
   filterWomen = (handle) => {
     const { products, open } = this.state;
     const {user}= this.props;
+
     return products.map( p => {
       if(p.handle === "Womens" && p.show_product === true){
         return(

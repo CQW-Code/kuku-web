@@ -44,45 +44,45 @@ state = {handle: '', products: [], showProduct: true, page:1, totalPages:0, open
     const {user} = this.props;
     let visible = products;
     if (products.length === 0)
-    return (
-      <div>
-        <h1 style={styles.text} textAlign='center'>All out of products.</h1>
-        <p style={styles.text} textAlign='center'>If you want to add more products, you can add them back in by <Link to='/my_hated_products'>clicking here.</Link></p>
-      </div>
-    )
-      if (handle)
+      return (
+        <div>
+          <h1 style={styles.text} textAlign='center'>All out of products.</h1>
+          <p style={styles.text} textAlign='center'>If you want to add more products, you can add them back in by <Link to='/my_hated_products'>clicking here.</Link></p>
+        </div>
+      )
+        if (handle)
         visible = products.filter( p => p.handle === handle && p.show_product === true )
-      return visible.map( p =>
-        <Card style={styles.cardStyle} key={p.id}>
-          <h2>{p.name}</h2>
-          <StyledImage src={p.alt1} />
-          <Card.Content>
-            <Card.Header>
-              {p.title}
-            </Card.Header>
-            <Divider hidden />
-            <Card.Header>
-              {p.variety}
-            </Card.Header>
-            <Divider />
-            <Card.Header>
-              {p.variant_price}
-            </Card.Header>
-            <Card.Description>
-              {p.vendor}
-            </Card.Description>
-          </Card.Content>
-          <Responsive as="Image" minWidth={1000}>
-            <Link to= {`/products/${p.id}`}>
-              <Button
-                fluid
-                color='teal'
-              >
-                View Product Details
-              </Button>
-            </Link>
-          </Responsive>
-          <Card.Content>
+        return visible.map( p =>
+          <Card style={styles.cardStyle} key={p.id}>
+            <h2>{p.name}</h2>
+            <StyledImage src={p.alt1} />
+            <Card.Content>
+              <Card.Header>
+                {p.title}
+              </Card.Header>
+              <Divider hidden />
+              <Card.Header>
+                {p.variety}
+              </Card.Header>
+              <Divider />
+              <Card.Header>
+                {p.variant_price}
+              </Card.Header>
+              <Card.Description>
+                {p.vendor}
+              </Card.Description>
+            </Card.Content>
+            <Responsive as="Image" minWidth={1000}>
+              <Link to= {`/products/${p.id}`}>
+                <Button
+                  fluid
+                  color='teal'
+                >
+                  View Product Details
+                </Button>
+              </Link>
+            </Responsive>
+            <Card.Content>
               <Button
                 icon
                 size='big'
@@ -92,10 +92,10 @@ state = {handle: '', products: [], showProduct: true, page:1, totalPages:0, open
                   user.id === undefined ? this.onOpenModal() : this.handleHate(p.id)
                 }
               >
-              <Button.Content hidden>
-                <Icon name='thumbs down' color='red' />
-              </Button.Content>
-              <Button.Content visible>Dislike</Button.Content>
+                <Button.Content hidden>
+                  <Icon name='thumbs down' color='red' />
+                </Button.Content>
+                <Button.Content visible>Dislike</Button.Content>
               </Button>
               <Button
                 icon
@@ -106,26 +106,26 @@ state = {handle: '', products: [], showProduct: true, page:1, totalPages:0, open
                   user.id === undefined ? this.onOpenModal() : this.handleLove(p.id)
                 }
               >
-              <Button.Content hidden>
-                <Icon name='heart' color='pink' />
-              </Button.Content>
-              <Button.Content visible>Love It!</Button.Content>
+                <Button.Content hidden>
+                  <Icon name='heart' color='pink' />
+                </Button.Content>
+                <Button.Content visible>Love It!</Button.Content>
               </Button>
-          </Card.Content>
-          <Modal open={open} onClose={this.onCloseModal} little textAlign='center'>
-            <h2>You are not logged in!</h2>
-            <p>
-              Unless you have an account with KUKU, we can't remember what products you like! For the best user experience,
-              please register and login.
-            </p>
-            <Link to={'/register'}>
-              <Button basic color='teal'>Register</Button>
-            </Link>
-            <Link to={'/login'}>
-              <Button basic color='teal'>Login</Button>
-            </Link>
-          </Modal>
-        </Card>
+            </Card.Content>
+            <Modal open={open} onClose={this.onCloseModal} little textAlign='center'>
+              <h2>You are not logged in!</h2>
+              <p>
+                Unless you have an account with KUKU, we can't remember what products you like! For the best user experience,
+                please register and login.
+              </p>
+              <Link to={'/register'}>
+                <Button basic color='teal'>Register</Button>
+              </Link>
+              <Link to={'/login'}>
+                <Button basic color='teal'>Login</Button>
+              </Link>
+            </Modal>
+          </Card>
       )
   }
 

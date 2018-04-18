@@ -1,5 +1,5 @@
 import React from 'react';
-//import {Link} from 'react-router-dom';
+import {Link} from 'react-router-dom';
 import {
   Button,
   Container,
@@ -13,10 +13,11 @@ import {
   List,
   Segment,
  } from 'semantic-ui-react';
-//import styled from 'styled-components';
+import styled from 'styled-components';
 import Logo from '../images/home/KUKU2 (2).jpg';
 import { connect } from 'react-redux';
 import axios from 'axios';
+import Modal from 'react-responsive-modal';
 import {setHeaders} from '../actions/headers';
 import { updateUser } from '../actions/user';
 import {getProducts} from '../actions/products';
@@ -37,6 +38,7 @@ class Settings extends React.Component {
       open: false,
       // category: false,
   };
+
 
   componentDidMount() {
     const { user: { name, email, password }, handle} = this.props
@@ -118,6 +120,7 @@ class Settings extends React.Component {
       editing: false,
       formValues: {
         ...this.state.formValues,
+
       }
     })
   }
@@ -189,9 +192,17 @@ class Settings extends React.Component {
   }
 
   render() {
+
     return (
       <div>
       <Container>
+
+
+
+
+
+
+
         <Divider hidden />
         <Grid columns={2}>
           <Grid.Row>
@@ -209,6 +220,20 @@ class Settings extends React.Component {
                   color='teal'>
                     I want to shop for:
                 </Header>
+          <Grid.Column
+            width={8}>
+              {this.profileView()}
+              <br/>
+              {this.editView()}
+            </Grid.Column>
+            <Grid.Column>
+            <Header
+              as='h4'
+              textAlign='left'
+              size='large'
+              color='teal'>
+                 I want to shop for:
+              </Header>
                 <Dropdown
                   floated='left'
                   placeholder='Choose a Category'
@@ -232,6 +257,7 @@ class Settings extends React.Component {
             </List>
             </Grid.Row>
             </Grid.Column>
+          </Grid.Column>
           </Grid.Row>
       </Grid>
 
@@ -260,7 +286,7 @@ class Settings extends React.Component {
       border: '10px solid #008080',
       height: '2vh',
       width: '25vw',
-    }	,
+    }  ,
     btns: {
       padding: '20px 40px',
       margin: '20px',

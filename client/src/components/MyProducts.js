@@ -126,7 +126,6 @@ class MyProducts extends React.Component {
                       >
                         View Product Details
                       </Button>
-                    </Link>
                     <Button
                       icon
                       size='large'

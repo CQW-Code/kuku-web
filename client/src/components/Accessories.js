@@ -19,6 +19,8 @@ import {setHeaders} from '../actions/headers';
 import {Link} from 'react-router-dom';
 import {getProducts} from '../actions/products';
 
+
+
 class Accessories extends React.Component {
 
   state = {
