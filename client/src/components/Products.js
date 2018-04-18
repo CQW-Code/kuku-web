@@ -12,7 +12,7 @@ import {
   Button,
   Card,
   Divider,
-  Select,
+  Dropdown,
   Icon,
   Image,
   Responsive,
@@ -54,7 +54,7 @@ state = {handle: '', products: [], showProduct: true, page:1, totalPages:0, open
       return visible.map( p =>
         <Card style={styles.cardStyle} key={p.id}>
           <h2>{p.name}</h2>
-          <Image style={styles.images} src={p.alt1} />
+          <StyledImage src={p.alt1} />
           <Card.Content>
             <Card.Header>
               {p.title}
@@ -201,14 +201,14 @@ state = {handle: '', products: [], showProduct: true, page:1, totalPages:0, open
     } else {
     return (
       <div>
-        { handle &&
-          <Button
-            color= 'black'
-            onClick={this.clearCategory}
-          >
-            Clear Filter: {handle}
-          </Button>
-        }
+        <Dropdown text='Filter By Category' icon='filter' centered style={styles.text} floating labeled button>
+          <Dropdown.Menu>
+            <Dropdown.Item><Link to='/womens' style={{color: '#000000'}}>Womens</Link></Dropdown.Item>
+            <Dropdown.Item><Link to='/mens' style={{color: '#000000'}}>Mens</Link></Dropdown.Item>
+            <Dropdown.Item><Link to='/baby' style={{color: '#000000'}}>Baby</Link></Dropdown.Item>
+            <Dropdown.Item><Link to='/accessories' style={{color: '#000000'}}>Accessories</Link></Dropdown.Item>
+          </Dropdown.Menu>
+        </Dropdown>
         <Divider />
           <Card.Group
             computer={8}
@@ -235,11 +235,15 @@ const styles = {
   cardStyle: {
     display: 'block',
   },
-  images: {
-    height: '12vw',
-  },
-
 }
+
+const StyledImage = styled(Image)`
+  align-items: center !important;
+  justify-content: center !important;
+  display: flex !important;
+  height: 20vh !important;
+  width: auto !important;
+`
 
 const mapStateToProps = (state, props) => {
   const { products } = state

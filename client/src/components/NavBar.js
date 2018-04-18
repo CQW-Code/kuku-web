@@ -48,32 +48,36 @@ class NavBar extends Component {
       <div>
         <Image src={Logo} style={styles.image} alt="Kuku Logo"/>
         <Menu pointing secondary>
-          <Dropdown style={styles.text} size='big' pointing>
+          <Dropdown style={styles.text} pointing>
             <Dropdown.Menu>
               <Dropdown.Item>
                 <Link to='/'>
                   <Menu.Item icon='home' name='home' />
                 </Link>
               </Dropdown.Item>
-              <Dropdown text='Shopping' icon='cart'>
-                <Dropdown.Menu>
-                  <Link to={'/products'}>
-                    <Dropdown.Item>All Products</Dropdown.Item>
-                  </Link>
-                  <Link to={'/mens'}>
-                    <Dropdown.Item>Mens</Dropdown.Item>
-                  </Link>
-                  <Link to={'/womens'}>
-                    <Dropdown.Item>Womens</Dropdown.Item>
-                  </Link>
-                  <Link to={'/baby'}>
-                    <Dropdown.Item>Baby</Dropdown.Item>
-                  </Link>
-                  <Link to={'/accessories'}>
-                    <Dropdown.Item>Accessories</Dropdown.Item>
-                  </Link>
-                </Dropdown.Menu>
-              </Dropdown>
+              <Dropdown.Item>
+                <Dropdown text='Shopping' pointing>
+                  <Dropdown.Menu>
+                    <Link to={'/products'}>
+                      <Dropdown.Item>All Products</Dropdown.Item>
+                    </Link>
+                    <Dropdown.Header>Categories</Dropdown.Header>
+                    <Dropdown.Divider />
+                    <Link to={'/mens'}>
+                      <Dropdown.Item>Mens</Dropdown.Item>
+                    </Link>
+                    <Link to={'/womens'}>
+                      <Dropdown.Item>Womens</Dropdown.Item>
+                    </Link>
+                    <Link to={'/baby'}>
+                      <Dropdown.Item>Baby</Dropdown.Item>
+                    </Link>
+                    <Link to={'/accessories'}>
+                      <Dropdown.Item>Accessories</Dropdown.Item>
+                    </Link>
+                  </Dropdown.Menu>
+                </Dropdown>
+              </Dropdown.Item>
               <Dropdown.Item>
                 <Link to={`/products/${int}`}>
                   <Menu.Item icon='trophy' name='Go KUKU!' />

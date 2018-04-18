@@ -11,6 +11,7 @@ import {
   Responsive,
   Dimmer,
   Loader,
+  Dropdown,
 } from 'semantic-ui-react';
 import axios from 'axios';
 import {connect} from 'react-redux';
@@ -179,6 +180,14 @@ class Accessories extends React.Component {
     } else {
       return(
         <Container>
+          <Dropdown text='Filter By Category' icon='filter' centered style={styles.text} floating labeled button>
+            <Dropdown.Menu>
+              <Dropdown.Item><Link to='/products' style={{color: '#000000'}}>All Products</Link></Dropdown.Item>
+              <Dropdown.Item><Link to='/womens' style={{color: '#000000'}}>Womens</Link></Dropdown.Item>
+              <Dropdown.Item><Link to='/mens' style={{color: '#000000'}}>Mens</Link></Dropdown.Item>
+              <Dropdown.Item><Link to='/baby' style={{color: '#000000'}}>Baby</Link></Dropdown.Item>
+            </Dropdown.Menu>
+          </Dropdown>
           <Header
             inverted color = 'teal'
             textAlign='center'
@@ -198,21 +207,24 @@ class Accessories extends React.Component {
   }
 }
 
-const styles = {
-  background: {
-    backgroundColor: "black",
-  },
-  scroller: {
-    height: '80vh',
-    overflow:'auto'
-  },
-  cardStyle: {
-    display: 'block',
-  },
-  images: {
-    height: '12vw',
-  },
-}
+  const styles = {
+    text: {
+      color: "#FFF",
+    },
+    background: {
+      backgroundColor: "black",
+    },
+    scroller: {
+      height: '80vh',
+      overflow:'auto'
+    },
+    cardStyle: {
+      display: 'block',
+    },
+    images: {
+      height: '12vw',
+    },
+  }
 
 const mapStateToProps = (state, props) => {
   const { products } = state
