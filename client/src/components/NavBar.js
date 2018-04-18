@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Menu, Dropdown, Image, Divider } from 'semantic-ui-react';
+import { Menu, Dropdown, Image, Divider, Label } from 'semantic-ui-react';
 import { Link, withRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
 import Logo from '../images/home/KUKU2 (2).jpg'
@@ -8,13 +8,13 @@ import { handleLogout } from '../actions/auth';
 class NavBar extends Component {
 
   rightNavs = () => {
-    const { user, dispatch, history } = this.props;
+    const { user, dispatch, history, cart } = this.props;
 
     if (user.id) {
       return (
         <Menu.Menu position='right' >
           <Menu.Item>
-            <Link to='/my_products' style={{ color: '#ffffff' }}>Loved</Link>
+            <Link to='/my_products' style={{ color: '#ffffff' }}>Loved<Label floating color="red">{cart}</Label></Link>
           </Menu.Item>
           <Divider hidden />
           <Menu.Item
@@ -117,7 +117,9 @@ const styles = {
 }
 
 const mapStateToProps = state => {
-  return { user: state.user };
+  return { 
+    user: state.user,
+    cart: state.cart };
 };
 
 export default withRouter(connect(mapStateToProps)(NavBar));

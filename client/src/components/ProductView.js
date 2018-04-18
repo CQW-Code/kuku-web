@@ -3,6 +3,7 @@ import React from 'react';
 //Redux
 import { connect } from 'react-redux';
 import { setHeaders } from '../actions/headers';
+import { addToCart } from '../actions/my_products';
 //Axios
 import axios from 'axios';
 //Modal
@@ -39,6 +40,7 @@ class ProductView extends React.Component{
     axios.put(`/api/products/${id}`)
     axios.put(`/api/show_products/${id}`)
       .then( res => {
+        this.props.dispatch(addToCart())
         dispatch(setHeaders(res.headers))
         const productListLength = products.length - 1
         if (productIndex === productListLength) {

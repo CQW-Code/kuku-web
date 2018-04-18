@@ -11,6 +11,7 @@ import { connect } from 'react-redux';
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
 import { setHeaders } from '../actions/headers';
+import {subtractToCart} from '../actions/my_products';
 
 const ItemsList = styled.div`
   height: 100%
@@ -34,6 +35,7 @@ class MyProducts extends React.Component {
     axios.put(`/api/show_products/${id}`)
     axios.delete(`/api/my_products/${id}`)
       .then( res => {
+        this.props.dispatch(subtractToCart())
         dispatch(setHeaders(res.headers))
         this.setState({
           products: products.filter( p => p.id !== id )
