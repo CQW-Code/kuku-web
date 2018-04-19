@@ -113,12 +113,15 @@ class MyProducts extends React.Component {
                       View Product Details
                     </Button>
                   </Link>
+                  <Button.Group fluid>
                   <Button
                     icon
                     size='large'
                     animated='fade'
                     centered
                     floated='left'
+                    basic 
+                    color='grey'
                     >
                     <Button.Content visible>
                         Buy Item
@@ -139,37 +142,8 @@ class MyProducts extends React.Component {
                     size='large'
                     animated='fade'
                     centered
-                    floated='right'
-                    onClick={() => this.handleClick(p.id)}
-                  >
-                    View Product Details
-                  </Button>
-                  <Button
-                    icon
-                    size='large'
-                    animated='fade'
-                    centered
-                    floated='left'
-                  >
-                    <Button.Content visible>
-                      <Link
-                        to={p.link}
-                        target="_blank"
-                        rel='noopener noreferrer'
-                        style={{ color: '#4d4d4d' }}
-                      >
-                        Buy Item
-                      </Link>
-                    </Button.Content>
-                    <Button.Content hidden>
-                      <Icon name="check" color="green" />
-                    </Button.Content>
-                  </Button>
-                  <Button
-                    icon
-                    size='large'
-                    animated='fade'
-                    centered
+                    basic 
+                    color='grey'
                     floated='right'
                     onClick={() => this.handleClick(p.id)}
                   >
@@ -178,6 +152,7 @@ class MyProducts extends React.Component {
                       <Icon name="trash" />
                     </Button.Content>
                   </Button>
+                  </Button.Group>
                  </Card.Content>
                </Card>
               )

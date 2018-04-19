@@ -86,34 +86,40 @@ state = {handle: '', products: [], showProduct: true, page:1, totalPages:0, open
               </Link>
             </Responsive>
             <Card.Content>
-              <Button
-                icon
-                size='big'
-                animated='fade'
-                floated='left'
-                onClick={() =>
-                  user.id === undefined ? this.onOpenModal() : this.handleHate(p.id)
-                }
-              >
-                <Button.Content hidden>
-                  <Icon name='thumbs down' color='red' />
-                </Button.Content>
-                <Button.Content visible>Dislike</Button.Content>
-              </Button>
-              <Button
-                icon
-                size='big'
-                animated='fade'
-                floated='right'
-                onClick={() =>
-                  user.id === undefined ? this.onOpenModal() : this.handleLove(p.id)
-                }
-              >
-                <Button.Content hidden>
-                  <Icon name='heart' color='pink' />
-                </Button.Content>
-                <Button.Content visible>Love It!</Button.Content>
-              </Button>
+              <Button.Group fluid>
+                <Button
+                  icon
+                  size='big'
+                  animated='fade'
+                  floated='left'
+                  basic 
+                  color='grey'
+                  onClick={() =>
+                    user.id === undefined ? this.onOpenModal() : this.handleHate(p.id)
+                  }
+                >
+                  <Button.Content hidden>
+                    <Icon name='thumbs down' color='red' />
+                  </Button.Content>
+                  <Button.Content visible>Dislike</Button.Content>
+                </Button>
+                <Button
+                  icon
+                  basic 
+                  color='grey'
+                  size='big'
+                  animated='fade'
+                  floated='right'
+                  onClick={() =>
+                    user.id === undefined ? this.onOpenModal() : this.handleLove(p.id)
+                  }
+                >
+                  <Button.Content hidden>
+                    <Icon name='heart' color='pink' />
+                  </Button.Content>
+                  <Button.Content visible>Love It!</Button.Content>
+                </Button>
+              </Button.Group>
             </Card.Content>
             <Modal open={open} onClose={this.onCloseModal} little textAlign='center'>
               <h2>You are not logged in!</h2>
@@ -232,7 +238,7 @@ state = {handle: '', products: [], showProduct: true, page:1, totalPages:0, open
         </Dropdown>
         <Divider />
           <Header
-            inverted color = 'teal'
+            color = 'teal'
             textAlign='center'
             size='huge'>
               All Products
