@@ -253,6 +253,7 @@ class Mens extends React.Component {
 const mapStateToProps = (state, props) => {
   const { products } = state
   const handles = [...new Set(products.map( h => h.handle))]
+
   return {
     products,
     handles,

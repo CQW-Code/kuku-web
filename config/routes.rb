@@ -10,6 +10,7 @@ Rails.application.routes.draw do
     get 'my_hated_products', to: 'hated_items#my_hated_products'
     delete 'hated_items/:id', to: 'hated_items#delete'
     get 'purchased_items', to: 'purchased_items#purchased_items'
+
   end
 
   #Do not place any routes below this one

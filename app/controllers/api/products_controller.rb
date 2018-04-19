@@ -9,6 +9,7 @@ class Api::ProductsController < ApplicationController
 
   def my_products
     render json: User.loved(current_user.loved_products)
+    current_user.save
   end
 
   def update

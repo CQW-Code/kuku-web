@@ -9,6 +9,7 @@ class Api::PurchasedItemsController < ApplicationController
 
   def purchased_items
     render json: User.purchased(current_user.purchased_items)
+    current_user.save
   end
 
   private
