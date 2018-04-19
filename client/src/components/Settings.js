@@ -1,5 +1,5 @@
 import React from 'react';
-import {Link} from 'react-router-dom';
+//import {Link} from 'react-router-dom';
 import {
   Button,
   Container,
@@ -9,15 +9,12 @@ import {
   Grid,
   Header,
   Icon,
-  Image,
   List,
-  Segment,
  } from 'semantic-ui-react';
-import styled from 'styled-components';
-import Logo from '../images/home/KUKU2 (2).jpg';
+//import styled from 'styled-components';
 import { connect } from 'react-redux';
 import axios from 'axios';
-import Modal from 'react-responsive-modal';
+//import Modal from 'react-responsive-modal';
 import {setHeaders} from '../actions/headers';
 import { updateUser } from '../actions/user';
 import {getProducts} from '../actions/products';
@@ -27,7 +24,6 @@ class Settings extends React.Component {
 
 
   state = {
-      editing: false,
       formValues: {
       name: '',
       email: '',
@@ -115,9 +111,8 @@ class Settings extends React.Component {
     e.preventDefault();
     const { formValues: { name, email, password }} = this.state;
     const { user, dispatch } = this.state;
-    dispatch(updateUser( { name, email, password }))
+    dispatch(updateUser(user.id, {name, email, password }))
     this.setState({
-      editing: false,
       formValues: {
         ...this.state.formValues,
 
@@ -138,7 +133,6 @@ class Settings extends React.Component {
             style={styles.form}
             label="Name"
             name="name"
-            disabled
             size='medium'
             value={name}
             onChange={this.handleChange}
@@ -164,7 +158,6 @@ class Settings extends React.Component {
           />
           <Button
             size='medium'
-            disabled
             style = {styles.btns}
             inverted color='teal'>
               Update
@@ -196,30 +189,9 @@ class Settings extends React.Component {
     return (
       <div>
       <Container>
-
-
-
-
-
-
-
         <Divider hidden />
         <Grid columns={2}>
           <Grid.Row>
-            <Grid.Column
-              width={8}>
-                {this.profileView()}
-                <br/>
-                {this.editView()}
-              </Grid.Column>
-              <Grid.Column>
-                <Header
-                  as='h4'
-                  textAlign='left'
-                  size='large'
-                  color='teal'>
-                    I want to shop for:
-                </Header>
           <Grid.Column
             width={8}>
               {this.profileView()}
@@ -243,7 +215,6 @@ class Settings extends React.Component {
                   options={this.categoryPreference()}
                   onChange={this.handleSelected}
                 />
-
                 <br/> <br/>
            <Grid.Row centered>
             <Header inverted as='h4' content='' />
@@ -257,10 +228,8 @@ class Settings extends React.Component {
             </List>
             </Grid.Row>
             </Grid.Column>
-          </Grid.Column>
           </Grid.Row>
       </Grid>
-
       </Container>
       </div>
     ) }
