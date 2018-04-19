@@ -10,7 +10,6 @@ import Products from './Products';
 import ProductView from './ProductView'
 import Flash from './Flash';
 import Home from './Home';
-import ProtectedRoute from './ProtectedRoute';
 import AuthRoute from './AuthRoute';
 import FetchUser from './FetchUser';
 import Mens from './Mens';

@@ -7,7 +7,6 @@ import {
 import axios from 'axios';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
-import styled from 'styled-components';
 import { setHeaders } from '../actions/headers';
 
 class HatedItems extends React.Component {

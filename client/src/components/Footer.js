@@ -1,6 +1,4 @@
 import React, { Component } from 'react';
-import { Link, withRouter } from 'react-router-dom';
-import { connect } from 'react-redux';
 import {Segment, Grid, List, Header, Icon, Image } from 'semantic-ui-react';
 import styled from 'styled-components';
 import appIcon from '../images/home/button-appstore.png';

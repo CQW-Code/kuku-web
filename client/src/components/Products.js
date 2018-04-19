@@ -194,7 +194,7 @@ state = {handle: '', products: [], showProduct: true, page:1, totalPages:0, open
   }
 
   render() {
-    const {handle, loading} = this.state;
+    const {loading} = this.state;
     if (loading) {
       return (
         <Container>

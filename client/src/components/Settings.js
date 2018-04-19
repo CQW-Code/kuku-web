@@ -1,5 +1,4 @@
 import React from 'react';
-//import {Link} from 'react-router-dom';
 import {
   Button,
   Container,
@@ -11,10 +10,8 @@ import {
   Icon,
   List,
  } from 'semantic-ui-react';
-//import styled from 'styled-components';
 import { connect } from 'react-redux';
 import axios from 'axios';
-//import Modal from 'react-responsive-modal';
 import {setHeaders} from '../actions/headers';
 import { updateUser } from '../actions/user';
 import {getProducts} from '../actions/products';
@@ -110,8 +107,8 @@ class Settings extends React.Component {
   handleSubmit = (e) => {
     e.preventDefault();
     const { formValues: { name, email, password }} = this.state;
-    const { user, dispatch } = this.state;
-    dispatch(updateUser(user.id, {name, email, password }))
+    const { dispatch } = this.state;
+    dispatch(updateUser( { name, email, password }))
     this.setState({
       formValues: {
         ...this.state.formValues,

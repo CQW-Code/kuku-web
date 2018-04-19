@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Image, Segment, Container, Grid, Divider, Responsive, Button } from 'semantic-ui-react';
+import { Image, Segment, Container, Grid, Divider, Responsive, } from 'semantic-ui-react';
 import Tshirt from '../images/home/Kuku.main.jpg';
 import Iphone from '../images/home/IphoneX.png';
 import styled from 'styled-components';
