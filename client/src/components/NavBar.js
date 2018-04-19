@@ -61,6 +61,7 @@ class NavBar extends Component {
                     <Link to={'/products'}>
                       <Dropdown.Item>All Products</Dropdown.Item>
                     </Link>
+                    <Dropdown.Divider />
                     <Dropdown.Header>Categories</Dropdown.Header>
                     <Dropdown.Divider />
                     <Link to={'/mens'}>
@@ -117,7 +118,7 @@ const styles = {
 }
 
 const mapStateToProps = state => {
-  return { 
+  return {
     user: state.user,
     cart: state.cart };
 };

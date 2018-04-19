@@ -4,7 +4,8 @@ import {
   Image,
   Icon,
   Button,
-  Container
+  Container,
+  Header,
 } from 'semantic-ui-react';
 import axios from 'axios';
 import { connect } from 'react-redux';
@@ -36,10 +37,26 @@ class MyProducts extends React.Component {
     axios.delete(`/api/my_products/${id}`)
       .then( res => {
         this.props.dispatch(subtractToCart())
-        dispatch(setHeaders(res.headers))
         this.setState({
           products: products.filter( p => p.id !== id )
         })
+        dispatch(setHeaders(res.headers))
+      })
+      .catch( err => {
+        console.log(err)
+      })
+  }
+
+  handleBuy = (id) => {
+    const { products } = this.state;
+    const { dispatch } = this.props;
+    axios.put(`/api/show_products/${id}`)
+    axios.delete(`/api/my_products/${id}`)
+      .then( res => {
+        this.setState({
+          products: products.filter( p => p.id !== id )
+        })
+        dispatch(setHeaders(res.headers))
       })
       .catch( err => {
         console.log(err)
@@ -66,109 +83,83 @@ class MyProducts extends React.Component {
       </div>
     )
       return (
-        <ItemsList>
-          <div><Link to='/products'>See all products</Link></div>
-          <Container>
-            <Card.Group
-              computer={8}
-              mobile={2}
-              tablet={4}
-              centered
-            >
-              {products.map( p =>
-                <Card style={styles.cardStyle} key={p.id}>
-                  <h2>{p.name}</h2>
-                   <Image style={styles.images} src={p.alt1} />
-                 <Card.Content>
-                  <Card.Header>
-                  {p.title}
-                  </Card.Header>
-                  <Card.Header>
-                   {p.variant_price}
-                  </Card.Header>
-                   <Card.Description>
-                     {p.vendor}
-                   </Card.Description>
-                   <Link to= {`/products/${p.id}`}>
-                     <Button
-                       fluid
-                       color='teal'
-                     >
-                       View Product Details
-                     </Button>
-                   </Link>
-                     <Button
-                       icon
-                       size='large'
-                       animated='fade'
-                       centered
-                       floated='left'
-                       >
-                       <Button.Content visible>
-                            Buy Item
-                       </Button.Content>
-                       <Button.Content hidden>
-                         <Link
-                           to={p.link}
-                           target="_blank"
-                           rel='noopener noreferrer'
-                           style={{ color: '#4d4d4d' }}
+        <div>
+          <Header as='h1' style={styles.text}>We've felt the love. Now you get to feel it to.</Header>
+            <Header as='h3' style={styles.text}>Go ahead and click buy, then you can choose sizes, colors, whatever you want.</Header>
+              <ItemsList>
+                <div><Link to='/products' style={styles.text}>See all products</Link></div>
+                <Container>
+                  <Card.Group
+                    computer={8}
+                    mobile={2}
+                    tablet={4}
+                    centered
+                  >
+                    {products.map( p =>
+                      <Card style={styles.cardStyle} key={p.id}>
+                        <h2>{p.name}</h2>
+                         <Image style={styles.images} src={p.alt1} />
+                       <Card.Content>
+                        <Card.Header>
+                        {p.title}
+                        </Card.Header>
+                        <Card.Header>
+                         {p.variant_price}
+                        </Card.Header>
+                         <Card.Description>
+                           {p.vendor}
+                         </Card.Description>
+                         <Link to= {`/products/${p.id}`}>
+                           <Button
+                             fluid
+                             color='teal'
+                           >
+                             View Product Details
+                           </Button>
+                         </Link>
+                           <Button
+                             icon
+                             size='large'
+                             animated='fade'
+                             centered
+                             floated='left'
+                             onClick={() => this.handleBuy(p.id)}
+                             >
+                             <Button.Content visible>
+                                  Buy Item
+                             </Button.Content>
+                             <Button.Content hidden>
+                               <Link
+                                 to={p.link}
+                                 target="_blank"
+                                 rel='noopener noreferrer'
+                                 style={{ color: '#4d4d4d' }}
+                                >
+                                  <Icon name="check" color="green" />
+                                </Link>
+                             </Button.Content>
+                           </Button>
+                          <Button
+                            icon
+                            size='large'
+                            animated='fade'
+                            centered
+                            floated='right'
+                            onClick={() => this.handleClick(p.id)}
                           >
-                            <Icon name="check" color="green" />
-                          </Link>
-                       </Button.Content>
-                     </Button>
-                     <Button
-                       icon
-                       size='large'
-                       animated='fade'
-                       centered
-                       floated='right'
-                       onClick={() => this.handleClick(p.id)}
-                      >
-                        View Product Details
-                      </Button>
-                    <Button
-                      icon
-                      size='large'
-                      animated='fade'
-                      centered
-                      floated='left'
-                    >
-                      <Button.Content visible>
-                        <Link
-                          to={p.link}
-                          target="_blank"
-                          rel='noopener noreferrer'
-                          style={{ color: '#4d4d4d' }}
-                        >
-                          Buy Item
-                        </Link>
-                      </Button.Content>
-                      <Button.Content hidden>
-                        <Icon name="check" color="green" />
-                      </Button.Content>
-                    </Button>
-                    <Button
-                      icon
-                      size='large'
-                      animated='fade'
-                      centered
-                      floated='right'
-                      onClick={() => this.handleClick(p.id)}
-                    >
-                      <Button.Content visible>Remove Item</Button.Content>
-                      <Button.Content hidden>
-                        <Icon name="trash" />
-                      </Button.Content>
-                    </Button>
-                 </Card.Content>
-               </Card>
-              )
-            }
-          </Card.Group>
-        </Container>
-      </ItemsList>
+                            <Button.Content visible>Remove Item</Button.Content>
+                            <Button.Content hidden>
+                              <Icon name="trash" />
+                            </Button.Content>
+                          </Button>
+                       </Card.Content>
+                     </Card>
+                    )
+                  }
+                </Card.Group>
+              </Container>
+            </ItemsList>
+      </div>
     )
   }
 }
@@ -176,6 +167,7 @@ class MyProducts extends React.Component {
 const styles = {
   text: {
     color: "#FFF",
+    textAlign: 'center'
   },
   cardStyle: {
     display: 'block',

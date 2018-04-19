@@ -1,8 +1,11 @@
 import React, { Component } from 'react';
 import { Link, withRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
-import {Segment, Grid, List, Header, Icon } from 'semantic-ui-react';
+import {Segment, Grid, List, Header, Icon, Image } from 'semantic-ui-react';
 import styled from 'styled-components';
+import appIcon from '../images/home/button-appstore.png';
+import googlePlay from '../images/home/AndroidLink.png';
+
 
 class Footer extends Component{
   render(){
@@ -21,8 +24,27 @@ class Footer extends Component{
                 </List>
                 </Grid.Column>
                 <Grid.Column  mobile={8} tablet={8} computer={6}>
-                  <Header as ='h4' inverted>It's Always Okay to go Kuku.</Header>
-                  <p>Can put some sort of call to action here! </p>
+                  <Header as ='h4' inverted textAlign='center'>It's Always Okay to go Kuku. Download the App today!</Header>
+                    <AppLinks>
+                      <Image
+                        src={appIcon}
+                        as='a'
+                        href='https://www.apple.com/ios/app-store/'
+                        size='small'
+                        target='_blank'
+                        rel='noopener noreferrer'
+                        centered
+                      />
+                      <Image
+                        src={googlePlay}
+                        as='a'
+                        href='https://play.google.com/store/apps?hl=en'
+                        size='small'
+                        target='_blank'
+                        rel='noopener noreferrer'
+                        centered
+                      />
+                    </AppLinks>
                 </Grid.Column>
               <Grid.Column mobile={8} tablet={8} computer={5}>
                 <Header inverted as='h4' content='' />
@@ -44,6 +66,12 @@ class Footer extends Component{
 // Styled Components
 const FooterContainer = styled.div `
   style={{ padding: '2em 0em', position:'absolute', bottom:'0', width:'100%'}}
+`
+
+const AppLinks = styled.div`
+  display: flex;
+  justify-content: space-around;
+  fluid
 `
 
 export default Footer;

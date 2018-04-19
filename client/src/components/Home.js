@@ -2,18 +2,10 @@ import React, { Component } from 'react';
 import { Image, Segment, Container, Grid, Divider, Responsive, Button } from 'semantic-ui-react';
 import Tshirt from '../images/home/Kuku.main.jpg';
 import Iphone from '../images/home/IphoneX.png';
-import appIcon from '../images/home/button-appstore.png';
-import googlePlay from '../images/home/AndroidLink.png';
 import styled from 'styled-components';
 import Android from '../images/home/Android.png';
 import { Link } from 'react-router-dom';
 
-
-const AppLinks = styled.div`
-  display: flex;
-  justify-content: space-around;
-  fluid
-`
 
 const ButtonLink = styled.a`
   font-weight: bold;
@@ -91,29 +83,6 @@ class Home extends Component {
 
         </Container>
         <Divider />
-        <Container>
-
-       <AppLinks>
-            <Image
-              src={appIcon}
-              as='a'
-              href='https://www.apple.com/ios/app-store/'
-              size='small'
-              target='_blank'
-              rel='noopener noreferrer'
-              centered
-            />
-            <Image
-              src={googlePlay}
-              as='a'
-              href='https://play.google.com/store/apps?hl=en'
-              size='small'
-              target='_blank'
-              rel='noopener noreferrer'
-              centered
-            />
-          </AppLinks>
-        </Container>
       </Segment>
 
     );
