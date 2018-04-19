@@ -1,7 +1,9 @@
 import axios from 'axios';
 
 export const GET_CART = 'GET_CART';
-export const ADD_TO_CART = 'ADD_TO_CART';
+export const ADD_COUNT = 'ADD_COUNT';
+export const SUB_COUNT = 'SUB_COUNT';
+export const RESET_COUNT = 'RESET_COUNT';
 
 export const getCart = () => {
   return (dispatch) => {
@@ -15,7 +17,7 @@ export const getCart = () => {
   };
 };
 
-export const addToCart = () => dispatch => {
+export const addCount = () => dispatch => {
   dispatch({ type: 'ADD_COUNT', count: 1 })
 };
 

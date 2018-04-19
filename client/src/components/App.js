@@ -19,6 +19,7 @@ import Baby from './Baby';
 import Accessories from './Accessories';
 import MyProducts from './MyProducts';
 import HatedItems from './HatedItems';
+import PurchasedItems from './PurchasedItems';
 import Settings from './Settings';
 import { Switch, Route } from 'react-router-dom';
 import { Segment } from 'semantic-ui-react';
@@ -44,6 +45,7 @@ class App extends Component {
             <Route exact path='/my_hated_products' component={HatedItems} />
             <Route exact path='/ProductView' component={ProductView}/>
             <Route exact path='/my_products' component={MyProducts} />
+            <Route exact path='/purchased_items' component={PurchasedItems} />
             <Route exact path= '/settings' component= {Settings}/>
             <Route exact path= '/mens' component = {Mens}/>
             <Route exact path= '/womens' component = {Womens}/>

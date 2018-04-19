@@ -23,7 +23,7 @@ import {
 import styled from 'styled-components';
 import { setHeaders } from '../actions/headers';
 import {getProducts} from '../actions/products';
-import {addToCart} from '../actions/my_products';
+import {addCount} from '../actions/my_products';
 
 class Products extends React.Component {
 state = {handle: '', products: [], showProduct: true, page:1, totalPages:0, open: false, loading: true }
@@ -152,7 +152,7 @@ state = {handle: '', products: [], showProduct: true, page:1, totalPages:0, open
     axios.put(`/api/products/${id}`)
     axios.put(`/api/show_products/${id}`)
       .then( res => {
-        this.props.dispatch(addToCart())
+        this.props.dispatch(addCount())
         dispatch(setHeaders(res.headers))
         this.setState({
           products: products.filter( p => p.id !== id )

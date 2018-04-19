@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Fragment } from 'react';
 import {
   Card,
   Image,
@@ -9,56 +9,24 @@ import {
 } from 'semantic-ui-react';
 import axios from 'axios';
 import { connect } from 'react-redux';
-import styled from 'styled-components';
 import { Link } from 'react-router-dom';
+import styled from 'styled-components';
 import { setHeaders } from '../actions/headers';
-import {subtractToCart} from '../actions/my_products';
 
 const ItemsList = styled.div`
   height: 100%
 `
 
-class MyProducts extends React.Component {
+class PurchasedItems extends React.Component {
   state = { products: [] }
 
   componentDidMount() {
     const { dispatch } = this.props;
-    axios.get('/api/my_products')
+    axios.get('/api/purchased_items')
       .then( res => {
-        dispatch(setHeaders(res.headers));
         this.setState({ products: res.data })
-      });
-  }
-
-  handleClick = (id) => {
-    const { products } = this.state;
-    const { dispatch } = this.props;
-    axios.put(`/api/show_products/${id}`)
-    axios.delete(`/api/my_products/${id}`)
-      .then( res => {
-        this.props.dispatch(subtractToCart())
-        this.setState({
-          products: products.filter( p => p.id !== id )
-        })
-        dispatch(setHeaders(res.headers))
-      })
-      .catch( err => {
-        console.log(err)
-      })
-  }
-
-  handleBuy = (id) => {
-    const { products } = this.state;
-    const { dispatch } = this.props;
-    axios.put(`/api/purchased_items/${id}`)
-    axios.delete(`/api/my_products/${id}`)
-      .then( res => {
-        this.setState({
-          products: products.filter( p => p.id !== id )
-        })
-        dispatch(setHeaders(res.headers))
-      })
-      .catch( err => {
+        dispatch(setHeaders(res.headers));
+      }).catch( err => {
         console.log(err)
       })
   }
@@ -84,7 +52,7 @@ class MyProducts extends React.Component {
     )
       return (
         <div>
-          <Header as='h1' style={styles.text}>We've felt the love. Now you get to feel it to.</Header>
+          <Header as='h1' style={styles.text}>Weve felt the love. Now you get to feel it to.</Header>
             <Header as='h3' style={styles.text}>Go ahead and click buy, then you can choose sizes, colors, whatever you want.</Header>
               <ItemsList>
                 <div><Link to='/products' style={styles.text}>See all products</Link></div>
@@ -123,7 +91,6 @@ class MyProducts extends React.Component {
                              animated='fade'
                              centered
                              floated='left'
-                             onClick={() => this.handleBuy(p.id)}
                              >
                              <Button.Content visible>
                                   Buy Item
@@ -139,19 +106,6 @@ class MyProducts extends React.Component {
                                 </Link>
                              </Button.Content>
                            </Button>
-                          <Button
-                            icon
-                            size='large'
-                            animated='fade'
-                            centered
-                            floated='right'
-                            onClick={() => this.handleClick(p.id)}
-                          >
-                            <Button.Content visible>Remove Item</Button.Content>
-                            <Button.Content hidden>
-                              <Icon name="trash" />
-                            </Button.Content>
-                          </Button>
                        </Card.Content>
                      </Card>
                     )
@@ -177,4 +131,4 @@ const styles = {
   }
 }
 
-export default connect()(MyProducts)
+export default connect()(PurchasedItems)
