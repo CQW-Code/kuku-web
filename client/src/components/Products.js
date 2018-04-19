@@ -48,10 +48,14 @@ state = {handle: '', products: [], showProduct: true, page:1, totalPages:0, open
     let visible = products;
     if (products.length === 0)
       return (
-        <div>
+        <Container>
           <h1 style={styles.text} textAlign='center'>All out of products.</h1>
           <p style={styles.text} textAlign='center'>If you want to add more products, you can add them back in by <Link to='/my_hated_products'>clicking here.</Link></p>
-        </div>
+          <Divider hidden />
+            <Divider hidden />
+              <Divider hidden />
+            <Divider hidden />
+        </Container>
       )
         if (handle)
         visible = products.filter( p => p.handle === handle && p.show_product === true )
@@ -92,7 +96,7 @@ state = {handle: '', products: [], showProduct: true, page:1, totalPages:0, open
                   size='big'
                   animated='fade'
                   floated='left'
-                  basic 
+                  basic
                   color='grey'
                   onClick={() =>
                     user.id === undefined ? this.onOpenModal() : this.handleHate(p.id)
@@ -105,7 +109,7 @@ state = {handle: '', products: [], showProduct: true, page:1, totalPages:0, open
                 </Button>
                 <Button
                   icon
-                  basic 
+                  basic
                   color='grey'
                   size='big'
                   animated='fade'
@@ -238,11 +242,11 @@ state = {handle: '', products: [], showProduct: true, page:1, totalPages:0, open
         </Dropdown>
         <Divider />
           <Header
-            color = 'teal'
-            textAlign='center'
-            size='huge'>
-              All Products
-          </Header>
+              inverted color = 'teal'
+              textAlign='center'
+              size='huge'>
+                All Products
+            </Header>
           <Card.Group
             computer={8}
             mobile={2}

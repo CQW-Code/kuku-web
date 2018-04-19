@@ -14,11 +14,11 @@ class Footer extends Component{
             <Grid.Row>
               <Grid.Column mobile={8} tablet={8} computer={5}>
                 <List link inverted>
-                  <List.Item as='a' href="https://github.com/rmiles19"><Icon color="teal"  name="github"/>Rachel Miles</List.Item>
-                  <List.Item as='a' href="https://github.com/CQW-Code"><Icon color="teal"  name="github"/>Chris Watkin</List.Item>
-                  <List.Item as='a' href="https://github.com/DevinParkinson"><Icon color="teal"  name="github"/>Devin Parkinson</List.Item>
-                  <List.Item as='a' href="https://github.com/bcaya"><Icon color="teal"  name="github"/>Bobby Caya</List.Item>
-                  <List.Item as='a' href="https://github.com/d-actor"><Icon color="teal"  name="github"/>Dan Actor</List.Item>
+                  <List.Item as='a' href="https://github.com/rmiles19" target='_blank' rel='noopener noreferrer'><Icon color="teal"  name="github"/>Rachel Miles</List.Item>
+                  <List.Item as='a' href="https://github.com/CQW-Code" target='_blank' rel='noopener noreferrer'><Icon color="teal"  name="github"/>Chris Watkin</List.Item>
+                  <List.Item as='a' href="https://github.com/DevinParkinson" target='_blank' rel='noopener noreferrer'><Icon color="teal"  name="github"/>Devin Parkinson</List.Item>
+                  <List.Item as='a' href="https://github.com/bcaya" target='_blank' rel='noopener noreferrer'><Icon color="teal"  name="github"/>Bobby Caya</List.Item>
+                  <List.Item as='a' href="https://github.com/d-actor" target='_blank' rel='noopener noreferrer'><Icon color="teal"  name="github"/>Dan Actor</List.Item>
                 </List>
                 </Grid.Column>
                 <Grid.Column  mobile={8} tablet={8} computer={6}>
