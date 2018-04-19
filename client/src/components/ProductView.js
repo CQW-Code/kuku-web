@@ -21,18 +21,22 @@ import {
   Divider,
 } from 'semantic-ui-react';
 import { Link } from 'react-router-dom'
+import {getProducts} from '../actions/products';
 
 class ProductView extends React.Component{
   state = { active: false, products: [], open: false }
   handleShow = () => this.setState({ active: !this.state.active })
 
-  componentDidMount() {
+    componentDidMount = () => {
     const { dispatch } = this.props;
-    axios.get('/api/my_products')
+    axios.get('/api/products')
       .then( res => {
-        dispatch(setHeaders(res.headers));
+        dispatch(setHeaders(res.headers))
         this.setState({ products: res.data })
-      });
+        dispatch(getProducts(res.products));
+    }).then(() => {
+      this.setState({loading: false});
+    })
   }
 
   handleLove = (id) => {
