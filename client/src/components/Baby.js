@@ -12,6 +12,7 @@ import {
   Dimmer,
   Loader,
   Dropdown,
+  Menu,
 } from 'semantic-ui-react';
 import axios from 'axios';
 import {connect} from 'react-redux';
@@ -168,7 +169,7 @@ class Baby extends React.Component {
         </Card>
           )
           }
-        
+
         else  {
           return null
               }
@@ -187,12 +188,28 @@ class Baby extends React.Component {
       return(
         <Container>
           <div float='left'>
-            <Dropdown text='Filter By Category' icon='filter' style={styles.text} floating labeled button>
+            <Dropdown text='Filter By Category' icon='filter' centered style={styles.text} floating labeled button>
               <Dropdown.Menu>
-                <Dropdown.Item><Link to='/products' style={{color: '#000000'}}>All Products</Link></Dropdown.Item>
-                <Dropdown.Item><Link to='/womens' style={{color: '#000000'}}>Womens</Link></Dropdown.Item>
-                <Dropdown.Item><Link to='/mens' style={{color: '#000000'}}>Mens</Link></Dropdown.Item>
-                <Dropdown.Item><Link to='/accessories' style={{color: '#000000'}}>Accessories</Link></Dropdown.Item>
+                <Dropdown.Item>
+                  <Link to='/products' style={{color: '#000000'}}>
+                    <Menu.Item name='All Products' />
+                  </Link>
+                </Dropdown.Item>
+                <Dropdown.Item>
+                  <Link to='/mens' style={{color: '#000000'}}>
+                    <Menu.Item name='Mens' />
+                  </Link>
+                </Dropdown.Item>
+                <Dropdown.Item>
+                  <Link to='/womens' style={{color: '#000000'}}>
+                    <Menu.Item name='Womens' />
+                  </Link>
+                </Dropdown.Item>
+                <Dropdown.Item>
+                  <Link to='/accessories' style={{color: '#000000'}}>
+                    <Menu.Item name='Accessories' />
+                  </Link>
+                </Dropdown.Item>
               </Dropdown.Menu>
             </Dropdown>
           </div>

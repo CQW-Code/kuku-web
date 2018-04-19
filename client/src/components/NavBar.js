@@ -46,9 +46,11 @@ class NavBar extends Component {
     let int  = this.getRandomInt()
     return (
       <div>
-        <Image src={Logo} style={styles.image} alt="Kuku Logo"/>
+        <a href='/'>
+          <img src={Logo}  alt="KUKU Logo" style={styles.image} />
+        </a>
         <Menu pointing secondary>
-          <Dropdown style={styles.text} pointing>
+          <Dropdown style={styles.text} text='Menu' pointing>
             <Dropdown.Menu>
               <Dropdown.Item>
                 <Link to='/'>
@@ -58,24 +60,14 @@ class NavBar extends Component {
               <Dropdown.Item>
                 <Dropdown text='Shopping' pointing>
                   <Dropdown.Menu>
-                    <Link to={'/products'}>
-                      <Dropdown.Item>All Products</Dropdown.Item>
-                    </Link>
+                      <Dropdown.Item><Link to={'/products'}>All Products</Link></Dropdown.Item>
                     <Dropdown.Divider />
                     <Dropdown.Header>Categories</Dropdown.Header>
                     <Dropdown.Divider />
-                    <Link to={'/mens'}>
-                      <Dropdown.Item>Mens</Dropdown.Item>
-                    </Link>
-                    <Link to={'/womens'}>
-                      <Dropdown.Item>Womens</Dropdown.Item>
-                    </Link>
-                    <Link to={'/baby'}>
-                      <Dropdown.Item>Baby</Dropdown.Item>
-                    </Link>
-                    <Link to={'/accessories'}>
-                      <Dropdown.Item>Accessories</Dropdown.Item>
-                    </Link>
+                      <Dropdown.Item><Link to={'/mens'}>Mens</Link></Dropdown.Item>
+                      <Dropdown.Item><Link to={'/womens'}>Womens</Link></Dropdown.Item>
+                      <Dropdown.Item><Link to={'/baby'}>Baby</Link></Dropdown.Item>
+                      <Dropdown.Item><Link to={'/accessories'}>Accessories</Link></Dropdown.Item>
                   </Dropdown.Menu>
                 </Dropdown>
               </Dropdown.Item>
@@ -111,7 +103,7 @@ const styles = {
     backgroundColor: "black",
   },
   image: {
-    verticalAlign: 'middle',
+    textAlign: 'middle',
     height: '5%',
     width: '10%',
   }

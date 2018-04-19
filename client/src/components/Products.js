@@ -19,6 +19,8 @@ import {
   Container,
   Dimmer,
   Loader,
+  Header,
+  Menu,
 } from 'semantic-ui-react';
 import styled from 'styled-components';
 import { setHeaders } from '../actions/headers';
@@ -206,13 +208,35 @@ state = {handle: '', products: [], showProduct: true, page:1, totalPages:0, open
       <div>
         <Dropdown text='Filter By Category' icon='filter' centered style={styles.text} floating labeled button>
           <Dropdown.Menu>
-            <Dropdown.Item><Link to='/womens' style={{color: '#000000'}}>Womens</Link></Dropdown.Item>
-            <Dropdown.Item><Link to='/mens' style={{color: '#000000'}}>Mens</Link></Dropdown.Item>
-            <Dropdown.Item><Link to='/baby' style={{color: '#000000'}}>Baby</Link></Dropdown.Item>
-            <Dropdown.Item><Link to='/accessories' style={{color: '#000000'}}>Accessories</Link></Dropdown.Item>
+            <Dropdown.Item>
+              <Link to='/womens' style={{color: '#000000'}}>
+                <Menu.Item name='Womens' />
+              </Link>
+            </Dropdown.Item>
+            <Dropdown.Item>
+              <Link to='/mens' style={{color: '#000000'}}>
+                <Menu.Item name='Mens' />
+              </Link>
+            </Dropdown.Item>
+            <Dropdown.Item>
+              <Link to='/baby' style={{color: '#000000'}}>
+                <Menu.Item name='Baby' />
+              </Link>
+            </Dropdown.Item>
+            <Dropdown.Item>
+              <Link to='/accessories' style={{color: '#000000'}}>
+                <Menu.Item name='Accessories' />
+              </Link>
+            </Dropdown.Item>
           </Dropdown.Menu>
         </Dropdown>
         <Divider />
+          <Header
+            inverted color = 'teal'
+            textAlign='center'
+            size='huge'>
+              All Products
+          </Header>
           <Card.Group
             computer={8}
             mobile={2}

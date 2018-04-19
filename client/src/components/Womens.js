@@ -12,6 +12,7 @@ import {
   Dimmer,
   Loader,
   Dropdown,
+  Menu,
 } from 'semantic-ui-react';
 import axios from 'axios';
 import {connect} from 'react-redux';
@@ -184,10 +185,26 @@ class Womens extends React.Component {
         <Container>
           <Dropdown text='Filter By Category' icon='filter' centered style={styles.text} floating labeled button>
             <Dropdown.Menu>
-              <Dropdown.Item><Link to='/products' style={{color: '#000000'}}>All Products</Link></Dropdown.Item>
-              <Dropdown.Item><Link to='/mens' style={{color: '#000000'}}>Mens</Link></Dropdown.Item>
-              <Dropdown.Item><Link to='/baby' style={{color: '#000000'}}>Baby</Link></Dropdown.Item>
-              <Dropdown.Item><Link to='/accessories' style={{color: '#000000'}}>Accessories</Link></Dropdown.Item>
+              <Dropdown.Item>
+                <Link to='/products' style={{color: '#000000'}}>
+                  <Menu.Item name='All Products' />
+                </Link>
+              </Dropdown.Item>
+              <Dropdown.Item>
+                <Link to='/mens' style={{color: '#000000'}}>
+                  <Menu.Item name='Mens' />
+                </Link>
+              </Dropdown.Item>
+              <Dropdown.Item>
+                <Link to='/baby' style={{color: '#000000'}}>
+                  <Menu.Item name='Baby' />
+                </Link>
+              </Dropdown.Item>
+              <Dropdown.Item>
+                <Link to='/accessories' style={{color: '#000000'}}>
+                  <Menu.Item name='Accessories' />
+                </Link>
+              </Dropdown.Item>
             </Dropdown.Menu>
           </Dropdown>
           <Header

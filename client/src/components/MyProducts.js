@@ -32,14 +32,14 @@ class MyProducts extends React.Component {
   handleClick = (id) => {
     const { products } = this.state;
     const { dispatch } = this.props;
-    axios.put(`/api/show_products/${id}`)
+    axios.post(`/api/products/${id}`)
     axios.delete(`/api/my_products/${id}`)
       .then( res => {
+        dispatch(setHeaders(res.headers))
         this.props.dispatch(subtractToCart())
         this.setState({
           products: products.filter( p => p.id !== id )
         })
-        dispatch(setHeaders(res.headers))
       })
       .catch( err => {
         console.log(err)
@@ -52,10 +52,10 @@ class MyProducts extends React.Component {
     axios.put(`/api/purchased_items/${id}`)
     axios.delete(`/api/my_products/${id}`)
       .then( res => {
+        dispatch(setHeaders(res.headers))
         this.setState({
           products: products.filter( p => p.id !== id )
         })
-        dispatch(setHeaders(res.headers))
       })
       .catch( err => {
         console.log(err)

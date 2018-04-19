@@ -44,8 +44,8 @@ class ProductView extends React.Component{
     axios.put(`/api/products/${id}`)
     axios.put(`/api/show_products/${id}`)
       .then( res => {
-        this.props.dispatch(addCount())
         dispatch(setHeaders(res.headers))
+        this.props.dispatch(addCount())
         const productListLength = products.length - 1
         if (productIndex === productListLength) {
           history.push('/products/')
