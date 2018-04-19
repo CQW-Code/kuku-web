@@ -117,41 +117,47 @@ class MyProducts extends React.Component {
                              View Product Details
                            </Button>
                          </Link>
-                           <Button
-                             icon
-                             size='large'
-                             animated='fade'
-                             centered
-                             floated='left'
-                             onClick={() => this.handleBuy(p.id)}
-                             >
-                             <Button.Content visible>
+                          <Button.Group fluid>
+                            <Button
+                              icon
+                              size='large'
+                              animated='fade'
+                              centered
+                              color='grey'
+                              basic 
+                              floated='left'
+                              onClick={() => this.handleBuy(p.id)}
+                            >
+                            <Button.Content visible>
                                   Buy Item
-                             </Button.Content>
-                             <Button.Content hidden>
-                               <Link
-                                 to={p.link}
-                                 target="_blank"
-                                 rel='noopener noreferrer'
-                                 style={{ color: '#4d4d4d' }}
+                            </Button.Content>
+                            <Button.Content hidden>
+                              <Link
+                                to={p.link}
+                                target="_blank"
+                                rel='noopener noreferrer'
+                                style={{ color: '#4d4d4d' }}
                                 >
                                   <Icon name="check" color="green" />
                                 </Link>
-                             </Button.Content>
-                           </Button>
-                          <Button
-                            icon
-                            size='large'
-                            animated='fade'
-                            centered
-                            floated='right'
-                            onClick={() => this.handleClick(p.id)}
-                          >
-                            <Button.Content visible>Remove Item</Button.Content>
-                            <Button.Content hidden>
-                              <Icon name="trash" />
                             </Button.Content>
-                          </Button>
+                            </Button>
+                              <Button
+                                icon
+                                size='large'
+                                animated='fade'
+                                centered
+                                color='grey'
+                                basic 
+                                floated='right'
+                                onClick={() => this.handleClick(p.id)}
+                              >
+                                <Button.Content visible>Remove Item</Button.Content>
+                                <Button.Content hidden>
+                                  <Icon name="trash" />
+                                </Button.Content>
+                              </Button>
+                          </Button.Group>
                        </Card.Content>
                      </Card>
                     )
