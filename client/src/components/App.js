@@ -22,6 +22,7 @@ import PurchasedItems from './PurchasedItems';
 import Settings from './Settings';
 import { Switch, Route } from 'react-router-dom';
 import { Segment } from 'semantic-ui-react';
+import ProtectedRoute from './ProtectedRoute';
 import Footer from './Footer';
 
 
@@ -41,10 +42,9 @@ class App extends Component {
             <AuthRoute exact path='/register' component={Register} />
             <Route exact path='/products' component={Products}/>
             <Route exact path='/products/:id' component={ProductView}/>
-            <Route exact path='/my_hated_products' component={HatedItems} />
-            <Route exact path='/ProductView' component={ProductView}/>
-            <Route exact path='/my_products' component={MyProducts} />
-            <Route exact path='/purchased_items' component={PurchasedItems} />
+            <ProtectedRoute exact path='/my_hated_products' component={HatedItems} />
+            <ProtectedRoute exact path='/my_products' component={MyProducts} />
+            <ProtectedRoute exact path='/purchased_items' component={PurchasedItems} />
             <Route exact path= '/settings' component= {Settings}/>
             <Route exact path= '/mens' component = {Mens}/>
             <Route exact path= '/womens' component = {Womens}/>

@@ -49,13 +49,6 @@ class ProductView extends React.Component{
       .then( res => {
         dispatch(setHeaders(res.headers))
         this.props.dispatch(addCount())
-        const productListLength = products.length - 1
-        if (productIndex === productListLength) {
-          history.push('/products/')
-        } else {
-          const product = products[productIndex + 1]
-          history.push(`/products/${product.id}`)
-        }
         this.setState({
           products: this.state.products.filter( p => p.id !== id )
         })
@@ -75,16 +68,9 @@ class ProductView extends React.Component{
       .then( res => {
         dispatch(setHeaders(res.headers))
       })
-    const productListLength = products.length - 1
-    if (productIndex === productListLength) {
-      history.push('/products/')
-    } else {
-      const product = products[productIndex + 1]
-      history.push(`/products/${product.id}`)
-    }
-    this.setState({
-      products: this.state.products.filter( p => p.id !== id )
-    })
+      this.setState({
+        products: this.state.products.filter( p => p.id !== id )
+      })
   }
 
   onOpenModal = () => {
@@ -95,7 +81,12 @@ class ProductView extends React.Component{
     this.setState({ open: false });
   };
 
+  getRandomInt = () => {
+      return Math.floor(Math.random() * Math.floor(50));
+  }
+
   render() {
+    let int  = this.getRandomInt()
     const { product={}, user} = this.props;
     const { active, open } = this.state
     return(
@@ -139,9 +130,13 @@ class ProductView extends React.Component{
                       }
                     >
                       <Button.Content hidden>
-                        <Icon name='thumbs down' color='red' />
+                          <Icon name='thumbs down' color='red' />
                       </Button.Content>
-                      <Button.Content visible>Dislike</Button.Content>
+                      <Button.Content visible>
+                        <Link to={`/products/${int}`}>
+                          Dislike
+                        </Link>
+                      </Button.Content>
                     </Button>
                     <Button
                       icon
@@ -153,9 +148,13 @@ class ProductView extends React.Component{
                       }
                     >
                       <Button.Content hidden>
-                        <Icon name='heart' color='pink' />
+                          <Icon name='heart' color='pink' />
                       </Button.Content>
-                      <Button.Content visible>Love It!</Button.Content>
+                      <Button.Content visible>
+                        <Link to={`/products/${int}`}>
+                          Love It!
+                        </Link>
+                      </Button.Content>
                     </Button>
                     <Modal open={open} onClose={this.onCloseModal} little textAlign='center'>
                       <h2>You are not logged in!</h2>

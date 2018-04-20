@@ -33,7 +33,7 @@ class MyProducts extends React.Component {
   handleClick = (id) => {
     const { products } = this.state;
     const { dispatch } = this.props;
-    axios.post(`/api/products/${id}`)
+    axios.put(`/api/products/${id}`)
       .then( res => {
         dispatch(setHeaders(res.headers))
       })
@@ -53,7 +53,7 @@ class MyProducts extends React.Component {
   handleBuy = (id) => {
     const { products } = this.state;
     const { dispatch } = this.props;
-    axios.put(`/api/purchased_items/${id}`)
+    axios.put(`/api/products/${id}`)
        .then( res => {
         dispatch(setHeaders(res.headers))
       })
@@ -66,7 +66,7 @@ class MyProducts extends React.Component {
       })
       .catch( err => {
         console.log(err)
-        
+
       })
   }
 
@@ -131,7 +131,7 @@ class MyProducts extends React.Component {
                               animated='fade'
                               centered
                               color='grey'
-                              basic 
+                              basic
                               floated='left'
                               onClick={() => this.handleBuy(p.id)}
                             >
@@ -155,7 +155,7 @@ class MyProducts extends React.Component {
                                 animated='fade'
                                 centered
                                 color='grey'
-                                basic 
+                                basic
                                 floated='right'
                                 onClick={() => this.handleClick(p.id)}
                               >
