@@ -50,6 +50,8 @@ class Footer extends Component{
                   <List.Item as='a' href="ProductView">Go Kuku</List.Item>
                   <List.Item as='a' href="faq">Frequently Asked Questions</List.Item>
                   <List.Item as='a' href="privacypolicy">Privacy</List.Item>
+                  <List.Item as='a' href="terms">Terms & Conditions</List.Item>
+                  <List.Item as='a' href="settings">Account Settings</List.Item>
                   <List.Item as='a' href="register">Register now!</List.Item>
                 </List>
               </Grid.Column>

@@ -4,14 +4,15 @@ import {
   Container,
   Divider,
   Dropdown,
-  Form,
   Grid,
   Header,
   Icon,
+  Input,
   List,
  } from 'semantic-ui-react';
 import { connect } from 'react-redux';
 import axios from 'axios';
+import {setFlash} from '../actions/flash';
 import {setHeaders} from '../actions/headers';
 import { updateUser } from '../actions/user';
 import {getProducts} from '../actions/products';
@@ -21,27 +22,28 @@ class Settings extends React.Component {
 
 
   state = {
-      formValues: {
+    formValues:{
       name: '',
       email: '',
       password: ''},
       handle:'' ,
       products: [],
       showProduct: true,
-      open: false,
+      // open: false,
       // category: false,
   };
 
 
   componentDidMount() {
     const { user: { name, email, password }, handle} = this.props
-    this.setState({ formValues: { name, email, password },handle })
+    this.setState({ formValues: { name, email } })
+    
     const { dispatch } = this.props;
     axios.get('/api/products')
       .then( res => {
         dispatch(setHeaders(res.headers))
         this.setState({ products: res.data })
-        dispatch(getProducts(res.products));
+        dispatch(getProducts(res.product));
     })
   }
 
@@ -69,7 +71,6 @@ class Settings extends React.Component {
           <Icon
           size='large'
           name='settings' />
-
             Account Settings
           <Header.Subheader>
             Manage your settings & preferences
@@ -103,30 +104,30 @@ class Settings extends React.Component {
       }
     })
   }
-
+      
   handleSubmit = (e) => {
     e.preventDefault();
-    const { formValues: { name, email, password }} = this.state;
-    const { dispatch } = this.state;
-    dispatch(updateUser( { name, email, password }))
+    const { formValues: { name, email }} = this.state;
+    console.log(name, email)
+    const { user, dispatch } = this.props;
+    dispatch(updateUser(user.id, { name, email }))
     this.setState({
       formValues: {
         ...this.state.formValues,
-
       }
     })
+   dispatch(setFlash('Profile successfully updated!', 'blue'));
+
   }
 
   editView = () => {
-    const {formValues:{name, email, password} } = this.state;
+    const { formValues: { name, email } } = this.state
+    const password = this.props;
     return (
       <Grid centered>
         <Grid.Row>
         <Grid.Column widths= 'equal'>
-        <Form
-          onSubmit={this.handleSubmit}
-          inverted>
-          <Form.Input
+          <Input
             style={styles.form}
             label="Name"
             name="name"
@@ -134,7 +135,7 @@ class Settings extends React.Component {
             value={name}
             onChange={this.handleChange}
           />
-          <Form.Input
+          <Input
             style={styles.form}
             label="Email"
             name="email"
@@ -143,7 +144,7 @@ class Settings extends React.Component {
             type="email"
             onChange={this.handleChange}
           />
-          <Form.Input
+          <Input
             style={styles.form}
             label="New Password"
             name="password"
@@ -151,15 +152,15 @@ class Settings extends React.Component {
             size='medium'
             value={password}
             type="password"
-            onChange={this.handleChange}
+            //onChange={this.handleChange}
           />
           <Button
             size='medium'
             style = {styles.btns}
+            onClick={this.handleSubmit}
             inverted color='teal'>
               Update
           </Button>
-        </Form>
         </Grid.Column>
         </Grid.Row>
       </Grid>
@@ -215,7 +216,7 @@ class Settings extends React.Component {
                 <br/> <br/>
            <Grid.Row centered>
             <Header inverted as='h4' content='' />
-            <List inverted style={styles.list} link floated='left' vertical align='middle' size='massive'>
+            <List inverted style={styles.list} link floated='left'  align='middle' size='massive'>
               <List.Item as='a' href="ProductView">Go Kuku</List.Item>
               <List.Item as='a' href="faq">FAQs</List.Item>
               <List.Item as='a' href="privacypolicy">Privacy</List.Item>
