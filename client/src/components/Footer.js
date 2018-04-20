@@ -6,7 +6,13 @@ import googlePlay from '../images/home/AndroidLink.png';
 
 
 class Footer extends Component{
+
+  getRandomInt = () => {
+      return Math.floor(Math.random() * Math.floor(54));
+  }
+
   render(){
+    let int  = this.getRandomInt()
     return (
       <Segment inverted vertical>
         <FooterContainer>
@@ -47,7 +53,7 @@ class Footer extends Component{
               <Grid.Column mobile={8} tablet={8} computer={5}>
                 <Header inverted as='h4' content='' />
                 <List link inverted>
-                  <List.Item as='a' href="ProductView">Go Kuku</List.Item>
+                  <List.Item as='a' href={`/products/${int}`}>Go Kuku</List.Item>
                   <List.Item as='a' href="faq">Frequently Asked Questions</List.Item>
                   <List.Item as='a' href="privacypolicy">Privacy</List.Item>
                   <List.Item as='a' href="terms">Terms & Conditions</List.Item>

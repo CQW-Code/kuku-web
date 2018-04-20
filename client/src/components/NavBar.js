@@ -38,7 +38,7 @@ class NavBar extends Component {
   }
 
   getRandomInt = () => {
-      return Math.floor(Math.random() * Math.floor(50));
+      return Math.floor(Math.random() * Math.floor(54));
   }
 
 

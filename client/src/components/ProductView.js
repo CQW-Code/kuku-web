@@ -82,7 +82,7 @@ class ProductView extends React.Component{
   };
 
   getRandomInt = () => {
-      return Math.floor(Math.random() * Math.floor(50));
+      return Math.floor(Math.random() * Math.floor(54));
   }
 
   render() {
