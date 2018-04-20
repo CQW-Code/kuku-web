@@ -66,7 +66,6 @@ class MyProducts extends React.Component {
       })
       .catch( err => {
         console.log(err)
-
       })
   }
 
@@ -92,86 +91,86 @@ class MyProducts extends React.Component {
       return (
         <div>
           <Header as='h1' style={styles.text}>We've felt the love. Now you get to feel it to.</Header>
-            <Header as='h3' style={styles.text}>Go ahead and click buy, then you can choose sizes, colors, whatever you want.</Header>
-              <ItemsList>
-                <div><Link to='/products' style={styles.text}>See all products</Link></div>
-                <Container>
-                  <Card.Group
-                    computer={8}
-                    mobile={2}
-                    tablet={4}
-                    centered
-                  >
-                    {products.map( p =>
-                      <Card style={styles.cardStyle} key={p.id}>
-                        <h2>{p.name}</h2>
-                         <Image style={styles.images} src={p.alt1} />
-                       <Card.Content>
-                        <Card.Header>
-                        {p.title}
-                        </Card.Header>
-                        <Card.Header>
-                         {p.variant_price}
-                        </Card.Header>
-                         <Card.Description>
-                           {p.vendor}
-                         </Card.Description>
-                         <Link to= {`/products/${p.id}`}>
-                           <Button
-                             fluid
-                             color='teal'
-                           >
-                             View Product Details
-                           </Button>
-                         </Link>
-                          <Button.Group fluid>
-                            <Button
-                              icon
-                              size='large'
-                              animated='fade'
-                              centered
-                              color='grey'
-                              basic
-                              floated='left'
-                              onClick={() => this.handleBuy(p.id)}
+          <Header as='h3' style={styles.text}>Go ahead and click buy, then you can choose sizes, colors, whatever you want.</Header>
+          <ItemsList>
+            <div><Link to='/products' style={styles.text}>See all products</Link></div>
+            <Container>
+              <Card.Group
+                computer={8}
+                mobile={2}
+                tablet={4}
+                centered
+              >
+                {products.map( p =>
+                  <Card style={styles.cardStyle} key={p.id}>
+                    <h2>{p.name}</h2>
+                     <Image style={styles.images} src={p.alt1} />
+                   <Card.Content>
+                    <Card.Header>
+                    {p.title}
+                    </Card.Header>
+                    <Card.Header>
+                     {p.variant_price}
+                    </Card.Header>
+                     <Card.Description>
+                       {p.vendor}
+                     </Card.Description>
+                     <Link to= {`/products/${p.id}`}>
+                       <Button
+                         fluid
+                         color='teal'
+                       >
+                         View Product Details
+                       </Button>
+                     </Link>
+                      <Button.Group fluid>
+                        <Button
+                          icon
+                          size='large'
+                          animated='fade'
+                          centered
+                          color='grey'
+                          basic
+                          floated='left'
+                          onClick={() => this.handleBuy(p.id)}
+                        >
+                        <Button.Content visible>
+                              Buy Item
+                        </Button.Content>
+                        <Button.Content hidden>
+                          <Link
+                            to={p.link}
+                            target="_blank"
+                            rel='noopener noreferrer'
+                            style={{ color: '#4d4d4d' }}
                             >
-                            <Button.Content visible>
-                                  Buy Item
-                            </Button.Content>
+                              <Icon name="check" color="green" />
+                            </Link>
+                        </Button.Content>
+                        </Button>
+                          <Button
+                            icon
+                            size='large'
+                            animated='fade'
+                            centered
+                            color='grey'
+                            basic
+                            floated='right'
+                            onClick={() => this.handleClick(p.id)}
+                          >
+                            <Button.Content visible>Remove Item</Button.Content>
                             <Button.Content hidden>
-                              <Link
-                                to={p.link}
-                                target="_blank"
-                                rel='noopener noreferrer'
-                                style={{ color: '#4d4d4d' }}
-                                >
-                                  <Icon name="check" color="green" />
-                                </Link>
+                              <Icon name="trash" />
                             </Button.Content>
-                            </Button>
-                              <Button
-                                icon
-                                size='large'
-                                animated='fade'
-                                centered
-                                color='grey'
-                                basic
-                                floated='right'
-                                onClick={() => this.handleClick(p.id)}
-                              >
-                                <Button.Content visible>Remove Item</Button.Content>
-                                <Button.Content hidden>
-                                  <Icon name="trash" />
-                                </Button.Content>
-                              </Button>
-                          </Button.Group>
-                       </Card.Content>
-                     </Card>
-                    )
-                  }
-                </Card.Group>
-              </Container>
-            </ItemsList>
+                          </Button>
+                      </Button.Group>
+                   </Card.Content>
+                 </Card>
+                )
+              }
+            </Card.Group>
+          </Container>
+        </ItemsList>
       </div>
     )
   }

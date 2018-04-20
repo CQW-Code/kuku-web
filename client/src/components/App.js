@@ -25,7 +25,6 @@ import { Segment } from 'semantic-ui-react';
 import ProtectedRoute from './ProtectedRoute';
 import Footer from './Footer';
 
-
 class App extends Component {
   render() {
     return (

@@ -20,8 +20,6 @@ import {setHeaders} from '../actions/headers';
 import {Link} from 'react-router-dom';
 import {getProducts} from '../actions/products';
 
-
-
 class Mens extends React.Component {
 
   state = {
@@ -174,8 +172,7 @@ class Mens extends React.Component {
             </Modal>
           </Card>
           )
-      }
-      else {
+      } else {
         return null
       }
     })

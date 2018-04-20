@@ -20,8 +20,6 @@ import {setHeaders} from '../actions/headers';
 import {Link} from 'react-router-dom';
 import {getProducts} from '../actions/products';
 
-
-
 class Baby extends React.Component {
 
   state = {
@@ -171,12 +169,10 @@ class Baby extends React.Component {
           </Modal>
         </Card>
           )
-          }
-
-        else  {
+        } else  {
           return null
-              }
-        })
+        }
+      })
     }
 
   render() {
@@ -235,24 +231,24 @@ class Baby extends React.Component {
   }
 }
 
-  const styles = {
-    text: {
-      color: "#FFF",
-    },
-    background: {
-      backgroundColor: "black",
-    },
-    scroller: {
-      height: '80vh',
-      overflow:'auto'
-    },
-    cardStyle: {
-      display: 'block',
-    },
-    images: {
-      height: '12vw',
-    },
-  }
+const styles = {
+  text: {
+    color: "#FFF",
+  },
+  background: {
+    backgroundColor: "black",
+  },
+  scroller: {
+    height: '80vh',
+    overflow:'auto'
+  },
+  cardStyle: {
+    display: 'block',
+  },
+  images: {
+    height: '12vw',
+  },
+}
 
 const mapStateToProps = (state, props) => {
   const { products } = state

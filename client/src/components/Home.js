@@ -35,8 +35,8 @@ class Home extends Component {
     return (
       <Segment basic style={ styles.mainContainer}>
         <ButtonLink>
-            <Link to="/products" style={styles.text}>Shop Traditionally</Link>
-            <Link to={`/products/${int}`} style={styles.text}>Go KUKU!</Link>
+          <Link to="/products" style={styles.text}>Shop Traditionally</Link>
+          <Link to={`/products/${int}`} style={styles.text}>Go KUKU!</Link>
         </ButtonLink>
         <br/>
         <Image style={styles.image} height="20" fluid centered src={Tshirt} />
@@ -75,19 +75,17 @@ class Home extends Component {
               </Grid.Column>
             </Grid.Row>
           </Grid>
-            <Grid.Row centered columns={3}>
-              <Grid.Column
-                computer={8}
-                mobile={16}
-                tablet={8}
-              >
-              </Grid.Column>
-            </Grid.Row>
-
+          <Grid.Row centered columns={3}>
+            <Grid.Column
+              computer={8}
+              mobile={16}
+              tablet={8}
+            >
+            </Grid.Column>
+          </Grid.Row>
         </Container>
         <Divider />
       </Segment>
-
     );
   }
 }
@@ -133,8 +131,6 @@ const styles = {
     width: '15vw',
     height: '5vh',
   },
-
 }
-
 
 export default Home;

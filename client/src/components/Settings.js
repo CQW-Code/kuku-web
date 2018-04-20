@@ -17,9 +17,7 @@ import {setHeaders} from '../actions/headers';
 import { updateUser } from '../actions/user';
 import {getProducts} from '../actions/products';
 
-
 class Settings extends React.Component {
-
 
   state = {
     formValues:{
@@ -32,7 +30,6 @@ class Settings extends React.Component {
       // open: false,
       // category: false,
   };
-
 
   componentDidMount() {
     const { user: { name, email, password }, handle} = this.props
@@ -262,13 +259,11 @@ class Settings extends React.Component {
       height: '10vh',
 
     },
-
     kukuHeader: {
       border: '10px solid #008080',
     },
     form: {
       border: '6px solid #008080',
-
     },
     list:{
       paddingRight: '50px',
@@ -277,23 +272,20 @@ class Settings extends React.Component {
       color: 'teal',
       fontSize: '24px',
     }
-
   }
 
-
-
-
-  const mapStateToProps = (state, props) => {
-    const { products } = state
-    const handles = [...new Set(products.map( h => h.handle))]
-    //const vendors = [...new Set(products.map(v => v.vendor))]
-    return {
-      products,
-      handles,
-      product: state.products.find(
-        (product) => product.id === parseInt(props.match.params.id),
-      ),
-      user: state.user,
-    }}
+const mapStateToProps = (state, props) => {
+  const { products } = state
+  const handles = [...new Set(products.map( h => h.handle))]
+  //const vendors = [...new Set(products.map(v => v.vendor))]
+  return {
+    products,
+    handles,
+    product: state.products.find(
+      (product) => product.id === parseInt(props.match.params.id),
+    ),
+    user: state.user,
+  }
+}
 
 export default connect(mapStateToProps)(Settings)

@@ -20,8 +20,6 @@ import {setHeaders} from '../actions/headers';
 import {Link} from 'react-router-dom';
 import {getProducts} from '../actions/products';
 
-
-
 class Womens extends React.Component {
 
   state = {
@@ -44,7 +42,6 @@ class Womens extends React.Component {
       this.setState({loading: false});
     })
   }
-
 
   handleLove = (id) => {
     const { products } = this.state;
@@ -232,24 +229,24 @@ class Womens extends React.Component {
   }
 }
 
-  const styles = {
-    text: {
-      color: "#FFF",
-    },
-    background: {
-      backgroundColor: "black",
-    },
-    scroller: {
-      height: '80vh',
-      overflow:'auto'
-    },
-    cardStyle: {
-      display: 'block',
-    },
-    images: {
-      height: '12vw',
-    },
-  }
+const styles = {
+  text: {
+    color: "#FFF",
+  },
+  background: {
+    backgroundColor: "black",
+  },
+  scroller: {
+    height: '80vh',
+    overflow:'auto'
+  },
+  cardStyle: {
+    display: 'block',
+  },
+  images: {
+    height: '12vw',
+  },
+}
 
 const mapStateToProps = (state, props) => {
   const { products } = state

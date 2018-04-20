@@ -18,9 +18,9 @@ class HatedItems extends React.Component {
       .then( res => {
         this.setState({ products: res.data })
         dispatch(setHeaders(res.headers));
-      }).catch( err => {
+    }).catch( err => {
         console.log(err)
-      })
+    })
   }
 
   handleClick = (id) => {
@@ -36,10 +36,9 @@ class HatedItems extends React.Component {
         this.setState({
           products: products.filter( p => p.id !== id )
         })
-      })
-      .catch( err => {
+    }).catch( err => {
         console.log(err)
-      })
+    })
   }
 
   render() {
