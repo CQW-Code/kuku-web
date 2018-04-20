@@ -14,7 +14,7 @@ class NavBar extends Component {
       return (
         <Menu.Menu position='right' >
           <Menu.Item>
-            <Link to='/my_products' style={{ color: '#ffffff' }}>Loved<Label floating color="red">{cart}</Label></Link>
+            <Link to='/my_products' style={{ color: '#ffffff' }}>Loved<Label floating color="red">{user.loved_products.length}</Label></Link>
           </Menu.Item>
           <Divider hidden />
           <Menu.Item

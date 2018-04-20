@@ -40,10 +40,10 @@ class MyProducts extends React.Component {
     axios.delete(`/api/my_products/${id}`)
       .then( res => {
         this.props.dispatch(subtractToCart())
+        dispatch(setHeaders(res.headers))
         this.setState({
           products: products.filter( p => p.id !== id )
         })
-        dispatch(setHeaders(res.headers))
       })
       .catch( err => {
         console.log(err)
@@ -59,10 +59,10 @@ class MyProducts extends React.Component {
       })
     axios.delete(`/api/my_products/${id}`)
       .then( res => {
+        dispatch(setHeaders(res.headers))
         this.setState({
           products: products.filter( p => p.id !== id )
         })
-        dispatch(setHeaders(res.headers))
       })
       .catch( err => {
         console.log(err)
