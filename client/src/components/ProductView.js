@@ -65,6 +65,9 @@ class ProductView extends React.Component{
   handleHate = (id) => {
     const { dispatch, history, productIndex, products } = this.props;
     axios.put(`/api/hated_items/${id}`)
+      .then( res => {
+        dispatch(setHeaders(res.headers))
+      })
     axios.put(`/api/show_products/${id}`)
       .then( res => {
         dispatch(setHeaders(res.headers))
