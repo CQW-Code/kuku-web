@@ -27,6 +27,9 @@ class HatedItems extends React.Component {
     const { products } = this.state;
     const { dispatch } = this.props;
     axios.put(`/api/show_products/${id}`)
+      .then( res => {
+        dispatch(setHeaders(res.headers))
+      })
     axios.delete(`/api/hated_items/${id}`)
       .then( res => {
         dispatch(setHeaders(res.headers))

@@ -33,7 +33,10 @@ class MyProducts extends React.Component {
   handleClick = (id) => {
     const { products } = this.state;
     const { dispatch } = this.props;
-    axios.put(`/api/show_products/${id}`)
+    axios.post(`/api/products/${id}`)
+      .then( res => {
+        dispatch(setHeaders(res.headers))
+      })
     axios.delete(`/api/my_products/${id}`)
       .then( res => {
         this.props.dispatch(subtractToCart())
@@ -50,7 +53,10 @@ class MyProducts extends React.Component {
   handleBuy = (id) => {
     const { products } = this.state;
     const { dispatch } = this.props;
-    axios.put(`/api/show_products/${id}`)
+    axios.put(`/api/purchased_items/${id}`)
+       .then( res => {
+        dispatch(setHeaders(res.headers))
+      })
     axios.delete(`/api/my_products/${id}`)
       .then( res => {
         this.setState({
@@ -60,6 +66,7 @@ class MyProducts extends React.Component {
       })
       .catch( err => {
         console.log(err)
+        
       })
   }
 
@@ -67,20 +74,20 @@ class MyProducts extends React.Component {
     const { products } = this.state;
     if (products.length === 0)
     return (
-      <div>
-        <h1
-          style={styles.text}
-          textAlign='center'
-        >
-          "I'm all out of love, I'm so lost without you!"
-        </h1>
-        <p
-          style={styles.text}
-          textAlign='center'
-        >
-          Go ahead and keep on shopping by<Link to='/products'> clicking here.</Link>
-        </p>
-      </div>
+      <Container text>
+          <Header
+            style={styles.text}
+            textAlign='center'
+          >
+            "I'm all out of love, I'm so lost without you!"
+          </Header>
+          <p
+            style={styles.text}
+            textAlign='center'
+          >
+            Go ahead and keep on shopping by<Link to='/products'> clicking here.</Link>
+          </p>
+      </Container>
     )
       return (
         <div>

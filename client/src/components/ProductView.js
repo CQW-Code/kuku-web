@@ -42,6 +42,9 @@ class ProductView extends React.Component{
   handleLove = (id) => {
     const { dispatch, history, productIndex, products } = this.props;
     axios.put(`/api/products/${id}`)
+      .then( res => {
+          dispatch(setHeaders(res.headers))
+        })
     axios.put(`/api/show_products/${id}`)
       .then( res => {
         dispatch(setHeaders(res.headers))
@@ -66,8 +69,8 @@ class ProductView extends React.Component{
     const { dispatch, history, productIndex, products } = this.props;
     axios.put(`/api/hated_items/${id}`)
       .then( res => {
-        dispatch(setHeaders(res.headers))
-      })
+          dispatch(setHeaders(res.headers))
+        })
     axios.put(`/api/show_products/${id}`)
       .then( res => {
         dispatch(setHeaders(res.headers))

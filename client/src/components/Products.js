@@ -62,7 +62,7 @@ state = {handle: '', products: [], showProduct: true, page:1, totalPages:0, open
         return visible.map( p =>
           <Card style={styles.cardStyle} key={p.id}>
             <h2>{p.name}</h2>
-            <StyledImage src={p.alt1} />
+            <StyledImage src={p.alt1} alt={`${p.title}  ${p.variety}`}/>
             <Card.Content>
               <Card.Header>
                 {p.title}
@@ -162,6 +162,9 @@ state = {handle: '', products: [], showProduct: true, page:1, totalPages:0, open
     const { products } = this.state;
     const { dispatch } = this.props;
     axios.put(`/api/products/${id}`)
+      .then( res => {
+          dispatch(setHeaders(res.headers))
+        })
     axios.put(`/api/show_products/${id}`)
       .then( res => {
         this.props.dispatch(addCount())
@@ -178,6 +181,9 @@ state = {handle: '', products: [], showProduct: true, page:1, totalPages:0, open
     const { products } = this.state;
     const { dispatch } = this.props;
     axios.put(`/api/hated_items/${id}`)
+      .then( res => {
+          dispatch(setHeaders(res.headers))
+        })
     axios.put(`/api/show_products/${id}`)
       .then( res => {
         dispatch(setHeaders(res.headers))

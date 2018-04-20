@@ -50,6 +50,9 @@ class Baby extends React.Component {
     const { products } = this.state;
     const { dispatch } = this.props;
     axios.put(`/api/products/${id}`)
+      .then( res => {
+          dispatch(setHeaders(res.headers))
+        })
     axios.put(`/api/show_products/${id}`)
       .then( res => {
         dispatch(setHeaders(res.headers))

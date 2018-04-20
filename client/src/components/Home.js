@@ -107,7 +107,6 @@ const styles = {
     background: 'white',
     width: '100%',
     justifyContent: 'center',
-    
   },
   video:{
     display: 'flex',
@@ -118,6 +117,8 @@ const styles = {
     display: 'flex',
     alignContent: 'center',
     margin: 'auto',
+    borderRadius: '5px',
+    padding: '20px'
   },
   appIcon:{
     width: '160px'
