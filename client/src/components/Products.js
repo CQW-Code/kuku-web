@@ -25,7 +25,7 @@ import {
 import styled from 'styled-components';
 import { setHeaders } from '../actions/headers';
 import {getProducts} from '../actions/products';
-import {addCount} from '../actions/my_products';
+import {updateUser} from '../actions/auth';
 
 class Products extends React.Component {
 state = {handle: '', products: [], showProduct: true, page:1, totalPages:0, open: false, loading: true }
@@ -164,10 +164,10 @@ state = {handle: '', products: [], showProduct: true, page:1, totalPages:0, open
     axios.put(`/api/products/${id}`)
       .then( res => {
           dispatch(setHeaders(res.headers))
+          dispatch( updateUser())
         })
     axios.put(`/api/show_products/${id}`)
       .then( res => {
-        this.props.dispatch(addCount())
         dispatch(setHeaders(res.headers))
         this.setState({
           products: products.filter( p => p.id !== id )

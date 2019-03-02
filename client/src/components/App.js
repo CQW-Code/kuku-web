@@ -28,32 +28,36 @@ import Footer from './Footer';
 class App extends Component {
   render() {
     return (
-      <Segment style={styles.background}>
-        <NavBar />
-        <Flash />
-        <FetchUser>
-          <Switch>
-            <Route exact path='/' component={Home} />
-            <Route exact path='/login' component={Login} />
-            <Route exact path='/faq' component={Faq} />
-            <Route exact path='/privacypolicy' component={Privacy} />
-            <Route exact path= '/terms' component={Terms}/>
-            <AuthRoute exact path='/register' component={Register} />
-            <Route exact path='/products' component={Products}/>
-            <Route exact path='/products/:id' component={ProductView}/>
-            <ProtectedRoute exact path='/my_hated_products' component={HatedItems} />
-            <ProtectedRoute exact path='/my_products' component={MyProducts} />
-            <ProtectedRoute exact path='/purchased_items' component={PurchasedItems} />
-            <Route exact path= '/settings' component= {Settings}/>
-            <Route exact path= '/mens' component = {Mens}/>
-            <Route exact path= '/womens' component = {Womens}/>
-            <Route exact path= '/accessories' component = {Accessories}/>
-            <Route exact path= '/baby' component = {Baby}/>
-            <Route component={NoMatch} />
-          </Switch>
-        </FetchUser>
-        <Footer />
-      </Segment>
+
+        <Segment style={styles.background}>
+          <div style = {styles.wrapper}>
+            <NavBar />
+            <Flash />
+            <FetchUser>
+              <Switch>
+                <Route exact path='/' component={Home} />
+                <Route exact path='/login' component={Login} />
+                <Route exact path='/faq' component={Faq} />
+                <Route exact path='/privacypolicy' component={Privacy} />
+                <Route exact path= '/terms' component={Terms}/>
+                <AuthRoute exact path='/register' component={Register} />
+                <Route exact path='/products' component={Products}/>
+                <Route exact path='/products/:id' component={ProductView}/>
+                <ProtectedRoute exact path='/my_hated_products' component={HatedItems} />
+                <ProtectedRoute exact path='/my_products' component={MyProducts} />
+                <ProtectedRoute exact path='/purchased_items' component={PurchasedItems} />
+                <Route exact path= '/settings' component= {Settings}/>
+                <Route exact path= '/mens' component = {Mens}/>
+                <Route exact path= '/womens' component = {Womens}/>
+                <Route exact path= '/accessories' component = {Accessories}/>
+                <Route exact path= '/baby' component = {Baby}/>
+                <Route component={NoMatch} />
+              </Switch>
+            </FetchUser>
+          </div>
+          <Footer />
+        </Segment>
+
     );
   }
 }
@@ -62,6 +66,12 @@ const styles = {
   background: {
     backgroundColor: 'black',
   },
+  wrapper: {
+    minHeight: '100vh',
+    marginBottom: '-150px',
+    paddingBottom: '150px',
+
+  }
 }
 
 export default App;

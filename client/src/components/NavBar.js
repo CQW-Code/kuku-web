@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Menu, Dropdown, Image, Divider, Label } from 'semantic-ui-react';
+import { Menu, Dropdown, Divider, Label } from 'semantic-ui-react';
 import { Link, withRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
 import Logo from '../images/home/KUKU2 (2).jpg'
@@ -8,13 +8,13 @@ import { handleLogout } from '../actions/auth';
 class NavBar extends Component {
 
   rightNavs = () => {
-    const { user, dispatch, history, cart } = this.props;
+    const { user, dispatch, history} = this.props;
 
     if (user.id) {
       return (
         <Menu.Menu position='right' >
           <Menu.Item>
-            <Link to='/my_products' style={{ color: '#ffffff' }}>Loved<Label floating color="red">{user.loved_products.length}</Label></Link>
+            <Link to='/my_products' style={{ color: '#ffffff' }}> Loved {user.loved_products.length === 0 ? "" : <Label floating color="red">{user.loved_products.length}</Label>}</Link>
           </Menu.Item>
           <Divider hidden />
           <Menu.Item

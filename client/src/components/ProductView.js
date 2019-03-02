@@ -3,7 +3,6 @@ import React from 'react';
 //Redux
 import { connect } from 'react-redux';
 import { setHeaders } from '../actions/headers';
-import { addCount } from '../actions/my_products';
 //Axios
 import axios from 'axios';
 //Modal
@@ -22,6 +21,7 @@ import {
 } from 'semantic-ui-react';
 import { Link } from 'react-router-dom'
 import {getProducts} from '../actions/products';
+import {updateUser} from '../actions/auth';
 
 class ProductView extends React.Component{
   state = { active: false, products: [], open: false }
@@ -40,15 +40,15 @@ class ProductView extends React.Component{
   }
 
   handleLove = (id) => {
-    const { dispatch, history, productIndex, products } = this.props;
+    const { dispatch } = this.props;
     axios.put(`/api/products/${id}`)
       .then( res => {
           dispatch(setHeaders(res.headers))
         })
     axios.put(`/api/show_products/${id}`)
       .then( res => {
-        dispatch(setHeaders(res.headers))
-        this.props.dispatch(addCount())
+        dispatch( updateUser())
+        // dispatch(setHeaders(res.headers))
         this.setState({
           products: this.state.products.filter( p => p.id !== id )
         })
@@ -59,7 +59,7 @@ class ProductView extends React.Component{
   }
 
   handleHate = (id) => {
-    const { dispatch, history, productIndex, products } = this.props;
+    const { dispatch } = this.props;
     axios.put(`/api/hated_items/${id}`)
       .then( res => {
           dispatch(setHeaders(res.headers))
@@ -120,6 +120,7 @@ class ProductView extends React.Component{
                 <Card fluid >
                   <Image src={product.image_src} />
                     <Card.Content>
+                  <Link to={`/products/${int}`}>
                     <Button
                       icon
                       size='big'
@@ -133,29 +134,28 @@ class ProductView extends React.Component{
                           <Icon name='thumbs down' color='red' />
                       </Button.Content>
                       <Button.Content visible>
-                        <Link to={`/products/${int}`}>
                           Dislike
-                        </Link>
                       </Button.Content>
                     </Button>
-                    <Button
-                      icon
-                      size='big'
-                      animated='fade'
-                      floated='right'
-                      onClick={() =>
-                        user.id === undefined ? this.onOpenModal() : this.handleLove(product.id)
-                      }
-                    >
-                      <Button.Content hidden>
-                          <Icon name='heart' color='pink' />
-                      </Button.Content>
-                      <Button.Content visible>
-                        <Link to={`/products/${int}`}>
-                          Love It!
-                        </Link>
-                      </Button.Content>
-                    </Button>
+                  </Link>
+                    <Link to={`/products/${int}`}>
+                      <Button
+                        icon
+                        size='big'
+                        animated='fade'
+                        floated='right'
+                        onClick={() =>
+                          user.id === undefined ? this.onOpenModal() : this.handleLove(product.id)
+                        }
+                      >
+                        <Button.Content visible>
+                            Love It!
+                        </Button.Content>
+                        <Button.Content hidden>
+                            <Icon name='heart' color='pink' />
+                        </Button.Content>
+                      </Button>
+                    </Link>
                     <Modal open={open} onClose={this.onCloseModal} little textAlign='center'>
                       <h2>You are not logged in!</h2>
                       <p>

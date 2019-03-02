@@ -32,7 +32,7 @@ class Settings extends React.Component {
   };
 
   componentDidMount() {
-    const { user: { name, email, password }, handle} = this.props
+    const { user: { name, email }} = this.props
     this.setState({ formValues: { name, email } })
     
     const { dispatch } = this.props;

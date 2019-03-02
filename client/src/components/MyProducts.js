@@ -12,7 +12,7 @@ import { connect } from 'react-redux';
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
 import { setHeaders } from '../actions/headers';
-import {subtractToCart} from '../actions/my_products';
+import {updateUser} from '../actions/auth';
 
 const ItemsList = styled.div`
   height: 100%
@@ -39,8 +39,8 @@ class MyProducts extends React.Component {
       })
     axios.delete(`/api/my_products/${id}`)
       .then( res => {
-        this.props.dispatch(subtractToCart())
         dispatch(setHeaders(res.headers))
+        dispatch( updateUser())
         this.setState({
           products: products.filter( p => p.id !== id )
         })
@@ -56,6 +56,7 @@ class MyProducts extends React.Component {
     axios.put(`/api/products/${id}`)
        .then( res => {
         dispatch(setHeaders(res.headers))
+        dispatch( updateUser())
       })
     axios.delete(`/api/my_products/${id}`)
       .then( res => {
@@ -124,6 +125,12 @@ class MyProducts extends React.Component {
                        </Button>
                      </Link>
                       <Button.Group fluid>
+                          <Link
+                            to={p.link}
+                            target="_blank"
+                            rel='noopener noreferrer'
+                            style={{ color: '#4d4d4d' }}
+                            >
                         <Button
                           icon
                           size='large'
@@ -138,16 +145,10 @@ class MyProducts extends React.Component {
                               Buy Item
                         </Button.Content>
                         <Button.Content hidden>
-                          <Link
-                            to={p.link}
-                            target="_blank"
-                            rel='noopener noreferrer'
-                            style={{ color: '#4d4d4d' }}
-                            >
                               <Icon name="check" color="green" />
-                            </Link>
                         </Button.Content>
                         </Button>
+                            </Link>
                           <Button
                             icon
                             size='large'

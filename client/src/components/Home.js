@@ -1,11 +1,7 @@
 import React, { Component } from 'react';
 import { Image, Segment, Container, Grid, Divider, Responsive, } from 'semantic-ui-react';
 import Tshirt from '../images/home/Kuku.main.jpg';
-// import Iphone from '../images/home/IphoneXsmaller.png';
-import appIcon from '../images/home/button-appstore.png';
-import googlePlay from '../images/home/AndroidLink.png';
 import styled from 'styled-components';
-import Android from '../images/home/Android.png';
 import { Link } from 'react-router-dom';
 import ReactPlayer from 'react-player';
 import IphoneVideo from '../images/home/iphoneVideo.mp4';
@@ -92,7 +88,7 @@ class Home extends Component {
 
 const styles = {
   text: {
-    color: 'teal',
+    color: 'white',
   },
   main: {
     color: "#FFF",

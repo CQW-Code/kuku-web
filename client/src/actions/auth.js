@@ -3,7 +3,7 @@ import axios from 'axios';
 import { setFlash } from '../actions/flash';
 import { setHeaders } from '../actions/headers';
 
-const login = user => {
+export const login = user => {
   return { type: 'LOGIN', user };
 };
 
@@ -74,6 +74,20 @@ export const handleLogin = (email, password, history) => {
       });
   };
 };
+
+export const updateUser = (callBack = () => {}) => {
+  return dispatch => {
+    dispatch({ type: 'VALIDATE_TOKEN' });
+    const headers = axios.defaults.headers.common;
+    axios.get('/api/auth/validate_token', headers)
+      .then(res => {
+        const user = res.data.data;
+        dispatch(login(user));
+      })
+      .catch(() => callBack());
+  };
+};
+
 
 export const validateToken = (callBack = () => {}) => {
   return dispatch => {
