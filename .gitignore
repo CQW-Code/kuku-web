@@ -19,3 +19,4 @@ client/src/images/home/Microsoft.VisualStudio.LiveShare.vsix
 
 #dependency directories
 /node_modules/
+.vscode/
