@@ -1,18 +1,28 @@
 {
-  "name": "create-repack-app",
+  "name": "kuku-web",
   "version": "1.0.0",
+  "description": "web app built in react and rails
+                  A tnder-like app for shopping",
+  "main": "index.js",
+  "directories": {
+    "lib": "lib"
+  },
   "scripts": {
-    "build": "cd client && npm install --only=dev && npm install && npm run build && cd ..",
-    "deploy": "cp -a client/build/. public/",
-    "heroku-postbuild": "npm run build && npm run deploy && echo 'Client Built'",
-    "build-netlify": "build-create-react-app-netlify"
+    "test": "echo \"Error: no test specified\" && exit 1",
+      "build": "cd client && npm install --only=dev && npm install && npm run build && cd ..",
+      "deploy": "cp -a client/build/. public/",
+      "heroku-postbuild": "npm run build && npm run deploy && echo 'Client Built'"
+    
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/CQW-Code/kuku-web.git"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "dependencies": {
-    "build-create-react-app-netlify": "^1.1.2",
-    "react-responsive-modal": "^2.0.1",
-    "styled-components": "^3.2.5"
-  }
+  "bugs": {
+    "url": "https://github.com/CQW-Code/kuku-web/issues"
+  },
+  "homepage": "https://github.com/CQW-Code/kuku-web#readme"
 }
