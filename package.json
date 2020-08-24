@@ -1,8 +1,7 @@
 {
   "name": "kuku-web",
   "version": "1.0.0",
-  "description": "web app built in react and rails
-                  A tnder-like app for shopping",
+  "description": "web app built in react and rails A tnder-like app for shopping",
   "main": "index.js",
   "directories": {
     "lib": "lib"
