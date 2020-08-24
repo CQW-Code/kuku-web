@@ -1,17 +1,19 @@
 {
   "name": "create-repack-app",
   "version": "1.0.0",
+  // "scripts": {
+  //   "build": "cd client && npm install --only=dev && npm install && npm run build && cd ..",
+  //   "deploy": "cp -a client/build/. public/",
+  // },
   "scripts": {
     "build": "cd client && npm install --only=dev && npm install && npm run build && cd ..",
     "deploy": "cp -a client/build/. public/",
-    "heroku-postbuild": "npm run build && npm run deploy && echo 'Client Built'",
-    "build-netlify": "build-create-react-app-netlify"
-  },
+    "heroku-postbuild": "npm run build && npm run deploy && echo 'Client Built'"
+    },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "build-create-react-app-netlify": "^1.1.2",
     "react-responsive-modal": "^2.0.1",
     "styled-components": "^3.2.5"
   }
