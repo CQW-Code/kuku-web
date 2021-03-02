@@ -174,7 +174,8 @@ class Settings extends React.Component {
 
   handleSelected = (e, {value}) => {
     let selected = value.toLowerCase();
-    this.props.history.push(`/${selected}`)
+    //this.props.history.push(`/${selected}`)
+    this.props.history.push(`/${products}/`)
     this.setState({ handle: value });
     this.visible;
   }

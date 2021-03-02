@@ -25,6 +25,7 @@ class Footer extends Component{
                   <List.Item as='a' href="https://github.com/DevinParkinson" target='_blank' rel='noopener noreferrer'><Icon color="teal"  name="github"/>Devin Parkinson</List.Item>
                   <List.Item as='a' href="https://github.com/bcaya" target='_blank' rel='noopener noreferrer'><Icon color="teal"  name="github"/>Bobby Caya</List.Item>
                   <List.Item as='a' href="https://github.com/d-actor" target='_blank' rel='noopener noreferrer'><Icon color="teal"  name="github"/>Dan Actor</List.Item>
+                  <List.Item as='a' href="https://github.com/" target='_blank' rel='noopener noreferrer'><Icon color="teal"  name="github"/>Pete Albierco</List.Item>
                 </List>
                 </Grid.Column>
                 <Grid.Column  mobile={8} tablet={8} computer={6}>
